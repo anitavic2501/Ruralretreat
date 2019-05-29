@@ -1,4 +1,6 @@
-
+<?php
+include_once 'dog.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,15 +95,15 @@
                                     <h2>CONTACT US</h2>
                                     <div class="form-group">
                                             <label for="email">Email:</label>
-                                            <input type="text" name="field" class="form-control" id="email" placeholder="Enter email" onchange="input_check(this.id)">
+                                            <input type="text" name="field" class="form-control" id="email" placeholder="Enter email" required>
                                         </div>
                                         <div class="form-group">
                                                 <label for="firstname">First Name:</label>
-                                                <input type="text" name="field" class="form-control" id="firstname" placeholder="Enter firstname" onchange="input_check(this.id)">
+                                                <input type="text" name="field" class="form-control" id="firstname" placeholder="Enter firstname" required>
                                             </div>
                                             <div class="form-group">
                                                     <label for="message">Message:</label>
-                                                    <textarea type="text" name="field" class="form-control rounded-0" id="textarea" rows="3" onchange="input_check(this.id)"></textarea>
+                                                    <textarea type="text" name="field" class="form-control rounded-0" id="textarea" rows="3" required></textarea>
                                                 </div>
                                     
                                         <input type="button" class="btn btn-info" value="Submit Button" onclick="sub_bt()">
@@ -118,42 +120,6 @@
         <i class="fas fa-map-marker-alt fa-2x"></i> <h2>Our location</h2>
         <p style="font-size:10;"> Silverdale, Hibiscus Coast, Auckland, New Zealand</p>
         <i class="fas fa-phone fa-1x"></i> 022-345-7890
-    <!--The div element for the map -->
-    <div id="map" style="display: block; margin: auto"></div>
-    <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            var uluru = {
-                lat: -36.845386,
-                lng: 174.763701
-            };
-            // The map, centered at Uluru
-            var map = new google.maps.Map(
-                document.getElementById('map'), {
-                    zoom: 13,
-                    center: uluru
-                });
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-
-            var infowindow = new google.maps.InfoWindow({
-                content: '<iframe title="YouTube video player" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/41p1_dPCOwQ" frameborder="0"></iframe>'
-            });
-
-            google.maps.event.addListener(marker, 'click', function initialize() {
-
-                infowindow.open(map, marker);
-            });
-        }
-    </script>
-
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwm2E_OjJYenUuoA9oLDrsZ7o8W9aSKr4&callback=initMap">
-    </script>
         </div></div>
           
         </div>
