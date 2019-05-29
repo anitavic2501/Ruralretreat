@@ -103,7 +103,7 @@
         //to show the name of the user when logged in
         if ($user->loggedin()) {
         echo  'Welcome ';
-        echo $_SESSION['users']['fname'];
+        echo $_SESSION['users']['userfname'];
 
         }
         ?>
@@ -112,16 +112,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse float-lg-right">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item">
           <a  class="nav-link" href="products.php">Our Services</a>
         </li>
         <li class="nav-item">
-          <a  class="nav-link" href="show_map.php">Our location</a>
+          <a  class="nav-link" href="">Booking DEMO</a>
         </li>
         <li class="nav-item">
-          <a  class="nav-link" href="">Booking DEMO</a>
+          <a  class="nav-link" href="doglist.php">My Dogs</a>
         </li>
         <li class="nav-item">
           <a  class="nav-link" href="index.php#section3">Contact Us</a> </li>
@@ -130,8 +130,8 @@
           //When the user is a CUSTOMER, then show the SEND FEEDBACK form
           if ($user->loggedin() && $user_type_id == 3){
             echo ' <li class="nav-item"><a class="nav-link" href="edit_customer.php">Edit my profile</a></li>';  
-            echo ' <li class="nav-item"><a class="nav-link" href="feedback.php">Send feedback</a></li>';
-            echo ' <li class="nav-item"><a class="nav-link" href="customer_reservations.php">My Reservations</a></li>';
+            echo ' <li class="nav-item"><a class="nav-link" href="index.php#section3">Contact Us</a></li>';
+            echo ' <li class="nav-item"><a class="nav-link" href="doglist.php">My Dogs</a></li>';
             echo '';
           }
           //When the user is ADMIN, show some options
@@ -146,7 +146,7 @@
             echo '<li class="nav-item"><a class="nav-link" href="manage_reservations.php">Manage reservations</a></li>';
           }
          if ($user->loggedin() && $user_type_id == 1){
-          echo '<li class="nav-item"><a class="nav-link" href="register.php">Add new user</a></li>';
+          echo '<li class="nav-item"><a class="nav-link" href="signup.php">Add new user</a></li>';
          }
          if (!$user->loggedin())
          echo '
@@ -154,19 +154,19 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
                 Log in</a>
               <div class="dropdown-menu">
-              <form class="px-4 py-3" action="index.php" method="POST">
-                  
+              <form class="px-4 py-3" action="includes/login.inc.php" method="post">
+              
                   <div class="form-group"  style="margin-top:20px">
-                      <label for="Username">Username</label>
-                      <input class="form-control" type="text" id="Username" name="username" placeholder="Username">
+                      <label for="Username">Enter your email</label>
+                      <input class="form-control" type="text" id="mailuid" name="mailuid" placeholder="email">
                   </div>
                   <div class="form-group" style="margin-top:20px">
-                      <label for="inputPassword1">Password</label>
-                      <input class="form-control" type="password" name="password" id="inputPassword1" placeholder="Password">
+                      <label for="inputPassword1">Password:</label>
+                      <input class="form-control" type="password" name="password" id="password" placeholder="Password">
                   </div>
                   <div class="form-group"  style="margin-top:20px">
                       <div class="controls">
-                          <button style="width: 100px; font-size: 18px" type="submit" name="login" class="btn">Sign in</button> 
+                          <button style="width: 100px; font-size: 18px" type="submit" name="login-submit" class="btn">Log in</button> 
                       </div>
                       <div style="margin-top: 20px">
                       <a href="forget_password.php" style="font-size: 18px">Forgot password?</a>
@@ -174,7 +174,7 @@
                   </div>
               </form>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="register.php">New around here? Sign up</a>
+              <a class="dropdown-item" href="signup.php">New around here? Sign up</a>
               <a class="dropdown-item" href="forget_password.php">Forgot password?</a>
             </div>
             </li>
@@ -185,6 +185,6 @@
         ?>
       </ul>
       </div>
-  <!-- </div> -->
+  </div>
 
 </nav>

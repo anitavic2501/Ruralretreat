@@ -69,7 +69,7 @@ header.masthead .site-heading {
   }
   footer {
     margin-top : 20px;
-  background-color : #FAED26;
+  background-color : darkgray;
   color: #5A5560;
   font-size: 12px;
   align : center;
@@ -83,9 +83,62 @@ h2{
 b{
   color: #0677A1;
 }
+.wrapper-main {
+  width: 900px;
+  margin: 0 auto;
+}
+
+/* signup.php */
+
+.form-signup {
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 200px;
+}
+
+.form-signup input {
+  width: calc(100% - 10px);
+  height: 30px;
+  padding: 0 15px;
+  margin-bottom: 6px;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  background-color: #F6F6F6;
+  float: left;
+  font-family: arial;
+}
+
+.form-signup button {
+  display: block;
+  height: 40px;
+  padding: 0 10px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  font-family: arial;
+  font-size: 13px;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+}
+.signuperror {
+  padding-top: 14px;
+  font-family: arial;
+  font-size: 16px;
+  color: red;
+  text-align: center;
+}
+
+.signupsuccess {
+  padding-top: 14px;
+  font-family: arial;
+  font-size: 16px;
+  color: green;
+  text-align: center;
+}
 </style>
 <?php
-require_once 'core.php';
 require_once 'user.php';
 
 $loginerror = "";
