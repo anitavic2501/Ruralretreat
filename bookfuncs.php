@@ -65,6 +65,12 @@ class Booking{
 
     function bookingfunction($dog_type, $startDate,$dog_id, $user_id, $service_id, $endDate){
 
+      if(date("Y-m-d") == $startDate) {
+
+        header("Location: booking.php?status=error&message=".ErrorMessages::$SAME_DATE_BOOKING);
+        exit;
+    }
+
         if($dog_type == 'yellow' ){
             // var_dump($this ->getyellowcount($startDate));
 
