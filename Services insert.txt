@@ -1,0 +1,9 @@
+INSERT INTO `services` (`services`, `service_id`, `price`) VALUES ('OverNight', NULL, '25'), 
+('Grooming Type 1', NULL, '15'),
+('Grooming Type 2', NULL, '17'),
+('Spa Type 1', NULL, '35'),
+('Spa Type 2', NULL, '37');
+
+
+ALTER TABLE services ADD description text;
+ALTER TABLE services ADD image character(150);

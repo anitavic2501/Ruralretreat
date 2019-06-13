@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 include 'dog.php';
 include_once 'database.php';
    $con = mysqli_connect("localhost","root","","ruralretreat");
@@ -20,17 +21,19 @@ include_once 'database.php';
    $dog_name = $_POST['dogname'];
    $dog_breed = $_POST['breed'];
    $dog_age = (int)$_POST['age'];
-   $user_id = $_POST['user_id'];
+   $dog_gender = $_POST['gender'];
+   $user_id = $_SESSION['id'];
 //    $vaccination = $_POST['vaccination'];
 //    $datereceived= $_POST['datereceived'];
 
-$sql= "INSERT INTO dogs (dogname, user_id, breed, age) VALUES ('$dog_name','$user_id','$dog_breed','$dog_age')";
+$sql= "INSERT INTO dogs (dogname, user_id, breed, gender, age) VALUES ('$dog_name','$user_id','$dog_breed', '$dog_gender','$dog_age')";
 
 if (mysqli_query($con, $sql)) {
-    echo 'Congratulations! your dog is registered! <br> <a href="index.php"> back </a>';
+    header("Location: doglist.php?status=success");
     
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    // echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    header("Location: doglist.php?status=error");
 }
 mysqli_close($con);
 

@@ -113,11 +113,6 @@ class dog {
         return $this->DB->get('dogs', null);
     }
 
-    // Get all details for an specific dog
-    
-    public function get_dog_details($car_id) {
-        return ($this->DB->get('dogs', array('dog_id' => $dog_id))[0]);
-    }
 }
 
 ?>

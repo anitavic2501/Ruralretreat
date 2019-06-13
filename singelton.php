@@ -10,14 +10,14 @@ class singelton {
     }
 
     public static function getInstance() {
-        static $conn = null;
+        //static $conn = null;
         $servername = 'localhost';
         $username = 'root';
         $password = '';
         $db = 'ruralretreat';
-        if ($conn == null) {
+        //if ($conn == null) {
             $conn = new mysqli($servername, $username, $password, $db);
-        }
+        
         return $conn;
     }
 

@@ -1,52 +1,44 @@
 <?php
-include_once 'dog.php';
+
+  // First we start a session which allow for us to store information as SESSION variables.
+  session_start();
+  // "require" creates an error message and stops the script. "include" creates an error and continues the script.
+  require "includes/dbh.inc.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
  <head>
  <?php
   include_once './partials/head.php';
-?> 
+  ?>  
+  </head> 
 
-</head> 
-
-  <nav>
+  <header>
   <?php
      include_once './partials/header.php';
   ?>
-  
-</nav>
+  </header>
 
+  <body>
+      <div>
+        <div class="col-xl" style="text-align: center;">
 
-<header class="masthead" style="background-image: url('images/dogbeach.jpg')">
-<br><div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Welcome</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+          <br><h1>Welcome      
+        <?php
+        if (isset($_SESSION['id']))  {
+        echo $_SESSION['uid'];
 
-</header>
-
-  
-
-<body style="margin-bottom: 10px">
-  <div id="share"></div>
-  <main>
-      <div class="row">
-        <div class="col-12" style="text-align: center;">
-        <br><br>
-          <br>
+        }
+        ?> </h1> 
           <i class="fas fa-paw"></i>
-        <p> Are you looking a place for your dog while you are away? You have come to the right place. 
+        <p> Are you looking a place for your dog while you are away? <br>
+         You have come to the right place. 
         <br>
-           Rural Retreat is facilitate with unquestionable quality of services, your lovely one will enjoy
-           their staying in our place. <br> We always made them feel at home and loved.</p>
+           Rural Retreat is facilitate with unquestionable quality of services,<br> your lovely one will enjoy
+           their staying in our place. 
+           <br> We always made them feel at home and loved.</p>
           <br>
           
           <div class="img-fluid">
@@ -57,40 +49,15 @@ include_once 'dog.php';
           <b>“Dogs are not our whole life, <br> 
           but they make our lives whole.” </b>
           </p>
-        </div>
+        </div> </div>
 
-        <div class="row">
-          <div class="col-4"></div>
-        <div id="section2" class="col-4">
-          <br>
-        <h2> Take a look at our Quality Services </h2>
-        
-        <i class="fas fa-users fa-7x" style="color:white"></i>
-
-        <br>
-
-              <b>Professionalism</b>
-              <p>Professionalism and dedication are at the heart of everyone associated with Rural Retreat.
-               Years of experience in the automobile industry enable us to provide you unrivalled 
-               services with high extent of dedication and professionalism.
-               <br> <br>
-
-               <i class="fas fa-heart fa-7x" style="color:white"></i>
-               <br>
-              <b>Exceptional Customer service</b>
-              <p>Our customers always take the priority by us. Making your sale/purchase experience 
-              a hassle free process is our responsibility. We try our best to bring solutions to 
-              your all related concerns with high-end customer service since we believe in building 
-              long lasting relationship with our clients.
-
-</div><div class="col-4"></div></div>
-<div class="jumbotron" style="text-align: center;">
-<div class="container" id="section3">
-        
-        
+        <div class="contact" style="text-align: center;" id="section3">
+        <div class="container" >   
+          <div class="row">
+              <div class="col-4 md"> </div>
+              <div class="col-4 lg">    
         <section class="form" >
                          <form name="contactform">
-            <div class="col-12">
                                     <br><br>
                                     <h2>CONTACT US</h2>
                                     <div class="form-group">
@@ -103,7 +70,7 @@ include_once 'dog.php';
                                             </div>
                                             <div class="form-group">
                                                     <label for="message">Message:</label>
-                                                    <textarea type="text" name="field" class="form-control rounded-0" id="textarea" rows="3" required></textarea>
+                                                    <textarea type="text" name="field" class="form-control rounded-0" id="textarea" rows="10" required></textarea>
                                                 </div>
                                     
                                         <input type="button" class="btn btn-info" value="Submit Button" onclick="sub_bt()">
@@ -113,25 +80,23 @@ include_once 'dog.php';
                                         
                                     </div>
                         </form>
-                    </section>     </div></div>  </div></div>
+                    </section>     </div></div> </div></div>
                     
-    <div class="jumbotron" style="text-align: center;">
+    <!-- <div class="jumbotron" style="text-align: center;">
             <div class="col-12" id="section1">
         <i class="fas fa-map-marker-alt fa-2x"></i> <h2>Our location</h2>
         <p style="font-size:10;"> Silverdale, Hibiscus Coast, Auckland, New Zealand</p>
         <i class="fas fa-phone fa-1x"></i> 022-345-7890
-        </div></div>
+        </div></div> -->
           
         </div>
        
       </div>
-    </div></div>
-  </main>
+</body>
   <footer>
 <?php
      include_once './partials/footer.php';
   ?>
       </footer>
-</body>
-
+      
 </html>
