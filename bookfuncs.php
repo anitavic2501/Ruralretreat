@@ -63,12 +63,18 @@ class Booking{
     }
 
 
-    function bookingfunction($dog_type, $startDate,$dog_id, $user_id, $service_id, $endDate){
+    function bookingfunction($dog_type,$startDate,$dog_id,$user_id,$service_id,$endDate){
 
-      if(date("Y-m-d") == $startDate) {
-
+      if(date("Y-m-d") <= $startDate) {
+        
         header("Location: booking.php?status=error&message=".ErrorMessages::$SAME_DATE_BOOKING);
         exit;
+    }
+    else if($startDate < $endDate){
+
+        header("Location: booking.php?status=error&message=".ErrorMessages::$CORRECT_BOOKING_DATE);
+        exit;
+
     }
 
         if($dog_type == 'yellow' ){
