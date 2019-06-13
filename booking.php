@@ -34,7 +34,7 @@ session_start();
 	
 <h1 style="color: black;">Book Now</h1>	
 	<div class="bookingpage">
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br>
 			<div class="container col-4" >
 					<div class="booking-form">
 					<?php 
@@ -50,9 +50,13 @@ session_start();
 							</div>
                           
                          <?php 
-						}  else  { ?>
+						}  else  {
+							
+							  $errorMessage = $_GET['message'];
+							
+							?>
 						<div class="alert alert-warning2 alert-dismissible fade show" role="alert">	
-  							<strong>Error While booking!</strong>
+  							<strong><?php echo  $errorMessage; ?></strong>
   							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
     						<span aria-hidden="true">&times;</span>
   							</button>

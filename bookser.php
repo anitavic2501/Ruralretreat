@@ -1,8 +1,8 @@
 <?php
-
-      session_start();
-    $table = "bookings";
-    $table2 ="services";
+session_start();
+require_once 'bookfuncs.php';
+ 
+    
 
         
    $conn = mysqli_connect("localhost", "root", "","ruralretreat");                                 
@@ -15,34 +15,19 @@
                 $enddate =  $_POST['enddate'];
                 $service = $_POST['service'];
                 
+                $booking =  new Booking();
 
-
+                $dogType = $booking -> dogtype( $dogid );
 
                 
 
 
-                $sql = "INSERT INTO $table (startdate, enddate, service_id, user_id, dog_id ) VALUES ('".$startdate."', '".$enddate."', $service, $userid, $dogid)";
-               
                  
-               
-                
-                if (mysqli_query($conn, $sql)) {
-                   
                      
 
-                    header("Location: booking.php?status=success");
-                    
-              } else {
-                    
-                    header("Location: booking.php?status=error");
-              }
-              mysqli_close($conn);
-              
 
+                $booking -> bookingfunction( $dogType, $startdate, $dogid, $userid, $service, $enddate);
 
-
-            
-            
-                           
+       
 
 ?>
