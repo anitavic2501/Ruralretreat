@@ -9,12 +9,11 @@ if (isset($_POST['login-submit'])) {
   // We grab all the data which we passed from the signup form so we can use it later.
   $mailuid = $_POST['mailuid'];
   $password = $_POST['password'];
-
   // Then we perform a bit of error handling to make sure we catch any errors made by the user. Here you can add ANY error checks you might think of! I'm just checking for a few common errors in this tutorial so feel free to add more. If we do run into an error we need to stop the rest of the script from running, and take the user back to the login form with an error message.
 
   // We check for any empty inputs. (PS: This is where most people get errors because of typos! Check that your code is identical to mine. Including missing parenthesis!)
   if (empty($mailuid) || empty($password)) {
-    header("Location: ../loginpage.php?error=emptyfields&mailuid=".$mailuid);
+    echo "<script> alert('Username and Password empty!!');window.location='..//index.php'</script>";
     exit();
   }
   else {
@@ -30,8 +29,8 @@ if (isset($_POST['login-submit'])) {
     // Then we prepare our SQL statement AND check if there are any errors with it.
     if (!mysqli_stmt_prepare($stmt, $sql)) {
       // If there is an error we send the user back to the signup page.
-      //header("Location: ../loginpage.php?error=sqlerror");
-      exit();
+   echo "<script> alert('Error finding your details!');window.location='..//index.php'</script>";
+    exit(); 
     }
     else {
 
@@ -47,12 +46,13 @@ if (isset($_POST['login-submit'])) {
       if ($row = mysqli_fetch_assoc($result)) {
         // Then we match the password from the database with the password the user submitted. The result is returned as a boolean.
         $pwdCheck = password_verify($password, $row['password']);
+
         // If they don't match then we create an error message!
         if ($pwdCheck == false) {
-          // If there is an error we send the user back to the signup page.
-         // header("Location: ../loginpage.php?error=wrongpwd");
-          exit();
-        }
+          // If there is an error we send the user back to the signup page.	
+		echo "<script> alert('Wrong Password!!');window.location='..//index.php'</script>";
+         exit();
+		}
         // Then if they DO match, then we know it is the correct user that is trying to log in!
         else if ($pwdCheck == true) {
 
@@ -65,15 +65,12 @@ if (isset($_POST['login-submit'])) {
           $_SESSION['id'] = $row['user_id'];
           $_SESSION['uid'] = $row['username'];
           $_SESSION['email'] = $row['email'];
+	      $_SESSION['utd']	= $row['user_type_id'];
           // Now the user is registered as logged in and we can now take them back to the front page! :)
-          header("Location: ../accounts.php?login=success");
-          exit();
+      echo "<script> alert('Welcome!');window.location='../accounts_type.inc.php'</script>";
+         exit();
         }
-      }
-      else {
-        header("Location: ../loginpage.php?login=wronguidpwd");
-        exit();
-      }
+      }     
     }
   }
   // Then we close the prepared statement and the database connection!
