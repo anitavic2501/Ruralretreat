@@ -1,7 +1,6 @@
 <?php
 session_start();
   require "includes/dbh.inc.php"; 
-  require "partials/header.php";
 
  $sql = "SELECT * FROM users WHERE email = '".$_SESSION['email']."'";
  $results = mysqli_query($conn,$sql);
@@ -25,19 +24,18 @@ else {
 			echo "<h1 style='color:red'> We need to complete your details!</h1>";
 }
   }
-	?>
-<head>
- <style>
-	 .col-md-4 {
-  margin: auto;
-	 }
-body { 
-  text-align: center;
-}
-
-</style>
- </head>
-
+  ?>
+  <head>
+   <style>
+     .col-md-4 {
+    margin: auto;
+     }
+  body { 
+    text-align: center;
+  }
+  
+  </style>
+   </head>
 <form class="form-horizontal" action="includes/accounts.inc.php" method="post">
 <fieldset>
 
