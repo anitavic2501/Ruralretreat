@@ -42,7 +42,6 @@ class Booking{
     mysqli_close($conn);
     
     return $count;
-    
     }
 
 
@@ -65,12 +64,19 @@ class Booking{
 
     function bookingfunction($dog_type,$startDate,$dog_id,$user_id,$service_id,$endDate){
 
-      if($startDate <= date("Y-m-d") ) {
+
+      $currentDateTime =  strtotime(date("Y-m-d"));
+
+      $startDateTime =  strtotime($startDate);
+
+      $endDateTime  =  strtotime($endDate);
+
+      if($startDateTime <= $currentDateTime ) {
         
         header("Location: booking.php?status=error&message=".ErrorMessages::$SAME_DATE_BOOKING);
         exit;
     }
-    else if($startDate > $endDate){
+    else if($startDateTime > $endDateTime){
 
         header("Location: booking.php?status=error&message=".ErrorMessages::$CORRECT_BOOKING_DATE);
         exit;
