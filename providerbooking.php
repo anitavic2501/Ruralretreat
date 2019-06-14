@@ -25,5 +25,30 @@ include_once './partials/head.php';
 </header>
 
 <body>
-    search user mobile number in here :
-    
+
+<hr>
+<form class="form-horizontal" action="search.php" method="post">
+<fieldset>
+
+    <!-- Form Name -->
+<h3>Search user</h3>
+
+<!-- Search input-->
+<div class="search form-group">
+  <label class="col-md-4 control-label" for="keyword">search user mobile number in here :</label>
+  <div class="col-md-4">
+    <input name="keyword" class="form-control input-md" id="keyword" type="search" required>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button name="submit" class="btn btn-primary" id="submit">Search</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+ <hr>
