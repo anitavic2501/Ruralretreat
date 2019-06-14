@@ -3,7 +3,7 @@
  /* Frame */
 
   position: absolute;
-  height: 25px;
+  height: 55px;
   left: 35px;
   top: 33px;
 
@@ -14,7 +14,7 @@
 <div id="headerlogo">
             <table>
                 <tr>
-                    <td id="logo"><a  href="index.php">
+                    <td id="logo"><a  href="admindashboard.php">
             <img class="logo_pic" src="images\logo.png"></td>
          </table></tr>
         </div>

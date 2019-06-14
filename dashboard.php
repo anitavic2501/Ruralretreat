@@ -66,7 +66,7 @@
 	
 	<div class="team-back">
 	<span>
-	Complete details of your lovable pet dogs, and we'll take it from there. You can add upto 5 dogs!! Cheers (warf)
+	Complete details of your lovable pet dogs, and we'll take it from there!! Cheers (warf)
 	<br><a href="doglist.php">Click here</a></span>
 	</div>
 	

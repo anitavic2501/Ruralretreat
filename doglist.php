@@ -28,11 +28,11 @@
     var parameters = 'delete=' + del + '&deleteRow=' + delRow;
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.onreadystatechange = function(data) {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        alert("Success");
-      }
-    }
+    // xmlhttp.onreadystatechange = function(data) {
+    //   if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    //     alert("Success");
+    //   }
+    // }
     xmlhttp.open("POST", page, true);
     xmlhttp.send(parameters);
   }
@@ -59,7 +59,7 @@
                          <?php 
 						}  else  { ?>
 						<div class="alert alert-warning2 alert-dismissible fade show" role="alert">	
-  							<strong>Error!</strong>
+  							<strong>Error! You made booking with this dog</strong>
   							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
     						<span aria-hidden="true">&times;</span>
   							</button>

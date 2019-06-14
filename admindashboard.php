@@ -107,11 +107,23 @@ include_once './partials/head.php';
 </div>
 <!--team-5-->
 
+<div class="col-lg-6">
+<div class="our-team-main">
+
+<div class="team-front">
+    <br>
+<i class="fas fa-power-off fa-3x">LOGOUT</i> 
+<br>
+
+</div>
+
+<div class="team-back">
+<span> 
+<br><a href="logout.php">Click here</a></span>
 </div>
 
 </div>
 </div>
-<!--team-6-->
 
 
 

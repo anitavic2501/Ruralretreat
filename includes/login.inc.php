@@ -67,7 +67,7 @@ if (isset($_POST['login-submit'])) {
           $_SESSION['email'] = $row['email'];
 	      $_SESSION['utd']	= $row['user_type_id'];
           // Now the user is registered as logged in and we can now take them back to the front page! :)
-      echo "<script> alert('Welcome!');window.location='./accounts_type.inc.php'</script>";
+      echo "<script>;window.location='./accounts_type.inc.php'</script>";
          exit();
         }
       }     
