@@ -16,15 +16,15 @@ if (isset($_POST['username']) && isset($_POST['email'])) {
     if ($result) {
         $password = $result[0]['password'];
         
-        $from_name = 'SIXT Car Rental Team';
-        $from_email = 'SIXTcarrentalTeam@gmail.com';
+        $from_name = 'Rural Retreat Team';
+        $from_email = 'ruralretreat@gmail.com';
         $headers = 'From: '.$from_name .' <$from_email>';
         $to = ''.$email.'';
         $subject = 'Password';
         $body = 'Dear '.$username.', '."\r\n" ."\r\n". 
                 'This is your password: '.$password.' '."\r\n". "\r\n".
                 'Regards,'."\r\n". 
-                'Awesome Rental Car Team';
+                'RR Team';
         
             if (mail($to, $subject, $body, $headers)) 
                 echo "<script>alert('Your password was sent to your email')</script>";
