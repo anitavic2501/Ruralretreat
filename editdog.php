@@ -1,7 +1,6 @@
 
 <?php
 session_start();
-include 'dog.php';
 include_once 'database.php';
    $con = mysqli_connect("localhost","root","","ruralretreat");
    $dogs = "SELECT * FROM dogs ";

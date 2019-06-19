@@ -27,7 +27,7 @@ include_once './partials/head.php';
 <body>
 
 <hr>
-<form class="form-horizontal" action="search.php" method="post">
+<form class="form-horizontal" action="providersearch.php" method="post">
 <fieldset>
 
     <!-- Form Name -->
@@ -37,7 +37,7 @@ include_once './partials/head.php';
 <div class="search form-group">
   <label class="col-md-4 control-label" for="keyword">search user mobile number in here :</label>
   <div class="col-md-4">
-    <input name="keyword" class="form-control input-md" id="keyword" type="search" required>
+    <input name="contact_number" class="form-control input-md" id="contact_number" type="search" required>
   </div>
 </div>
 
