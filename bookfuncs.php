@@ -64,12 +64,20 @@ class Booking{
 
     function bookingfunction($dog_type,$startDate,$dog_id,$user_id,$service_id,$endDate){
 
+      date_default_timezone_set('Pacific/Auckland');
 
       $currentDateTime =  strtotime(date("Y-m-d"));
+
 
       $startDateTime =  strtotime($startDate);
 
       $endDateTime  =  strtotime($endDate);
+
+      $currentDate = date("Y-m-d");
+      // var_dump($currentDate);
+      // var_dump($currentDateTime);
+      // var_dump($startDate);
+      // var_dump($startDateTime);
 
       if($startDateTime <= $currentDateTime ) {
         
@@ -83,17 +91,30 @@ class Booking{
 
     }
 
+    
         if($dog_type == 'yellow' ){
-            // var_dump($this ->getyellowcount($startDate));
+            
+          var_dump("inside  of the condiion yellow dog".$this ->getyellowcount($startDate));
+
 
             if ($this ->getyellowcount($startDate) == 1){
              
                
-                   header ("Location: booking.php?status=error&message=".ErrorMessages::$NO_MORE_DOGS);
+                 header ("Location: booking.php?status=error&message=".ErrorMessages::$NO_MORE_DOGS);
                  
             }
             else if ($this ->getbookingscount($startDate) < 5){
-                $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id)";
+                
+              $sql = "";
+              if(isset($_SESSION['userinfo'])){
+                $provider_id=$_SESSION['id'];
+                $user_id = $_SESSION['userinfo']['user_id'];
+                $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id, provider_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id, $provider_id)";
+              } else {
+              $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id)";
+            }
+                
+                
                 $this->updateBookingsCount($startDate, $dog_type);
                 $this->executeSQL( $sql );
               
@@ -106,17 +127,27 @@ class Booking{
 
         } else{
 
-            // var_dump("Dog type" .$dog_type);
+            // var_dump("Dog type" .$dog_type); for green and blue dogs
 
-       
+            
             
             if($this ->getbookingscount($startDate) == 7){
 
            header ("Location: booking.php?status=error&message=".ErrorMessages::$NO_MORE_DOGS);
 
             }
-            else{
-                $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id)";
+            else{ 
+              $sql = "";
+						if(isset($_SESSION['userinfo'])){
+              $provider_id=$_SESSION['id'];
+              $user_id = $_SESSION['userinfo']['user_id'];
+              $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id, provider_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id, $provider_id)";
+						} else {
+            $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id)";
+          }
+              
+              
+               
                 $this->updateBookingsCount($startDate, $dog_type);
                 $this->executeSQL( $sql );
                
@@ -138,11 +169,11 @@ class Booking{
         if (mysqli_query($conn, $sql)) {
                    
                      
-      header("Location: booking.php?status=success");
+     header("Location: booking.php?status=success");
             
       } else {
             
-        header("Location: booking.php?status=error&message=".ErrorMessages::$BOOKING_ERROR);
+       header("Location: booking.php?status=error&message=".ErrorMessages::$BOOKING_ERROR);
       }
       mysqli_close($conn);
 

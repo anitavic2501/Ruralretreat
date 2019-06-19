@@ -23,7 +23,8 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 	 
       echo'<div class="panel">';
-		echo "<p><h4> User First name: " . $row["userfname"]. "<br><br> </h4></p> 
+        echo "<p><h4> User First name: " . $row['userfname']. "<br>
+        User Last Name:" .$row[<br> </h4></p> 
 			<br><br>";
        echo "</div>";
     }
@@ -31,6 +32,6 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 		
-$con->close();
+$conn->close();
 
 ?>
