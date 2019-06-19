@@ -123,8 +123,6 @@
         if (isset($_SESSION['id']))  {
           echo ' <li class="nav-item"><a href="dashboard.php"> <i class="paw fas fa-paw fa-lg"></i>My dashboard </a></li>';  
             echo ' <li class="nav-item"><a href="edit_customer.php"> <i class="paw fas fa-paw fa-lg"></i> Edit my profile</a></li>';  
-
-            echo ' <li class="nav-item"><a href="index.php#section3"><i class="paw fas fa-paw fa-lg"></i> Contact Us</a></li>';
             echo ' <li class="nav-item"><a href="doglist.php"><i class="paw fas fa-paw fa-lg"></i> My Dogs</a></li>';
             echo ' <li class="nav-item"><a href="booking.php"><i class="paw fas fa-paw fa-lg"></i> Bookings</a></li>';
             echo '';
