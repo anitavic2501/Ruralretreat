@@ -96,7 +96,7 @@
                 <tr>
                     <td id="logo"><a  href="index.php">
             <img class="logo_pic" src="images\logo.png"></td>
-                    <td id="headerpic"><img id="headerpic" class="responsive" src="images\headerpic.jpg"></td>
+                    <td id="headerpic"><img id="headerpic" class="image-fluid" src="images\headerpic.jpg"></td>
          </table></tr>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" >

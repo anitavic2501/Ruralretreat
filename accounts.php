@@ -21,7 +21,7 @@ if (!empty($LN)){
 			header ("location:dashboard.php");
 		}
 else {
-			echo "<h1 style='color:red'> We need to complete your details!</h1>";
+			echo "<h1 style='color:red'> Before continue,you need to complete your details!</h1>";
 }
   }
   ?>
@@ -110,3 +110,9 @@ else {
 
 </fieldset>
 </form>
+
+<footer>
+<?php
+     include_once './partials/footer.php';
+  ?>
+      </footer>
