@@ -12,19 +12,11 @@ include 'includes/dbh.inc.php';
   
 		 
 	   ?> 
-	   <style>
-        input#textinput.form-control.input-md {
-            text-align: center;
-       }
-        div.bookingpage {
-            text-align: center;
-       }   
-        </style>
 	   </head> 
 	   
 		 <nav>
 		 <?php
-			include_once './partials/header.php';
+			include_once './partials/adminheader.php';
 		 ?>
 		 
 	   </nav>
@@ -34,11 +26,9 @@ include 'includes/dbh.inc.php';
 
 
 <body>				
-	<div id="booking">
+	<div class="content">
 	
 <h1 style="color: black;">Add Services</h1>	
-	<div class="bookingpage">
-	<br><br><br><br><br><br><br><br><br>
 		
 <!-- Form Name -->
 <form method ="POST" action="includes/add_services.inc.php">
