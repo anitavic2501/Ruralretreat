@@ -37,8 +37,9 @@ include_once './partials/head.php';
 
 
 <h1>Manage Bookings</h1><hr>
-<form class="form-horizontal" method="post">
 <fieldset>
+<form class="form-horizontal" method="post">
+
 
     <!-- Form Name -->
 <h3>Search user</h3>
@@ -59,7 +60,6 @@ include_once './partials/head.php';
   </div>
 </div>
 
-</fieldset>
 </form>
  <hr>
 
@@ -94,8 +94,9 @@ if ($result->num_rows > 0) {
         echo "User Last Name: " .$row['userlname']." <br> ";
         echo "Username: ".$row['username']."<br>";
         echo "email: ".$row['email']."<br>";
-        echo "</div>";
         echo '<a class="btn btn-success" href="booking.php">Book Now</a>';
+        
+        echo "</div>";
         
     }
 } else {
@@ -105,3 +106,7 @@ if ($result->num_rows > 0) {
 $conn->close(); }
 
 ?>
+
+</fieldset>
+</body>
+</html>

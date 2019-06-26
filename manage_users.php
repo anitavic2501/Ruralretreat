@@ -37,6 +37,7 @@
         include_once './partials/adminheader.php';
     ?>
     </header>
+    <div class="content">
     <div class="container">
     <?php 
 						if (isset ($_GET['status'] )) {
@@ -62,7 +63,7 @@
 					
 					<?php }
 				 } ?>
-        </div> 
+        </div> </div>
         <br><br><br><br><br>         
 
     <table class="table table-hover">

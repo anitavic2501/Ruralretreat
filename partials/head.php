@@ -224,4 +224,10 @@ b{
   text-align: center;
 
 }
+/*providerbooking*/
+.panel{
+  padding : 15px;
+}
+
+}
 </style>
