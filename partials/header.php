@@ -118,25 +118,26 @@
         <a href="article2.php">
         <i class="paw fas fa-paw fa-lg"></i> Articles</a></li>
          <?php
-
+        
         //   //When the user is a CUSTOMER, then show the SEND FEEDBACK form
         
-        if (isset($_SESSION['id']))  {
+        if (isset($_SESSION['id']) && $_SESSION['utd']== 3)  {
           echo ' <li class="nav-item"><a href="dashboard.php"> <i class="paw fas fa-paw fa-lg"></i>My dashboard </a></li>';  
             echo ' <li class="nav-item"><a href="edit_customer.php"> <i class="paw fas fa-paw fa-lg"></i> Edit my profile</a></li>';  
-
-            echo ' <li class="nav-item"><a href="index.php#section3"><i class="paw fas fa-paw fa-lg"></i> Contact Us</a></li>';
             echo ' <li class="nav-item"><a href="doglist.php"><i class="paw fas fa-paw fa-lg"></i> My Dogs</a></li>';
             echo ' <li class="nav-item"><a href="booking.php"><i class="paw fas fa-paw fa-lg"></i> Bookings</a></li>';
             echo '';
           }
           //When the user is ADMIN, show some options
-        //   if ($user->loggedin() && $user_type_id == 1){
-        //     echo ' <li class="nav-item"><a class="nav-link" href="list_of_users.php">List of users</a></li>';
-        //   }
-        //   if($user->loggedin() && ($user_type_id == 1 || $user_type_id == 2))
-        //     echo '<li class="nav-item"><a class="nav-link" href="add_car.php">Add new car</a></li>';
-          
+          else if (isset($_SESSION['id']) && $_SESSION['utd']== 1){
+            echo ' <li class="nav-item"><a class="nav-link" href="list_of_users.php">List of users</a></li>';
+          }
+          else if(isset($_SESSION['id']) && $_SESSION['utd']== 2){
+          echo '<li class="nav-item"><a class="nav-link" href="providerdashboard.php"><i class="paw fas fa-paw fa-lg"></i>My Dashboard</a></li>';  
+          echo '<li class="nav-item"><a class="nav-link" href="booking.php"><i class="paw fas fa-paw fa-lg"></i>Make Bookings</a></li>';
+            
+          }
+
         //   if($user->loggedin() &&  ($user_type_id == 1 || $user_type_id == 2)){
         //     echo '<li class="nav-item"><a class="nav-link" href="staff_reports.php">Reports</a></li>';
         //     echo '<li class="nav-item"><a class="nav-link" href="manage_reservations.php">Manage reservations</a></li>';
@@ -168,13 +169,12 @@
                     <button style="width: 100px; font-size: 18px" type="submit" name="login-submit" class="btn">Log in</button> 
                 </div>
                 <div style="margin-top: 20px">
-                <a href="forget_password.php" style="font-size: 18px">Forgot password?</a>
+                <a href="reset-password.php" style="font-size: 18px">Forgot password?</a>
                 </div>
             </div>
         </form>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="signup.php">New around here? Sign up</a>
-        <a class="dropdown-item" href="forget_password.php">Forgot password?</a>
       </div>
       </li>
    ';

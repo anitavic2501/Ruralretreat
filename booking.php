@@ -70,8 +70,14 @@ session_start();
 						<?php
 						
 						$con = mysqli_connect("localhost", "root", "","ruralretreat");
+ 
+						$userid ="";
+						if(isset($_SESSION['userinfo'])){
+							$userid=$_SESSION['userinfo']['user_id'];
+						} else {
+						$userid=$_SESSION['id']; }
 
-						$userid = $_SESSION['id'];
+
 						$sql2 = "SELECT * FROM dogs WHERE user_id = $userid";
        
 						$result2 = mysqli_query($con, $sql2);

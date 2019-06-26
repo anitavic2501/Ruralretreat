@@ -64,7 +64,7 @@ if (isset($_POST['reset-password-submit'])) {
         $tokenEmail = $row['pwdResetEmail'];
 
         // Here we query the user table to check if the email we have in our pwdReset table exists.
-        $sql = "SELECT * FROM users WHERE emailUsers=?";
+        $sql = "SELECT * FROM users WHERE email=?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
           echo "There was an error!";
@@ -79,7 +79,7 @@ if (isset($_POST['reset-password-submit'])) {
           } else {
 
             // Finally we update the users table with the newly created password.
-            $sql = "UPDATE users SET pwdUsers=? WHERE emailUsers=?";
+            $sql = "UPDATE users SET password=? WHERE email=?";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
               echo "There was an error!";

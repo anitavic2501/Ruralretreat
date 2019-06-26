@@ -2,7 +2,12 @@
 <?php
 
 // First we start a session which allow for us to store information as SESSION variables.
-//session_start();
+session_start();
+if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
+
+    echo "You are not authorized to view this page.";
+      exit;
+} 
 // "require" creates an error message and stops the script. "include" creates an error and continues the script.
 require "includes/dbh.inc.php";
 ?>
@@ -19,9 +24,28 @@ include_once './partials/head.php';
 </head> 
 
 <header>
-<?php
-   include_once './partials/adminheader.php';
-?>
+<style>
+.logo_pic {
+ /* Frame */
+
+  position: absolute;
+  height: 55px;
+  left: 35px;
+  top: 33px;
+
+  }
+
+  </style>
+
+  
+
+<div id="headerlogo">
+            <table>
+                <tr>
+                    <td id="logo"><a  href="admindashboard.php">
+            <img class="logo_pic" src="images\logo.png"></td>
+         </table></tr>
+        </div>
 </header>
 
 
