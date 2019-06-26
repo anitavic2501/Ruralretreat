@@ -74,8 +74,8 @@ div.content {
 <div class="sidebar">
   <a  href="admindashboard.php">
             <img class="logo_pic" src="images\logo.png"></a><hr>
-  <a href="adminusers.php">Manage Users</a>
-  <a href="adminbooking.php">Manage Bookings</a>
+  <a href="manage_users.php">Manage Users</a>
+  <a href="manage_bookings.php">Manage Bookings</a>
   <a href="adminlistbooking.php">List Bookings</a>
   <a href="logout.php">Logout</a>
 </div>
