@@ -79,12 +79,12 @@ include_once './partials/head.php';
 <div class="team-front">
 <img src="images/dogs2.jpg" class="img-fluid" />
 <h3>Manage Bookings</h3>
-<p>bookings approval and scheduling</p>
+<p>Bookings approval and scheduling</p>
 </div>
 
 <div class="team-back">
 <span> 
-<br><a href="managebooking.php">Click here</a></span>
+<br><a href="manage_bookings.php">Click here</a></span>
 </div>
 
 </div>
@@ -96,7 +96,7 @@ include_once './partials/head.php';
 <div class="team-front">
 <img src="images/dogs5.jpg" class="img-fluid" />
 <h3>Services</h3>
-<p>add, edit or delete service that will be provided</p>
+<p>Add, edit or delete service that will be provided</p>
 </div>
 
 <div class="team-back">

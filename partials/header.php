@@ -92,12 +92,13 @@
       
 
         <div id="headerlogo">
-            <table>
+            <table class="responsive">
                 <tr>
                     <td id="logo"><a  href="index.php">
             <img class="logo_pic" src="images\logo.png"></td>
                     <td id="headerpic"><img id="headerpic" class="responsive" src="images\headerpic.jpg"></td>
-         </table></tr>
+         </tr>
+         </table>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" >
        
@@ -129,7 +130,7 @@
             echo ' <li class="nav-item"><a href="booking.php"><i class="paw fas fa-paw fa-lg"></i> Bookings</a></li>';
             echo '';
           }
-        //   //When the user is ADMIN, show some options
+          //When the user is ADMIN, show some options
         //   if ($user->loggedin() && $user_type_id == 1){
         //     echo ' <li class="nav-item"><a class="nav-link" href="list_of_users.php">List of users</a></li>';
         //   }

@@ -122,7 +122,7 @@ class user {
 
     //check if the session was started correctly
     public function loggedin() {
-        if (isset($_SESSION['users']) && !empty($_SESSION['users'])) {
+        if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
             return true;
         } else {
             return false;

@@ -1,7 +1,7 @@
 <?php
 
 require_once 'ErrorMessages.php';
-class Booking{
+class Booking {
 
     function getyellowcount($startDate){
 

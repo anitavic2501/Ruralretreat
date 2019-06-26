@@ -34,7 +34,7 @@ session_start();
 	
 <h1 style="color: black;">Book Now</h1>	
 	<div class="bookingpage">
-	<br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
 			<div class="container col-4" >
 					<div class="booking-form">
 					<?php 
