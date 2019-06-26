@@ -16,6 +16,7 @@ require "includes/dbh.inc.php";
 <html lang="en">
 
 <head>
+
 <?php
 include_once './partials/head.php';
 ?>  
@@ -25,13 +26,17 @@ include_once './partials/head.php';
 
 <header>
 <?php
-   include_once './partials/adminheader.php';
+   include_once './partials/providerheader.php';
 ?>
 </header>
 
 <body>
 
-<hr>
+
+<div class="content">
+
+
+<h1>Manage Bookings</h1><hr>
 <form class="form-horizontal" method="post">
 <fieldset>
 
@@ -90,7 +95,7 @@ if ($result->num_rows > 0) {
         echo "Username: ".$row['username']."<br>";
         echo "email: ".$row['email']."<br>";
         echo "</div>";
-        echo '<a class="btn btn-primary" href="booking.php">Book Now</a>';
+        echo '<a class="btn btn-success" href="booking.php">Book Now</a>';
         
     }
 } else {

@@ -24,9 +24,28 @@ include_once './partials/head.php';
 </head> 
 
 <header>
-<?php
-   include_once './partials/adminheader.php';
-?>
+<style>
+.logo_pic {
+ /* Frame */
+
+  position: absolute;
+  height: 55px;
+  left: 35px;
+  top: 33px;
+
+  }
+
+  </style>
+
+  
+
+<div id="headerlogo">
+            <table>
+                <tr>
+                    <td id="logo"><a  href="admindashboard.php">
+            <img class="logo_pic" src="images\logo.png"></td>
+         </table></tr>
+        </div>
 </header>
 
   <body>
@@ -62,13 +81,13 @@ include_once './partials/head.php';
 
 <div class="team-front">
 <img src="images/dogs1.jpg" class="img-fluid" />
-<h3>Manage Dogs</h3>
-<p>Add-Edit-Delete</p>
+<h3>Manage Bookings</h3>
+<p>by user phone number</p>
 </div>
 
 <div class="team-back">
 <span>
-<br><a href="managedog.php">Click here</a></span>
+<br><a href="providerbooking.php">Click here</a></span>
 </div>
 
 </div>
@@ -81,12 +100,12 @@ include_once './partials/head.php';
 
 <div class="team-front">
 <img src="images/dogs2.jpg" class="img-fluid" />
-<h3>Manage Bookings</h3>
+<h3>List of Bookings</h3>
 </div>
 
 <div class="team-back">
 <span> 
-<br><a href="providerbooking.php">Click here</a></span>
+<br><a href="providerbookinglist.php">Click here</a></span>
 </div>
 
 </div>

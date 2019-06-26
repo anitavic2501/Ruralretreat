@@ -18,7 +18,7 @@ if (isset($_POST['reset-request-submit'])) {
 
   // Then we create the URL link which we will send the user by mail so they can reset their password.
   // Notice that we convert the "token" to hexadecimals here as well, to make the URL usable.
-  $url = "http://localhost/php-password-recovery/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token) ;
+  $url = "http://localhost/RR/ruralretreat/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token) ;
 
   // Then we need to define when the tokens should expire. We do this for security reasons to make sure the same token can't be used for more than an hour.
 
@@ -67,26 +67,31 @@ if (isset($_POST['reset-request-submit'])) {
   $to = $userEmail;
 
   // Subject
-  $subject = 'Reset your password for mmtuts';
+  $subject = 'Reset your password for Rural Retreat';
 
   // Message
-  $message = '<p>We recieved a password reset request. The link to reset your password is below. ';
-  $message .= 'If you did not make this request, you can ignore this email</p>';
-  $message .= '<p>Here is your password reset link: </br>';
-  $message .= '<a href="' . $url . '">' . $url . '</a></p>';
+  $message = 'We recieved a password reset request. The link to reset your password is below. ';
+  $message = 'If you did not make this request, you can ignore this email</p>';
+  $message = 'Here is your password reset link:<br>';
+  $message = '<a href="' . $url . '">' . $url . '</a></p>';
 
   // Headers
   // Headers
-  $headers = "From: carlo <rcarloyap_nz@yahoo.com>\r\n";
-  $headers .= "rcarloyap_nz@yahoo.com\r\n";
+  $headers = "From: Rural Retreat <ruralretreat123@gmail.com>\r\n";
+  $headers .= "ruralretreat123@gmail.com\r\n";
   $headers .= "Content-type: text/html\r\n";
 
   // Send e-mail
-  mail($to, $subject, $message, $headers);
+ if (mail($to, $subject, $message, $headers)){ 
+
+ echo "succesfully sent";
 
   // Finally we send them back to a page telling them to check their e-mail.
   header("Location: ../reset-password.php?reset=success");
 } else {
-  header("Location: ../signup.php");
+  echo 'error!';
+
   exit();
 }
+}
+?>
