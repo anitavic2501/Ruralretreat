@@ -157,8 +157,8 @@
         <form class="px-4 py-3" action="includes/login.inc.php" method="post">
         
             <div class="form-group"  style="margin-top:20px">
-                <label for="Username">Enter your email</label>
-                <input class="form-control" type="text" id="mailuid" name="mailuid" placeholder="email">
+                <label for="Username">Enter your username/email</label>
+                <input class="form-control" type="text" id="mailuid" name="mailuid" placeholder="username/email">
             </div>
             <div class="form-group" style="margin-top:20px">
                 <label for="inputPassword1">Password:</label>
