@@ -81,7 +81,7 @@ include_once './partials/head.php';
 
 <div class="team-front">
 <img src="images/dogs1.jpg" class="img-fluid" />
-<h3>Manage Bookings</h3>
+<h3>Manage a Booking</h3>
 <p>by user phone number</p>
 </div>
 

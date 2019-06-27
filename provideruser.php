@@ -149,6 +149,7 @@ include_once './partials/head.php';
 </tbody>
 </table>
 <div class="provideradduser">
+<h1> Add new user </h1>
 <?php
           // Here we create an error message if the user made an error trying to sign up.
           if (isset($_GET["error"])) {
