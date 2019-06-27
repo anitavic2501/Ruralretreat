@@ -79,7 +79,9 @@ include_once './partials/head.php';
        $con = mysqli_connect("localhost","root","","ruralretreat");
       $users = "SELECT users.user_id, users.username, users.userfname, users.userlname,users.email,users.contact_number FROM users WHERE provider_id=$provider_id";
       $res = mysqli_query($con, $users);
+      // var_dump($con);
       while($r = mysqli_fetch_assoc($res)): ?>
+
             <tr>
             <td><?php echo $r['username']; ?></th>
             <td><?php echo $r['userfname']; ?></td>
