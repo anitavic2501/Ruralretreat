@@ -136,11 +136,16 @@
 
 </td>
             <td>
+            <a type ="button" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
+            </a>
             
+<<<<<<< HEAD
             <a type ="button" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
             </a>
             
       
+=======
+>>>>>>> ff15bf2c3b93520a7be7cb4d6854a1ecf49eb0f2
         
 
 </td>

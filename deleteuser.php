@@ -3,7 +3,7 @@
 session_start();
 include_once 'database.php';
    $con = mysqli_connect("localhost","root","","ruralretreat");
-   $dogs = "SELECT * FROM users ";
+   $users = "SELECT * FROM users ";
 
    if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
@@ -21,3 +21,6 @@ if (mysqli_query($con, $sql)) {
     header("Location: manage_users.php?status=error");
 }
 mysqli_close($con);
+
+
+?>
