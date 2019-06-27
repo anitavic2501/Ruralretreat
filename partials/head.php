@@ -70,7 +70,7 @@
   }
 
   footer {
-  
+  position: inherit;
   background-color : darkgray;
   color: #5A5560;
   font-size: 12px;

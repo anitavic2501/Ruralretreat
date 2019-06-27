@@ -74,9 +74,9 @@ div.content {
 <div class="sidebar">
   <a  href="providerdashboard.php">
             <img class="logo_pic" src="images\logo.png"></a><hr>
-  <a href="providerusers.php">Manage Users</a>
+  <a href="provideruser.php">Manage Users</a>
   <a href="providerbooking.php">Manage Bookings</a>
-  <a href="providerlistbookings.php">List Bookings</a>
+  <a href="providerbookinglist.php">List Bookings</a>
   <a href="logout.php">Logout</a>
 </div>
         

@@ -1,19 +1,35 @@
+<?php
+
+// First we start a session which allow for us to store information as SESSION variables.
+session_start();
+if(!(isset($_SESSION['utd']) && $_SESSION['utd']==2)){
+
+  echo "You are not authorized to view this page.";
+    exit;
+} 
+// "require" creates an error message and stops the script. "include" creates an error and continues the script.
+require "includes/dbh.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php
-    include_once './partials/head.php';
-    ?>
-</head>
 
+<?php
+include_once './partials/head.php';
+?>  
 
-<body style="margin-bottom: 10px">
-    <header>
-        <?php
-        include_once './partials/providerheader.php';
-    ?>
-    </header>
+<link rel="stylesheet" href="bootstrap2.min.css">
+</head> 
+
+<header>
+<?php
+   include_once './partials/providerheader.php';
+?>
+</header>
+
+<body>
     <div class="container">
     <?php 
 						if (isset ($_GET['status'] )) {
@@ -40,18 +56,18 @@
 					<?php }
 				 } ?>
         </div> </div>
-        <br><br><br><br><br>         
-
+        
         <div class="content">
+        <h1>Manage users</h1>       
+
     <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">User ID</th>
+      <th scope="col">Username</th>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">Email</th>
       <th scope="col">Contact Number</th>
-      <th scope="col">User Type</th>
       <th scope="col">Edit User</th>
       <th scope="col">Delete User</th>
     </tr>
@@ -59,22 +75,21 @@
   <tbody>
       <?php
 
-    //    $userid=$_SESSION['id'];
+        $provider_id=$_SESSION['id'];
        $con = mysqli_connect("localhost","root","","ruralretreat");
-      $dogs = "SELECT users.user_id, users.userfname, users.userlname,users.email,users.contact_number, user_type.user_type_name FROM users JOIN user_type ON users.user_type_id=user_type.user_type_id";
-      $res = mysqli_query($con, $dogs);
+      $users = "SELECT users.user_id, users.username, users.userfname, users.userlname,users.email,users.contact_number FROM users WHERE provider_id=$provider_id";
+      $res = mysqli_query($con, $users);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>
-            <td><?php echo $r['user_id']; ?></th>
+            <td><?php echo $r['username']; ?></th>
             <td><?php echo $r['userfname']; ?></td>
             <td><?php echo $r['userlname']; ?></td>
             <td><?php echo $r['email']; ?></td>
             <td><?php echo $r['contact_number']; ?></td>
-            <td><?php echo $r['user_type_name']; ?></td>
             
             <td><div class="container">
         <!-- Button to Open the Modal -->
-        <button style = "background-color:green;"type="button" onclick="initModal(<?php echo $r['user_id'].','.'\''.$r['userfname'].'\','.'\''.$r['userlname'].'\','.'\''.$r['email'].'\','.'\''.$r['contact_number'].'\','.'\''.$r['user_type_name'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <button style = "background-color:green;"type="button" onclick="initModal(<?php echo $r['user_id'].','.'\''.$r['username'].'\','.'\''.$r['userfname'].'\','.'\''.$r['userlname'].'\','.'\''.$r['email'].'\','.'\''.$r['contact_number'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Edit
         </button>
 
@@ -88,34 +103,18 @@
                 <h2 class="modal-title">User Details</h2>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <?php
-						
-						$con = mysqli_connect("localhost", "root", "","ruralretreat");
-						$sql = "SELECT * FROM user_type";
-       
-						$result = mysqli_query($con, $sql);
-						?>
-                <!-- Modal body -->
-                <form class="modal-body" method="POST" action="edituser.php">
+                <form class="modal-body" method="POST" action="provideredituser.php">
                 
-                <div class="editdog" style="align: center;">
-                    
+                <div class="edituser" style="align: center;">
                     <input id="user_id" type="hidden" name="user_id"  value="<?php echo $r['user_id']; ?>"/>
-                    <input id="userfname" type="text" name="userfname" class="text_field form-control" value=""  required>
-                    <input id="userlname" type="text" name="userlname" class="text_field form-control" value=""  required>
-                    <input id="email" type="text"  name="email" class="text_field form-control" value="" placeholder="" required>
-                    <input id="contact_number" type="text"  name="contact_number" class="text_field form-control" value="" placeholder="" required>
-                    <select class="form-control" name="user_type">
-								<?php				
-								while ($rows = mysqli_fetch_assoc($result)) 
-								{
-								?>
-								<option value=<?php echo $rows['user_type_id'] ?>><?php echo $rows['user_type_name']?></option>
-												
-											
-							<?php }?>		
-							
-							</select>
+                    Username :<br>
+                    <input id="username" name="username"  value="<?php echo $r['username']; ?>"/>
+                    <br>User first Name :<input id="userfname" type="text" name="userfname" class="text_field form-control" value=""  required>
+                    <br>User Last Name :<input id="userlname" type="text" name="userlname" class="text_field form-control" value=""  required>
+                    <br>Email : <input id="email" type="text"  name="email" class="text_field form-control" value="<?php echo $r['email']; ?>" placeholder="" required>
+                    <br>Contact Number<input id="contact_number" type="text"  name="contact_number" class="text_field form-control" value="" placeholder="" required>
+                    
+								
                     
                                                        
                 
@@ -136,10 +135,10 @@
 
 </td>
             <td>
-            
-            <a type="button" class="btn btn-primary" style= "background-color: orange;"  >
-            Delete User
-        </a>
+            <form id="delete" method="POST" action="providerdeleteuser.php">
+            <input type="submit" onclick="return confirm('Are you sure?')" name="delete" value="Delete" class="btn btn-danger" id="delete">
+           
+        </a> </form>
         
 
 </td>
@@ -149,28 +148,83 @@
 <?php endwhile ?>
 </tbody>
 </table>
+<div class="provideradduser">
+<?php
+          // Here we create an error message if the user made an error trying to sign up.
+          if (isset($_GET["error"])) {
+            if ($_GET["error"] == "emptyfields") {
+              echo '<p class="providerusererror">Fill in all fields!</p>';
+            }
+            else if ($_GET["error"] == "invaliduidmail") {
+              echo '<p class="providerusererror">Invalid username and e-mail!</p>';
+            }
+            else if ($_GET["error"] == "invaliduid") {
+              echo '<p class="providerusererror">Invalid username!</p>';
+            }
+            else if ($_GET["error"] == "invalidmail") {
+              echo '<p class="providerusererror">Invalid e-mail!</p>';
+            }
+            else if ($_GET["error"] == "passwordcheck") {
+              echo '<p class="providerusererror">Your passwords do not match!</p>';
+            }
+            else if ($_GET["error"] == "usertaken") {
+              echo '<p class="providerusererror">Username is already taken!</p>';
+            }
+          }
+          // Here we create a success message if the new user was created.
+          else if (isset($_GET["provideruser"])) {
+            if ($_GET["provideruser"] == "success") {
+              echo '<p class="providerusererror">Add user successful!</p>';
+            }
+          }
+          ?>
+          <form class="form-provideruser" action="includes/provideruser.inc.php" method="post">
+          <div class="col-xl">
+            <?php
+            // Here we check if the user already tried submitting data.
 
+            // We check username.
+            if (!empty($_GET["username"])) {
+              echo '<input type="text" name="username" placeholder="Username" value="'.$_GET["username"].'"required>';
+            }
+            else {
+              echo '<input type="text" name="username" placeholder="Username"required>';
+            }
+
+            // We check e-mail.
+            if (!empty($_GET["email"])) {
+              echo '<input type="text" name="email" placeholder="E-mail" value="'.$_GET["email"].'"required>';
+            }
+            else {
+              echo '<input type="text" name="email" placeholder="E-mail"required>';
+            }
+            ?>
+            <input type="password" name="password" placeholder="Password"required>
+            <input type="password" name="pwd-repeat" placeholder="Repeat password"required>
+            <button type="submit" name="provideruser-submit">Add user</button>
+            </div>
+          </form>
+    
+</div>
 
 <br>
 
 <script>
 
- function initModal(id, fname, lname, email, number, type){
-
-        var user_id_text =  document.getElementById('user_id');
+ function initModal(id, name, fname, lname, email, number){
+        var user_id_text = document.getElementById('user_id');
+        var username_text =  document.getElementById('username');
         var userfname_text =  document.getElementById('userfname');
         var userlname_text =  document.getElementById('userlname');
         var email_text =  document.getElementById('email');
         var contact_number_text =  document.getElementById('contact_number');
-        var user_type_name_text =  document.getElementById('user_type_name');
         
-
         user_id_text.value = id;
+        username_text.value = name;
         userfname_text.value = fname;
         userlname_text.value = lname;
         email_text.value = email;
         contact_number_text.value = number;
-        user_type_name_text.value = type;
         
 
 

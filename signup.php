@@ -18,8 +18,7 @@
   ?>
     </header>
 
-    <main>
-      <div class="wrapper-main">
+    <body>
         <section class="section-default">
         <div class="containerform" style="background-color:creme;">
             <div class="col-xl" style="text-align: center">
@@ -58,11 +57,11 @@
             // Here we check if the user already tried submitting data.
 
             // We check username.
-            if (!empty($_GET["user_id"])) {
-              echo '<input type="text" name="user_id" placeholder="Username" value="'.$_GET["user_id"].'"required>';
+            if (!empty($_GET["username"])) {
+              echo '<input type="text" name="username" placeholder="Username" value="'.$_GET["username"].'"required>';
             }
             else {
-              echo '<input type="text" name="user_id" placeholder="Username"required>';
+              echo '<input type="text" name="username" placeholder="Username"required>';
             }
 
             // We check e-mail.
@@ -87,12 +86,14 @@
             <button type="submit" name="signup-submit">Signup</button>
           </form>
           -->
-          </div></div>
+          </div>
         </section>
       </div>
-    </main>
+    </body>
+
     <footer>
 <?php
      include_once './partials/footer.php';
   ?>
       </footer>
+      </html>

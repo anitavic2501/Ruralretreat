@@ -7,7 +7,7 @@ if (isset($_POST['signup-submit'])) {
   require 'dbh.inc.php';
 
   // We grab all the data which we passed from the signup form so we can use it later.
-  $username = $_POST['user_id'];
+  $username = $_POST['username'];
   $email = $_POST['email'];
   $password = $_POST['password'];
   $passwordRepeat = $_POST['pwd-repeat'];
@@ -16,7 +16,7 @@ if (isset($_POST['signup-submit'])) {
 
   // We check for any empty inputs. (PS: This is where most people get errors because of typos! Check that your code is identical to mine. Including missing parenthesis!)
   if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
-    	echo "<script> alert('One or more fields are empty!!');window.location='../signup.php?user_id=".$username."&email=".$email."'</script>";
+    	echo "<script> alert('One or more fields are empty!!');window.location='../signup.php?username=".$username."&email=".$email."'</script>";
          exit();
   }
   // We check for an invalid username AND invalid e-mail.
@@ -26,7 +26,7 @@ if (isset($_POST['signup-submit'])) {
   }
   // We check for an invalid e-mail.
   else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  echo "<script> alert('Invalid Email!!');window.location='../signup.php?user_id=".$username."'</script>";
+  echo "<script> alert('Invalid Email!!');window.location='../signup.php?username=".$username."'</script>";
          exit();
   }
   // We check for an invalid username. In this case ONLY letters and numbers.
@@ -37,7 +37,7 @@ if (isset($_POST['signup-submit'])) {
  
   // We check if the repeated password is NOT the same.
   else if ($password !== $passwordRepeat) {
-   header("Location: ../signup.php?error=passwordcheck&user_id=".$username."&email=".$email.""); 
+   header("Location: ../signup.php?error=passwordcheck&username=".$username."&email=".$email.""); 
           exit();
   }
   else {
