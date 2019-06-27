@@ -42,7 +42,7 @@ include_once './partials/head.php';
 <div id="headerlogo">
             <table>
                 <tr>
-                    <td id="logo"><a  href="admindashboard.php">
+                    <td id="logo"><a  href="providerdashboard.php">
             <img class="logo_pic" src="images\logo.png"></td>
          </table></tr>
         </div>
