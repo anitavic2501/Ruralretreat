@@ -9,7 +9,7 @@ include_once 'database.php';
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$user_id = $_POST['user_id'];
+$user_id = $_GET['user_id'];
 
 $sql= "DELETE from users where user_id = $user_id";
 

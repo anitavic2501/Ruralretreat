@@ -39,10 +39,10 @@
 					
 					<?php }
 				 } ?>
-        </div> </div>
-        <br><br><br><br><br>         
+        </div> </div>    
 
         <div class="content">
+        <h1> Manage Users </h1>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -137,9 +137,10 @@
 </td>
             <td>
             
-            <a type="button" class="btn btn-primary" style= "background-color: orange;"  >
-            Delete User
-        </a>
+            <a type ="button" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
+            </a>
+            
+      
         
 
 </td>

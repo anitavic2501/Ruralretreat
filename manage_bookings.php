@@ -15,6 +15,7 @@
     ?>
     </header>
     <div class="content">
+    <h1> Manage Users </h1>
     <div class="container">
     <?php 
 						if (isset ($_GET['status'] )) {
