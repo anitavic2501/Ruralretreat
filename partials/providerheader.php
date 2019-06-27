@@ -18,6 +18,8 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+
+
 .sidebar {
   margin: 0;
   padding: 0;
@@ -49,6 +51,10 @@ div.content {
   margin-left: 200px;
   padding: 1px 16px;
   height: 1000px;
+}
+
+.content h1{
+  text-align : center;
 }
 
 @media screen and (max-width: 700px) {

@@ -125,7 +125,8 @@
           echo ' <li class="nav-item"><a href="dashboard.php"> <i class="paw fas fa-paw fa-lg"></i>My dashboard </a></li>';  
             echo ' <li class="nav-item"><a href="edit_customer.php"> <i class="paw fas fa-paw fa-lg"></i> Edit my profile</a></li>';  
             echo ' <li class="nav-item"><a href="doglist.php"><i class="paw fas fa-paw fa-lg"></i> My Dogs</a></li>';
-            echo ' <li class="nav-item"><a href="booking.php"><i class="paw fas fa-paw fa-lg"></i> Bookings</a></li>';
+            echo ' <li class="nav-item"><a href="bookinglist.php"><i class="paw fas fa-paw fa-lg"></i> My Bookings </a></li>'; 
+            echo ' <li class="nav-item"><a href="booking.php"><i class="paw fas fa-paw fa-lg"></i> Make a Booking</a></li>';
             echo '';
           }
           //When the user is ADMIN, show some options
