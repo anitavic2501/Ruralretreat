@@ -10,6 +10,8 @@ session_start();
 <html lang="en">
 
 	<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="jQuery/js/jquery.multiselect.js"></script>
 	<link rel="stylesheet" href="css/main.css">	
 		<?php
 		 include_once './partials/head.php';
@@ -115,15 +117,37 @@ session_start();
 						<?php
 						
 						$con = mysqli_connect("localhost", "root", "","ruralretreat");
-						$sql = "SELECT * FROM services";
+						$sql = "SELECT * FROM services WHERE service_type ='addon'";
        
 						$result = mysqli_query($con, $sql);
+
+						$sqlMainServices = "SELECT * FROM services WHERE service_type ='main'";
+       
+						$resultMain = mysqli_query($con, $sqlMainServices);
 						?>
+
+
+                      <div class="form-group">
+							
+							<span class="form-label">Main Services:</span>
+						<select class="form-control" name="mainService">
+							<?php				
+							while ($rows = mysqli_fetch_assoc($resultMain)) 
+							{
+							?>
+							<option value=<?php echo $rows['service_id'] ?>><?php echo $rows['services']?></option>
+											
+										
+						<?php }?>		
 						
-							<div class="form-group">
+						</select>
+						</div>
+						
+
+						<div class="form-group">
 							
 								<span class="form-label">Additional Services:</span>
-								<select class="form-control" name="service">
+							<select class="form-control 4colactive" name="service[]" multiple = multiple>
 								<?php				
 								while ($rows = mysqli_fetch_assoc($result)) 
 								{
@@ -153,6 +177,21 @@ session_start();
 			</div>
 		
 	</div>
+	
+
+	
+
+	<script>
+ 
+	$('select[multiple]').multiselect({
+ 
+		columns: 4,
+ 
+		placeholder: 'Select options'
+ 
+	});
+ 
+	</script>
 </body>
 
 <footer>

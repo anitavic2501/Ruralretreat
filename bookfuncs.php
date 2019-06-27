@@ -1,45 +1,58 @@
 <?php
 
 require_once 'ErrorMessages.php';
+
 class Booking {
+
+
+
+  public $connection;
+
+  public $bookingId;
+
+  function __construct($conn) {
+    $this->connection =$conn;
+
+  
+}
 
     function getyellowcount($startDate){
 
        
-    $conn = mysqli_connect("localhost", "root", "","ruralretreat");
+    
 
     $sql = "SELECT yellow FROM slots WHERE date ="."'".$startDate ."'";
 
-    $result  =  mysqli_query($conn, $sql);
+    $result  =  mysqli_query($this -> connection, $sql);
 
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
     $count =  $row['yellow'];
 
    
-
-    mysqli_close($conn);
-
     return $count;
     
     }
+
+  
 
     function getbookingscount($startDate){
 
     // var_dump("Inside func get all ".$startDate);
 
-    $conn = mysqli_connect("localhost", "root", "","ruralretreat");
+    
 
     $sql = "SELECT totalbookings FROM slots WHERE date ="."'".$startDate ."'";
 
 
-    $result  =  mysqli_query($conn, $sql);
+    $result  =  mysqli_query($this->connection, $sql);
 
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
     $count =  $row['totalbookings'];
     
-    mysqli_close($conn);
+
+
     
     return $count;
     }
@@ -47,11 +60,12 @@ class Booking {
 
     function dogtype($dog_id){
 
-    $conn = mysqli_connect("localhost", "root", "","ruralretreat");
+  
 
     $sql = "SELECT label from dogs WHERE dog_id = $dog_id";
+    var_dump($this->connection);
 
-    $result  =  mysqli_query($conn, $sql);
+    $result  =  mysqli_query($this -> connection, $sql);
 
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -62,7 +76,7 @@ class Booking {
     }
 
 
-    function bookingfunction($dog_type,$startDate,$dog_id,$user_id,$service_id,$endDate){
+    function bookingfunction($dog_type,$startDate,$dog_id,$user_id,$service_ids, $mainService, $endDate){
 
       date_default_timezone_set('Pacific/Auckland');
 
@@ -109,14 +123,25 @@ class Booking {
               if(isset($_SESSION['userinfo'])){
                 $provider_id=$_SESSION['id'];
                 $user_id = $_SESSION['userinfo']['user_id'];
-                $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id, provider_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id, $provider_id)";
+                $sql = "INSERT INTO bookings (startdate, enddate, user_id, dog_id, provider_id ) VALUES ('".$startDate."', '".$endDate."', $user_id, $dog_id, $provider_id)";
               } else {
-              $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id)";
+              $sql = "INSERT INTO bookings (startdate, enddate,  user_id, dog_id ) VALUES ('".$startDate."', '".$endDate."', $user_id, $dog_id)";
             }
-                
+
+              
                 
                 $this->updateBookingsCount($startDate, $dog_type);
                 $this->executeSQL( $sql );
+                $generated_booking_id = mysqli_insert_id($this->connection);
+                $this->bookingId = $generated_booking_id;
+
+                $mainServieSQLRecord = "INSERT INTO service_booking (service_id, booking_id) VALUES ($mainService, $generated_booking_id)";
+                $this->executeSQL(  $mainServieSQLRecord );
+
+                foreach($service_ids as $service_id ) {
+              $sqlmappingrecord = "INSERT INTO service_booking (service_id, booking_id) VALUES ($service_id, $generated_booking_id)";
+              $this->executeSQL( $sqlmappingrecord );
+                }
               
             }
             else {
@@ -141,21 +166,32 @@ class Booking {
 						if(isset($_SESSION['userinfo'])){
               $provider_id=$_SESSION['id'];
               $user_id = $_SESSION['userinfo']['user_id'];
-              $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id, provider_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id, $provider_id)";
+              $sql = "INSERT INTO bookings (startdate, enddate,  user_id, dog_id, provider_id ) VALUES ('".$startDate."', '".$endDate."',  $user_id, $dog_id, $provider_id)";
 						} else {
-            $sql = "INSERT INTO bookings (startdate, enddate, service_id, user_id, dog_id ) VALUES ('".$startDate."', '".$endDate."', $service_id, $user_id, $dog_id)";
+            $sql = "INSERT INTO bookings (startdate, enddate, user_id, dog_id ) VALUES ('".$startDate."', '".$endDate."', $user_id, $dog_id)";
           }
-              
-              
+
+           
                
                 $this->updateBookingsCount($startDate, $dog_type);
                 $this->executeSQL( $sql );
+
+                $generated_booking_id = mysqli_insert_id($this->connection);
+                $this->bookingId = $generated_booking_id;
+
+                $mainServieSQLRecord = "INSERT INTO service_booking (service_id, booking_id) VALUES ($mainService, $generated_booking_id)";
+                $this->executeSQL(  $mainServieSQLRecord );
+
+                foreach($service_ids as $service_id ) {
+                  $sqlmappingrecord = "INSERT INTO service_booking (service_id, booking_id) VALUES ($service_id, $generated_booking_id)";
+                  $this->executeSQL( $sqlmappingrecord );
+                    }
                
             }
         }
 
 
-       
+       $this-> redirectToBookingSuccessPage();
     } 
 
 
@@ -164,21 +200,22 @@ class Booking {
      //Insert booking
 
      function executeSQL($sql){
-
-        $conn = mysqli_connect("localhost", "root", "","ruralretreat");      
-        if (mysqli_query($conn, $sql)) {
-                   
-                     
-     header("Location: booking.php?status=success");
+    
+        if (!mysqli_query($this->connection, $sql)) {
+          header("Location: booking.php?status=error&message=".ErrorMessages::$BOOKING_ERROR);
+          exit;
+        }
             
-      } else {
-            
-       header("Location: booking.php?status=error&message=".ErrorMessages::$BOOKING_ERROR);
-      }
-      mysqli_close($conn);
+     
+     }
 
 
+     function redirectToBookingSuccessPage(){
 
+         $totalSum =  $this-> gettotalsum($this-> bookingId);
+
+         header("Location: booking_success.php?booking_id=".$this-> bookingId."&totalPrice=".$totalSum);
+         exit;
 
      }
 
@@ -239,21 +276,39 @@ class Booking {
 
          $sql  =  "select * from slots where date = "."'".$bookingDate."'";
 
-         $conn = mysqli_connect("localhost", "root", "","ruralretreat");      
+         
        
-          $result  =  mysqli_query($conn, $sql);
+          $result  =  mysqli_query($this->connection, $sql);
 
           $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
           $count =  $row['totalbookings'];
           
 
-         mysqli_close($conn);
+      
+
           
          return $count;
 
 
 
      }
+     function gettotalsum($booking_id){
+       
+      $sql = "SELECT sum(services.price) as total_price  from service_booking 
+      INNER JOIN services ON service_booking.service_id = services.service_id
+      where service_booking.booking_id = $booking_id;";
+      
+  
+      $result  =  mysqli_query($this -> connection, $sql);
+  
+      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  
+      $totalPrice =  $row['total_price'];
+  
+      return $totalPrice;
+
+
+    }
 
 
 

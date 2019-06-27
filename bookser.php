@@ -1,12 +1,13 @@
 <?php
 session_start();
 require_once 'bookfuncs.php';
+include 'includes/dbh.inc.php'; 
  
     
 
         
-   $conn = mysqli_connect("localhost", "root", "","ruralretreat");                                 
-               
+                       
+          
                
                
                 $userid = $_SESSION['id'];
@@ -14,8 +15,10 @@ require_once 'bookfuncs.php';
                 $startdate = $_POST['startdate'];
                 $enddate =  $_POST['enddate'];
                 $service = $_POST['service'];
+                $mainService = $_POST['mainService'];
+
                 
-                $booking =  new Booking();
+                $booking =  new Booking($conn);
 
                 $dogType = $booking -> dogtype( $dogid );
 
@@ -26,7 +29,7 @@ require_once 'bookfuncs.php';
                      
 
 
-                $booking -> bookingfunction( $dogType, $startdate, $dogid, $userid, $service, $enddate);
+                $booking -> bookingfunction( $dogType, $startdate, $dogid, $userid, $service, $mainService, $enddate);
 
        
 
