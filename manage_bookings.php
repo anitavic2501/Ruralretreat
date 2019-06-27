@@ -60,7 +60,10 @@
       <?php
 
        $con = mysqli_connect("localhost","root","","ruralretreat");
-      $dogs = "SELECT bookings.booking_id, bookings.user_id, bookings.startdate, bookings.enddate, services.services, dogs.label, bookings.status FROM bookings JOIN services ON bookings.service_id=services.service_id JOIN dogs ON bookings.dog_id=dogs.dog_id ";
+
+      $dogs = "SELECT bookings.booking_id, bookings.user_id, bookings.startdate,bookings.enddate,services.services, dogs.label, bookings.status FROM bookings JOIN service_booking ON bookings.booking_id=service_booking.booking_id JOIN services ON services.service_id=service_booking.service_id  JOIN dogs ON bookings.dog_id=dogs.dog_id ";
+
+
       $res = mysqli_query($con, $dogs);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>

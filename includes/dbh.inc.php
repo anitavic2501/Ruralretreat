@@ -5,7 +5,7 @@ $dBPassword = "";
 $dBName = "ruralretreat";
 
 // Create connection
-$conn = mysqli_connect($dBServername, $dBUsername, $dBPassword, $dBName);
+ $conn = mysqli_connect($dBServername, $dBUsername, $dBPassword, $dBName);
 
 // Check connection
 if (!$conn) {
