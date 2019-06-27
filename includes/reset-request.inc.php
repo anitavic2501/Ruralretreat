@@ -70,16 +70,15 @@ if (isset($_POST['reset-request-submit'])) {
   $subject = 'Reset your password for Rural Retreat';
 
   // Message
-  $message = 'We recieved a password reset request. The link to reset your password is below. ';
-  $message = 'If you did not make this request, you can ignore this email</p>';
-  $message = 'Here is your password reset link:<br>';
-  $message = '<a href="' . $url . '">' . $url . '</a></p>';
+  $message = '<strong>Hello</strong>, We received a password reset request. 
+    The link to reset your password is below. 
+    
+    Here is your password reset link:
+    '. $url .'
+    If you did not make this request, you can ignore this email';
+echo '<br>';
 
-  // Headers
-  // Headers
   $headers = "From: Rural Retreat <ruralretreat123@gmail.com>\r\n";
-  $headers .= "ruralretreat123@gmail.com\r\n";
-  $headers .= "Content-type: text/html\r\n";
 
   // Send e-mail
  if (mail($to, $subject, $message, $headers)){ 

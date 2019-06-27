@@ -1,3 +1,13 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php
+  include_once './partials/head.php';
+?>
+</head>
+
 <?php
   require 'partials/header.php';
 ?>

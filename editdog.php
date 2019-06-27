@@ -21,14 +21,19 @@ $dog_gender = $_POST['gender'];
 $updatesql= "UPDATE dogs SET dogname = '$dog_name',breed = '$dog_breed',age=$dog_age, gender = '$dog_gender' WHERE dog_id = $dog_id";
 
 if (mysqli_query($con, $updatesql)) {
- header("Location: doglist.php?status=success");
  
-} else {
-    var_dump($con);
-    
- // echo "Error: " . $sql . "<br>" . mysqli_error($con);
-// header("Location: doglist.php?status=error");
-}
-mysqli_close($con);
+    if (isset($_SESSION['utd'])  && $_SESSION['utd']== 3) {
+        header("Location: doglist.php?status=success");
+        
+    } else{
+        
+        header("Location: doglist.php?status=error");
+    } if (isset($_SESSION['utd']) && $_SESSION['utd']== 1) {
+        header("Location: managedog.php?status=success");
+    }} else{
+        
+       header("Location: managedog.php?status=error");
+        }
+    mysqli_close($con);
 
 ?>

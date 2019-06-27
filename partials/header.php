@@ -125,7 +125,8 @@
           echo ' <li class="nav-item"><a href="dashboard.php"> <i class="paw fas fa-paw fa-lg"></i>My dashboard </a></li>';  
             echo ' <li class="nav-item"><a href="edit_customer.php"> <i class="paw fas fa-paw fa-lg"></i> Edit my profile</a></li>';  
             echo ' <li class="nav-item"><a href="doglist.php"><i class="paw fas fa-paw fa-lg"></i> My Dogs</a></li>';
-            echo ' <li class="nav-item"><a href="booking.php"><i class="paw fas fa-paw fa-lg"></i> Bookings</a></li>';
+            echo ' <li class="nav-item"><a href="bookinglist.php"><i class="paw fas fa-paw fa-lg"></i> My Bookings </a></li>'; 
+            echo ' <li class="nav-item"><a href="booking.php"><i class="paw fas fa-paw fa-lg"></i> Make a Booking</a></li>';
             echo '';
           }
           //When the user is ADMIN, show some options
@@ -157,8 +158,8 @@
         <form class="px-4 py-3" action="includes/login.inc.php" method="post">
         
             <div class="form-group"  style="margin-top:20px">
-                <label for="Username">Enter your email</label>
-                <input class="form-control" type="text" id="mailuid" name="mailuid" placeholder="email">
+                <label for="Username">Enter your username/email</label>
+                <input class="form-control" type="text" id="mailuid" name="mailuid" placeholder="username/email">
             </div>
             <div class="form-group" style="margin-top:20px">
                 <label for="inputPassword1">Password:</label>

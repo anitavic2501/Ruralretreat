@@ -77,6 +77,7 @@ div.content {
   <a href="manage_users.php">Manage Users</a>
   <a href="manage_bookings.php">Manage Bookings</a>
   <a href="adminlistbooking.php">List Bookings</a>
+  <a href="managedog.php">Manage Dogs</a>
   <a href="add_services.php">Manage Services</a>
   <a href="logout.php">Logout</a>
 </div>

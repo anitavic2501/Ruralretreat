@@ -18,6 +18,8 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+
+
 .sidebar {
   margin: 0;
   padding: 0;
@@ -51,6 +53,10 @@ div.content {
   height: 1000px;
 }
 
+.content h1{
+  text-align : center;
+}
+
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
@@ -75,8 +81,8 @@ div.content {
   <a  href="providerdashboard.php">
             <img class="logo_pic" src="images\logo.png"></a><hr>
   <a href="provideruser.php">Manage Users</a>
-  <a href="providerbooking.php">Manage Bookings</a>
-  <a href="providerbookinglist.php">List Bookings</a>
+  <a href="providerbooking.php">Make a Booking</a>
+  <a href="providerbookinglist.php">List of Bookings</a>
   <a href="logout.php">Logout</a>
 </div>
         
