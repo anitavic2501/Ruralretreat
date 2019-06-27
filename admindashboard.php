@@ -69,7 +69,7 @@ include_once './partials/head.php';
 
 <div class="team-back">
 <span>
-<a href="manageuser.php">Click here</a>
+<a href="manage_users.php">Click here</a>
 </span>
 </div>
 
@@ -124,7 +124,7 @@ include_once './partials/head.php';
 </div>
 
 <div class="team-back">
-<span><br><a href="manageservices.php">Click here</a></span>
+<span><br><a href="add_services.php">Click here</a></span>
 </div>
 
 </div>

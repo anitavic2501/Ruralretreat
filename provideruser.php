@@ -11,7 +11,7 @@
 <body style="margin-bottom: 10px">
     <header>
         <?php
-        include_once './partials/adminheader.php';
+        include_once './partials/providerheader.php';
     ?>
     </header>
     <div class="container">
