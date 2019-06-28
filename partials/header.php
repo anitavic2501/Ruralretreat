@@ -135,6 +135,7 @@
           }
           else if(isset($_SESSION['id']) && $_SESSION['utd']== 2){
           echo '<li class="nav-item"><a class="nav-link" href="providerdashboard.php"><i class="paw fas fa-paw fa-lg"></i>My Dashboard</a></li>';  
+          echo ' <li class="nav-item"><a href="doglist.php"><i class="paw fas fa-paw fa-lg"></i> My Dogs</a></li>';
           echo '<li class="nav-item"><a class="nav-link" href="booking.php"><i class="paw fas fa-paw fa-lg"></i>Make Bookings</a></li>';
             
           }

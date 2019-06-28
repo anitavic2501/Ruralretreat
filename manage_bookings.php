@@ -15,7 +15,7 @@
     ?>
     </header>
     <div class="content">
-    <h1> Manage Users </h1>
+    <h1> Manage Bookings </h1>
     <div class="container">
     <?php 
 						if (isset ($_GET['status'] )) {
@@ -42,8 +42,6 @@
 					<?php }
 				 } ?>
         </div>  
-        <br><br><br><br><br>                     
-
     <table class="table table-hover">
   <thead>
     <tr>

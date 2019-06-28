@@ -14,11 +14,12 @@ $dog_name = $_POST['dogname'];
 $dog_breed = $_POST['breed'];
 $dog_age = $_POST['age'];
 $dog_gender = $_POST['gender'];
+$doglabel = $_POST['label'];
 
 //    $vaccination = $_POST['vaccination'];
 //    $datereceived= $_POST['datereceived'];
 
-$updatesql= "UPDATE dogs SET dogname = '$dog_name',breed = '$dog_breed',age=$dog_age, gender = '$dog_gender' WHERE dog_id = $dog_id";
+$updatesql= "UPDATE dogs SET dogname = '$dog_name',breed = '$dog_breed',age=$dog_age, gender = '$dog_gender', label = '$doglabel' WHERE dog_id = $dog_id";
 
 if (mysqli_query($con, $updatesql)) {
  
