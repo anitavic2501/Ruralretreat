@@ -58,7 +58,12 @@
   <tbody>
       <?php
 
-       $userid=$_SESSION['id'];
+       $userid="";
+       if(isset($_SESSION['userinfo'])){
+         $userid=$_SESSION['userinfo']['user_id'];
+       } else {
+       $userid=$_SESSION['id']; }
+       
        $con = mysqli_connect("localhost","root","","ruralretreat");
       $dogs = "SELECT * FROM dogs WHERE user_id = $userid";
       $res = mysqli_query($con, $dogs);
@@ -92,13 +97,35 @@
                 
                 <div class="editdog" style="align: center;">
                     
-                    <input id="dog_id" type="hidden" name="dog_id"  value="<?php echo $r['dog_id']; ?>"/>
-                    <input id="dog_name" type="text" name="dogname" class="text_field form-control" value=""  required>
-                    <input id="breed" type="text" name="breed" class="text_field form-control" value=""  required>
-                    <input id="age" type="text"  name="age" class="text_field form-control" value="" placeholder="" required>
-                    <input id="gender" type="text"  name="gender" class="text_field form-control" value="" placeholder="" required>
-                    
-                                                       
+                <input id="dog_id" type="hidden" name="dog_id"  value="<?php echo $r['dog_id']; ?>"/>
+                    Dog name :<input id="dog_name" type="text" name="dogname" class="text_field form-control" value=""  required>
+                    <br> Dog Breed : <input id="breed" type="text" name="breed" class="text_field form-control" value=""  required>
+                    <br> Dog Age :<input id="age" type="text"  name="age" class="text_field form-control" value="" placeholder="" required>
+                    <br> Dog Gender : <br>
+                    <label class="control-label">Gender <sup>*</sup></label>
+    <div class="controls"> 
+    <div class="row">          
+    <div class="col-4"></div>
+    <div class="col-4"> 
+    <label class="doggender">Male Whole
+      <input type="radio" checked="checked" name="gender" value="Male Whole" required>
+      <span class="checkmark"></span>
+    </label>
+    <label class="doggender">Male Neuter
+      <input type="radio" name="gender" value="Male Neuter" required>
+      <span class="checkmark"></span>
+    </label>
+    <label class="doggender">Female Whole
+      <input type="radio" name="gender" value="Female Whole" required>
+      <span class="checkmark"></span>
+    </label>
+    <label class="doggender">Female Spay
+      <input type="radio" name="gender" value="Female Spay" required>
+      <span class="checkmark"></span>
+    </label>
+    </div>
+    <div class="col-4"></div>
+         </div> </div>                                 
                 
                 </div>
                     
@@ -161,19 +188,19 @@
     <div class="col-4"></div>
     <div class="col-4"> 
     <label class="doggender">Male Whole
-      <input type="radio" checked="checked" name="gender" value="Male Whole">
+      <input type="radio" checked="checked" name="gender" value="Male Whole" required>
       <span class="checkmark"></span>
     </label>
     <label class="doggender">Male Neuter
-      <input type="radio" name="gender" value="Male Neuter">
+      <input type="radio" name="gender" value="Male Neuter" required>
       <span class="checkmark"></span>
     </label>
     <label class="doggender">Female Whole
-      <input type="radio" name="gender" value="Female Whole">
+      <input type="radio" name="gender" value="Female Whole" required>
       <span class="checkmark"></span>
     </label>
     <label class="doggender">Female Spay
-      <input type="radio" name="gender" value="Female Spay">
+      <input type="radio" name="gender" value="Female Spay" required>
       <span class="checkmark"></span>
     </label>
     </div>

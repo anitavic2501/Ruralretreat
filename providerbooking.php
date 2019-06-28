@@ -94,8 +94,8 @@ if ($result->num_rows > 0) {
         echo "User Last Name: " .$row['userlname']." <br> ";
         echo "Username: ".$row['username']."<br>";
         echo "email: ".$row['email']."<br>";
-        echo '<a class="btn btn-success" href="booking.php">Book Now</a>';
-        
+        echo '<a class="btn btn-success" href="booking.php">Book Now</a><br>  ';
+        echo '<br><a class="btn btn-success" href="doglist.php">Add Dog</a>';
         echo "</div>";
         
     }

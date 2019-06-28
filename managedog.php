@@ -160,68 +160,6 @@ require "includes/dbh.inc.php";
 </tbody>
 </table>
 
-<div class="dogregister" id="insertdog">
-<div class="row">
-            <div class="col-12" style="text-align: center">
-<form name="add_dog" method="POST" action="admininsertdog.php" >
-
-<div class="control-group">
-    <label class="control-label">Dog name<sup>*</sup></label>
-    <div class="controls">
-        <input type="text" name="dogname" required="required" id="dogname">
-    </div>
-</div>
-<div class="control-group">
-    <label class="control-label">Breed<sup>*</sup></label>
-    <div class="controls">
-        <input type="text" name="breed" required="required" id="breed">
-    </div>
-</div>
-<div class="control-group">
-    <label class="control-label">Age <sup>*</sup></label>
-    <div class="controls">
-        <input type="text" name="age" required="required" id="age">
-    </div>
-    
-<div class="control-group">
-    <label class="control-label">Gender <sup>*</sup></label>
-    <div class="controls"> 
-    <div class="row">          
-    <div class="col-4"></div>
-    <div class="col-4"> 
-    <label class="doggender">Male Whole
-      <input type="radio" checked="checked" name="gender" value="Male Whole">
-      <span class="checkmark"></span>
-    </label>
-    <label class="doggender">Male Neuter
-      <input type="radio" name="gender" value="Male Neuter">
-      <span class="checkmark"></span>
-    </label>
-    <label class="doggender">Female Whole
-      <input type="radio" name="gender" value="Female Whole">
-      <span class="checkmark"></span>
-    </label>
-    <label class="doggender">Female Spay
-      <input type="radio" name="gender" value="Female Spay">
-      <span class="checkmark"></span>
-    </label>
-    </div>
-    <div class="col-4"></div>
-         </div>
-    </div>
-</div>
-
-
-<div class="control-group">
-                        <div class="controls">
-                            <input style="margin-top: 15px;" class="btn btn-large btn-success" type="submit" name="add_dog" value="Add Dog"  />
-                         </div>
-                    </div>
-                </form>
-                </div>
-
-</div>
-</div>
 <br>
 
 <script>
