@@ -54,13 +54,9 @@ require "includes/dbh.inc.php";
 					<?php }
 				 } ?>
         </div> </div>
-        <br><br><br><br><br>      
-
-
-
         <div class="content">
 
-        
+        <h1> Manage Dogs </h1>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -69,6 +65,7 @@ require "includes/dbh.inc.php";
       <th scope="col">Breed</th>
       <th scope="col">Age</th>
       <th scope="col">Gender</th>
+      <th scope="col">Label</th>
     </tr>
   </thead>
   <tbody>
@@ -81,6 +78,7 @@ require "includes/dbh.inc.php";
       dogs.age, 
       dogs.gender,
       dogs.breed,
+      dogs.label,
       users.username 
       FROM dogs JOIN users ON users.user_id = dogs.user_id";
       $res = mysqli_query($con, $doglist);
@@ -91,10 +89,10 @@ require "includes/dbh.inc.php";
             <td><?php echo $r['breed']; ?></td>
             <td><?php echo $r['age']; ?></td>
             <td><?php echo $r['gender']; ?></td>
-            
+            <td><?php echo $r['label']; ?></td>
             <td><div class="container">
         <!-- Button to Open the Modal -->
-        <button type="button" onclick="initModal(<?php echo $r['dog_id'].','.$r['age'].','.'\''.$r['dogname'].'\','.'\''.$r['gender'].'\','.'\''.$r['breed'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <button type="button" onclick="initModal(<?php echo $r['dog_id'].','.$r['age'].','.'\''.$r['dogname'].'\','.'\''.$r['gender'].'\','.'\''.$r['breed'].'\','.'\''.$r['label'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Edit
         </button>
 
@@ -118,8 +116,17 @@ require "includes/dbh.inc.php";
                     Dog name :<input id="dog_name" type="text" name="dogname" class="text_field form-control" value=""  required>
                     <br> Dog Breed : <input id="breed" type="text" name="breed" class="text_field form-control" value=""  required>
                     <br> Dog Age :<input id="age" type="text"  name="age" class="text_field form-control" value="" placeholder="" required>
-                    <br> Dog gender : <input id="gender" type="text"  name="gender" class="text_field form-control" value="" placeholder="" required>
+                    <br> Dog Gender : <br>
+                    <label class="dog-gender"><input type="radio" name="gender"  value="Male Whole" required> Male Whole 
+                    <br><input type="radio" name="gender"  value="Male Neuter" required> Male Neuter 
+                    <br><input type="radio" name="gender"  value="Female Whole" required> Female Whole
+                    <br><input type="radio" name="gender"  value="Female Spay" required> Female Spay </label>
                     
+                    <br> Dog Label : <br>
+                    <label class="dog-label">
+                    <input type="radio" name="label"  value="green" checked required> green
+                    <br><input type="radio" name="label"  value="yellow" required> yellow 
+                    <br><input type="radio" name="label"  value="blue" required> blue </label>
                                                        
                 
                 </div>
@@ -153,68 +160,6 @@ require "includes/dbh.inc.php";
 </tbody>
 </table>
 
-<div class="dogregister" id="insertdog">
-<div class="row">
-            <div class="col-12" style="text-align: center">
-<form name="add_dog" method="POST" action="admininsertdog.php" >
-
-<div class="control-group">
-    <label class="control-label">Dog name<sup>*</sup></label>
-    <div class="controls">
-        <input type="text" name="dogname" required="required" id="dogname">
-    </div>
-</div>
-<div class="control-group">
-    <label class="control-label">Breed<sup>*</sup></label>
-    <div class="controls">
-        <input type="text" name="breed" required="required" id="breed">
-    </div>
-</div>
-<div class="control-group">
-    <label class="control-label">Age <sup>*</sup></label>
-    <div class="controls">
-        <input type="text" name="age" required="required" id="age">
-    </div>
-    
-<div class="control-group">
-    <label class="control-label">Gender <sup>*</sup></label>
-    <div class="controls"> 
-    <div class="row">          
-    <div class="col-4"></div>
-    <div class="col-4"> 
-    <label class="doggender">Male Whole
-      <input type="radio" checked="checked" name="gender" value="Male Whole">
-      <span class="checkmark"></span>
-    </label>
-    <label class="doggender">Male Neuter
-      <input type="radio" name="gender" value="Male Neuter">
-      <span class="checkmark"></span>
-    </label>
-    <label class="doggender">Female Whole
-      <input type="radio" name="gender" value="Female Whole">
-      <span class="checkmark"></span>
-    </label>
-    <label class="doggender">Female Spay
-      <input type="radio" name="gender" value="Female Spay">
-      <span class="checkmark"></span>
-    </label>
-    </div>
-    <div class="col-4"></div>
-         </div>
-    </div>
-</div>
-
-
-<div class="control-group">
-                        <div class="controls">
-                            <input style="margin-top: 15px;" class="btn btn-large btn-success" type="submit" name="add_dog" value="Add Dog"  />
-                         </div>
-                    </div>
-                </form>
-                </div>
-
-</div>
-</div>
 <br>
 
 <script>

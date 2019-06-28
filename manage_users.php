@@ -21,7 +21,7 @@
 						?>
 
 							<div class="alert alert-warning alert-dismissible fade show" role="alert">	
-  							<strong>Details successfuly updated!</strong>
+  							<strong>Successfuly updated!</strong>
   							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
     						<span aria-hidden="true">&times;</span>
   							</button>
@@ -39,10 +39,10 @@
 					
 					<?php }
 				 } ?>
-        </div> </div>
-        <br><br><br><br><br>         
+        </div> </div>    
 
         <div class="content">
+        <h1> Manage Users </h1>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -136,9 +136,10 @@
 
 </td>
             <td>
-            <a type ="button" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
+             <a type ="button" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
             </a>
             
+      
         
 
 </td>

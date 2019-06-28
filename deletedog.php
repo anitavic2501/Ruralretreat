@@ -15,7 +15,7 @@ $sql= "DELETE from dogs where dog_id = $dog_id";
 
 if (mysqli_query($con, $sql)) {
 
-    if (isset($_SESSION['utd'])  && $_SESSION['utd']== 3) {
+    if (isset($_SESSION['utd'])  && ($_SESSION['utd']== 3)||($_SESSION['utd']==2)) {
     header("Location: doglist.php?status=success");
     
 } else{

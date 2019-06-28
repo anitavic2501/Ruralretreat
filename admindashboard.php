@@ -131,6 +131,25 @@ include_once './partials/head.php';
 </div>
 <!--team-5-->
 
+
+<div class="col-lg-6">
+<div class="our-team-main">
+
+<div class="team-front">
+<img src="images/dogs4.jpg" class="img-fluid" />
+<h3>Reports</h3>
+<p></p>
+</div>
+
+<div class="team-back">
+<span><br><a href="reports.php">Click here</a></span>
+</div>
+
+</div>
+</div>
+
+
+
 <div class="col-lg-6">
 <div class="our-team-main">
 

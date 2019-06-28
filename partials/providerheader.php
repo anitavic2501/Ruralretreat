@@ -81,7 +81,7 @@ div.content {
   <a  href="providerdashboard.php">
             <img class="logo_pic" src="images\logo.png"></a><hr>
   <a href="provideruser.php">Manage Users</a>
-  <a href="providerbooking.php">Make a Booking</a>
+  <a href="providerbooking.php">Make a Booking/add dog</a>
   <a href="providerbookinglist.php">List of Bookings</a>
   <a href="logout.php">Logout</a>
 </div>

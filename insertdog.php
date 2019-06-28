@@ -22,7 +22,12 @@ include_once 'database.php';
    $dog_breed = $_POST['breed'];
    $dog_age = (int)$_POST['age'];
    $dog_gender = $_POST['gender'];
-   $user_id = $_SESSION['id'];
+   
+   $user_id = "";
+   if(isset($_SESSION['userinfo'])){
+       $user_id=$_SESSION['userinfo']['user_id'];
+   } else {
+   $user_id=$_SESSION['id']; }
 //    $vaccination = $_POST['vaccination'];
 //    $datereceived= $_POST['datereceived'];
 
