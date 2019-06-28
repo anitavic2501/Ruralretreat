@@ -29,7 +29,7 @@ session_start();
 <?php
 						
 						$con = mysqli_connect("localhost", "root", "","ruralretreat");
-						$sql = "SELECT * FROM services";
+						$sql = "SELECT * FROM services WHERE service_type = 'addon'";
        
 						$result = mysqli_query($con, $sql);
             ?>
@@ -52,7 +52,7 @@ Discount applies for 2+ dog families.
 
 <?php				
 while ($rows = mysqli_fetch_assoc($result)){
- echo '<img src="' . $rows['image'] . '" alt=" " style="max-width:600px;max-height:400px" /></a>';
+ echo '<img src="' ."images/". $rows['image'] . '" alt=" " style="max-width:600px;max-height:400px" /></a>';
  
  echo '<br>';
  echo '<a href="#'.$rows['services'].'" class="btn btn-info" data-toggle="collapse">'.$rows['services'].'</a>'; 

@@ -25,7 +25,66 @@ include 'includes/dbh.inc.php';
 
 
 
-<body>				
+<body>
+<div class="content">
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Service ID</th>
+      <th scope="col">Service Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Type</th>
+      <th scope="col">Edit Service</th>
+      <th scope="col">Delete Service</th>
+    </tr>
+  </thead>	
+<tbody>
+      <?php
+      //  $conn = mysqli_connect("localhost","root","","ruralretreat");
+      $services = "SELECT * FROM services";
+      $res = mysqli_query($conn, $services);
+      while($r = mysqli_fetch_assoc($res)): ?>
+            <tr>
+            <td><?php echo $r['service_id']; ?></td>
+            <td><?php echo $r['services']; ?></td>
+            <td><?php echo $r['price']; ?></td>
+            <td><?php echo $r['description']; ?></td>
+            <td><?php echo $r['image']; ?></td>
+            <td><?php echo $r['service_type']; ?></td>
+            
+            <td>
+            
+            <div class="container">
+        <!-- Button to Open the Modal -->
+        <button style = "background-color:green;"type="button" onclick="initModal(<?php echo $r['service_id'].','.'\''.$r['services'].'\','.'\''.$r['price'].'\','.'\''.$r['description'].'\','.'\''.$r['image'].'\','.'\''.$r['service_type'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Edit
+        </button>
+
+        <!-- The Modal -->
+       
+  </div>
+  
+
+
+</td>
+            <td>
+            <a type ="button" href = "deleteservice.php?service_id=<?php echo $r['service_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete Service" class="btn btn-danger" id="delete">Delete Service
+            </a>
+            
+        
+
+</td>
+                      
+            </tr>
+
+<?php endwhile ?>
+</tbody>	
+</table>
+	
+
+
 	<div class="content">
 	
 <h1 style="color: black;">Add Services</h1>	
@@ -39,7 +98,7 @@ include 'includes/dbh.inc.php';
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Service Name</label>  
   <div class="col-md-5">
-  <input id="textinput" name="service" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="service" name="service" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -48,53 +107,116 @@ include 'includes/dbh.inc.php';
 <div class="form-group">
   <label class="col-md-4 control-label" for="description">Service description</label>  
   <div class="col-md-8">
-  <input id="description" name="description" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="add_description" name="description" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Button Drop Down -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="service-provider">Service Agency Provider</label>
- <br>
-     <?php
-     
-     $sql= "Select agency_id,agency_name From agency";
-     $result = mysqli_query($conn,$sql);
 
-     echo "<select name='sub1'>";
-     while ($row = mysqli_fetch_array($result)){
-         echo" <option value='". $row['agency_id'] ."'>". $row['agency_name'] ."</options>";
-     }
-     echo "</select>";
-     ?>
-<!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="price">Price</label>  
   <div class="col-md-2">
-  <input id="price" name="price" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="add_price" name="add_price" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton">Add, Edit &amp; Delete</label>
+  <label class="col-md-4 control-label" for="singlebutton">Add Service</label>
   <div class="col-md-4">
     <button id="singlebutton" name="singlebutton" class="btn btn-primary">Save</button>
   </div>
 </div>
 
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="edit_services"></label>
-  <div class="col-md-4">
-    <button id="edit_services" name="edit_services" class="btn btn-primary">Edit</button>
-  </div>
-</div>
+
 
 </fieldset>
 </form>
+<script>
+
+ function initModal(id, services, price, description, image, type){
+
+        var service_id_text =  document.getElementById('service_id');
+        var services_text =  document.getElementById('services');
+        var price_text =  document.getElementById('price');
+        var description_text =  document.getElementById('description');
+        var image_text =  document.getElementById('image');
+        var service_type_text =  document.getElementById('service_type');
+        
+
+        service_id_text.value = id;
+        services_text.value = services;
+        price_text.value = price;
+        description_text.value = description;
+        image_text.value = image;
+        service_type_text.value = type;
+        
+
+
+ }
+
+
+
+</script>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h2 class="modal-title">Service Details</h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <?php
+						
+						$con = mysqli_connect("localhost", "root", "","ruralretreat");
+						$sql = "SELECT distinct(service_type) FROM services";
+       
+						$result = mysqli_query($con, $sql);
+						?>
+                <!-- Modal body -->
+                <form class="modal-body" method="POST" action="editservice.php" enctype="multipart/form-data">
+                
+                <div class="editdog" style="align: center;">
+                    
+                    <input id="service_id" type="hidden" name="service_id"  value="<?php echo $r['service_id']; ?>"/>
+                    <input id="services" type="text" name="services" class="text_field form-control" value=""  required>
+                    <input id="price" type="text" name="price" class="text_field form-control" value=""  required>
+                    <input id="description" type="text"  name="description" class="text_field form-control" value="" placeholder="" required>
+                    <span >Upload image:</span>
+                    <input id="image" type="file"  name="image"  value="Upload" placeholder="" >
+                    <select class="form-control" id="service_type" name="service_type">
+								<?php				
+								while ($rows = mysqli_fetch_assoc($result)) 
+								{
+								?>
+								<option><?php echo $rows['service_type']?></option>
+												
+											
+							<?php }?>		
+							
+							</select>
+                    
+                                                       
+                
+                </div>
+                    
+            
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Update</button>
+                </div> </form>
+                
+      </div>
+    </div>
+  </div>
+  
+</div>
+</body>
 
 
 <footer>

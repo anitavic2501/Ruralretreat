@@ -14,7 +14,13 @@ include 'includes/dbh.inc.php';
                 $dogid =  $_POST['dogsname'];
                 $startdate = $_POST['startdate'];
                 $enddate =  $_POST['enddate'];
+                
+                if(isset($_POST['service'])) {
                 $service = $_POST['service'];
+                }else {
+
+                  $service =  array();
+                }
                 $mainService = $_POST['mainService'];
 
                 
