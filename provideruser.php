@@ -30,6 +30,7 @@ include_once './partials/head.php';
 </header>
 
 <body>
+<div class="content">
     <div class="container">
     <?php 
 						if (isset ($_GET['status'] )) {
@@ -55,9 +56,9 @@ include_once './partials/head.php';
 					
 					<?php }
 				 } ?>
-        </div> </div>
+        </div>
         
-        <div class="content">
+        
         <h1>Manage users</h1>       
 
     <table class="table table-hover">
@@ -238,9 +239,4 @@ include_once './partials/head.php';
 
 </body>
 
-<footer>
-<?php
-     include_once './partials/footer.php';
-  ?>
-      </footer>
 </html>

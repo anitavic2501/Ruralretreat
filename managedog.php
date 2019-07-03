@@ -189,9 +189,4 @@ require "includes/dbh.inc.php";
 
 </body>
 
-<footer>
-<?php
-     include_once './partials/footer.php';
-  ?>
-      </footer>
 </html>

@@ -27,6 +27,7 @@ include 'includes/dbh.inc.php';
 
 <body>
 <div class="content">
+<h1>Manage Services</h1>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -84,8 +85,6 @@ include 'includes/dbh.inc.php';
 </table>
 	
 
-
-	<div class="content">
 	
 <h1 style="color: black;">Add Services</h1>	
 		
@@ -101,7 +100,7 @@ include 'includes/dbh.inc.php';
   <input id="service" name="service" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
-</div>
+
 
 <!-- Text input-->
 <div class="form-group">

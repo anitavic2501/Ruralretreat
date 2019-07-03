@@ -39,7 +39,7 @@
 					
 					<?php }
 				 } ?>
-        </div> </div>    
+        </div> <  
 
         <div class="content">
         <h1> Manage Users </h1>
@@ -113,9 +113,9 @@
 								<option value=<?php echo $rows['user_type_id'] ?>><?php echo $rows['user_type_name']?></option>
 												
 											
-							<?php }?>		
+							    <?php }?>		
 							
-							</select>
+							  </select>
                     
                                                        
                 
@@ -128,26 +128,23 @@
                 <button type="submit" class="btn btn-danger">Update</button>
                 </div> </form>
                 
-      </div>
-    </div>
-  </div>
+              </div>
+              </div>
+          </div>
   
-</div>
+        </div>
 
-</td>
+            </td>
             <td>
              <a type ="button" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
-            </a>
+              </a>
             
-      
-        
-
-</td>
+            </td>
                       
             </tr>
 
-<?php endwhile ?>
-</tbody>
+      <?php endwhile ?>
+  </tbody>
 </table>
 
 
@@ -182,9 +179,4 @@
 
 </body>
 
-<footer>
-<?php
-     include_once './partials/footer.php';
-  ?>
-      </footer>
 </html>
