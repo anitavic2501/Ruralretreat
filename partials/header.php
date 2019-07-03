@@ -107,26 +107,26 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav mx-auto nav-fill w-100">
         <li class="nav-item">
-        <a href="services.php">
+        <a class="nav-link" href="services.php">
         <i class="paw fas fa-paw fa-lg"></i> Our Services </a> 
         </li>
       
         <li class="nav-item">
-          <a href="index.php#section3">
+          <a class="nav-link" href="index.php#section3">
           <i class="paw fas fa-paw fa-lg"></i> Contact Us</a>  </li>
         <li class="nav-item">
-        <a href="article2.php">
+        <a class="nav-link" href="article2.php">
         <i class="paw fas fa-paw fa-lg"></i> Articles</a></li>
          <?php
         
         //   //When the user is a CUSTOMER, then show the SEND FEEDBACK form
         
         if (isset($_SESSION['id']) && $_SESSION['utd']== 3)  {
-          echo ' <li class="nav-item"><a href="dashboard.php"> <i class="paw fas fa-paw fa-lg"></i>My dashboard </a></li>';  
-            echo ' <li class="nav-item"><a href="edit_customer.php"> <i class="paw fas fa-paw fa-lg"></i> Edit my profile</a></li>';  
-            echo ' <li class="nav-item"><a href="doglist.php"><i class="paw fas fa-paw fa-lg"></i> My Dogs</a></li>';
-            echo ' <li class="nav-item"><a href="bookinglist.php"><i class="paw fas fa-paw fa-lg"></i> My Bookings </a></li>'; 
-            echo ' <li class="nav-item"><a href="booking.php"><i class="paw fas fa-paw fa-lg"></i> Make a Booking</a></li>';
+          echo ' <li class="nav-item"><a class="nav-link" href="dashboard.php"> <i class="paw fas fa-paw fa-lg"></i>My dashboard </a></li>';  
+            echo ' <li class="nav-item"><a class="nav-link" href="edit_customer.php"> <i class="paw fas fa-paw fa-lg"></i> Edit my profile</a></li>';  
+            echo ' <li class="nav-item"><a class="nav-link" href="doglist.php"><i class="paw fas fa-paw fa-lg"></i> My Dogs</a></li>';
+            echo ' <li class="nav-item"><a class="nav-link" href="bookinglist.php"><i class="paw fas fa-paw fa-lg"></i> My Bookings </a></li>'; 
+            echo ' <li class="nav-item"><a class="nav-link" href="booking.php"><i class="paw fas fa-paw fa-lg"></i> Make a Booking</a></li>';
             echo '';
           }
           //When the user is ADMIN, show some options
@@ -135,7 +135,7 @@
           }
           else if(isset($_SESSION['id']) && $_SESSION['utd']== 2){
           echo '<li class="nav-item"><a class="nav-link" href="providerdashboard.php"><i class="paw fas fa-paw fa-lg"></i>My Dashboard</a></li>';  
-          echo ' <li class="nav-item"><a href="doglist.php"><i class="paw fas fa-paw fa-lg"></i> My Dogs</a></li>';
+          echo ' <li class="nav-item"><a class="nav-link" href="doglist.php"><i class="paw fas fa-paw fa-lg"></i> My Dogs</a></li>';
           echo '<li class="nav-item"><a class="nav-link" href="booking.php"><i class="paw fas fa-paw fa-lg"></i>Make Bookings</a></li>';
             
           }
@@ -152,7 +152,7 @@
          
         if (!isset($_SESSION['id'])) {
           echo ' <li class="nav-item dropdown">
-          <a href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
           
           <i class="paw fas fa-paw fa-lg"></i>Log in</a>
         <div class="dropdown-menu">
@@ -183,7 +183,7 @@
         }
         else if (isset($_SESSION['id'])) {
          
-         echo '<li class="nav-item"><a href="logout.php"><i class="paw fas fa-paw fa-lg"></i>Log out</a></li>'
+         echo '<li class="nav-item"><a class="nav-link" href="logout.php"><i class="paw fas fa-paw fa-lg"></i>Log out</a></li>'
           ;}
          ?> 
       </ul>
