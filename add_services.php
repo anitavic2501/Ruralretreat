@@ -186,9 +186,9 @@ include 'includes/dbh.inc.php';
                     <input id="services" type="text" name="services" class="text_field form-control" value=""  required>
                     <input id="price" type="text" name="price" class="text_field form-control" value=""  required>
                     <input id="description" type="text"  name="description" class="text_field form-control" value="" placeholder="" required>
-                    <span >Upload image:</span>
-                    <input id="image" type="file"  name="image"  value="Upload" placeholder="" >
                     <select class="form-control" id="service_type" name="service_type">
+                    
+                    
 								<?php				
 								while ($rows = mysqli_fetch_assoc($result)) 
 								{
@@ -199,6 +199,8 @@ include 'includes/dbh.inc.php';
 							<?php }?>		
 							
 							</select>
+              <span >Upload image:</span>
+                    <input id="image" type="file"  name="image"  value="Upload" placeholder="" >
                     
                                                        
                 

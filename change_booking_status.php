@@ -24,7 +24,7 @@ if($status == 'approve'){
 }
 else{
     
-    $message = 'Your booking has been <strong>rejected</strong>';
+    $message = 'Your booking has been <strong>rejected</strong> Contact our managers in case of questions';
 
 
 }
