@@ -38,7 +38,7 @@
 }
 
 #mainNav .navbar-nav > li.nav-item > a {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 1px;
 }

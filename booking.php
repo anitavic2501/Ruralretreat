@@ -152,10 +152,10 @@ session_start();
 								<span class="form-label">Additional Services:</span>
 									<div class="selectBox" onclick="showCheckboxes()">
 								
-								<select id = 'services'>
-									<option>Select service</option>
+								<select id = 'services' >
+									<option>Select services</option>
 								</select>
-								<div class="overSelect"></div>
+								<div class="overSelect" style = "line-height 1,5;"></div>
 							        </div>
 							<div id="checkboxes">
 							<div class="form-group">
@@ -163,8 +163,8 @@ session_start();
 								while ($rows = mysqli_fetch_assoc($result)) 
 								{
 								?>
-								<label>
-									<input type="checkbox" id = 'services' value=<?php echo $rows['service_id'] ?>  name="service[]"/><?php echo $rows['services']?></label>
+								<label id = "label" >
+									<input type="checkbox" value=<?php echo $rows['service_id'] ?>  name="service[]"/><?php echo $rows['services']?></label>
 									<?php }?>
 							</div>
 							</div>
@@ -173,8 +173,8 @@ session_start();
 										
 									
 								
-								<div class="col-6 form-btn">
-									<button class="btn btn-primary" type = "submit" name = "book">Submit</button>
+								<div class="col-6 form-btn" >
+									<button class="btn btn-primary" type = "submit" name = "book" >Submit</button>
 								</div>
 					</div>
 							
