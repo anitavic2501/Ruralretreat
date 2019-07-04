@@ -105,8 +105,10 @@ include 'includes/dbh.inc.php';
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="description">Service description</label>  
+
   <div class="col-md-8">
   <textarea id="textarea" name="description"  type="text" class="form-control rounded-0" rows="10" required=""></textarea>
+
     
   </div>
 </div>
@@ -115,7 +117,7 @@ include 'includes/dbh.inc.php';
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="price">Price</label>  
-  <div class="col-md-2">
+  <div class="col-md-3">
   <input id="add_price" name="add_price" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
@@ -218,4 +220,7 @@ include 'includes/dbh.inc.php';
   
 </div>
 </body>
+
+
+
 </html>

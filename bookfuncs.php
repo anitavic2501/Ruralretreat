@@ -135,7 +135,11 @@ class Booking {
                 $generated_booking_id = mysqli_insert_id($this->connection);
                 $this->bookingId = $generated_booking_id;
 
-                $mainServieSQLRecord = "INSERT INTO service_booking (service_id, booking_id) VALUES ($mainService, $generated_booking_id)";
+                $datetime1 = date_create($startDate);
+                $datetime2 = date_create($endDate);
+                $interval = date_diff($datetime1, $datetime2);
+
+                $mainServieSQLRecord = "INSERT INTO service_booking (service_id, booking_id, quantity) VALUES ($mainService, $generated_booking_id, $interval->days)";
                 $this->executeSQL(  $mainServieSQLRecord );
 
                 foreach($service_ids as $service_id ) {
@@ -179,7 +183,11 @@ class Booking {
                 $generated_booking_id = mysqli_insert_id($this->connection);
                 $this->bookingId = $generated_booking_id;
 
-                $mainServieSQLRecord = "INSERT INTO service_booking (service_id, booking_id) VALUES ($mainService, $generated_booking_id)";
+                $datetime1 = date_create($startDate);
+                $datetime2 = date_create($endDate);
+                $interval = date_diff($datetime1, $datetime2);
+
+                $mainServieSQLRecord = "INSERT INTO service_booking (service_id, booking_id, quantity) VALUES ($mainService, $generated_booking_id, $interval->days)";
                 $this->executeSQL(  $mainServieSQLRecord );
 
                 foreach($service_ids as $service_id ) {
@@ -294,7 +302,7 @@ class Booking {
      }
      function gettotalsum($booking_id){
        
-      $sql = "SELECT sum(services.price) as total_price  from service_booking 
+      $sql = "SELECT sum(services.price*service_booking.quantity) as total_price  from service_booking 
       INNER JOIN services ON service_booking.service_id = services.service_id
       where service_booking.booking_id = $booking_id;";
       

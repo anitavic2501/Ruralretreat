@@ -27,7 +27,7 @@ class Sendemail{
         $mail->Port       = 587;                                    // TCP port to connect to
 
         //Recipients
-        $mail->setFrom('ruralretreat123@gmail.com', 'Mailer');
+        $mail->setFrom('ruralretreat123@gmail.com', 'Rural Retreat');
         var_dump($_SESSION['email']);
 
         $mail->addAddress(''.$_SESSION['email'].'', $_SESSION['username']);     // Add a recipient
