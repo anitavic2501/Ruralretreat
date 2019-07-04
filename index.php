@@ -20,7 +20,30 @@
      include_once './partials/header.php';
   ?>
   </header>
+  <?php 
+						if (isset ($_GET['status'] )) {
+                             if($_GET['status'] == 'success'){
+						?>
 
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">	
+  							<strong>Your message has been sent! We will reply you shortly!</strong>
+  							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    						<span aria-hidden="true">&times;</span>
+  							</button>
+							</div>
+                          
+                         <?php 
+						}  else  { ?>
+						<div class="alert alert-warning2 alert-dismissible fade show" role="alert">	
+  							<strong>Error!</strong>
+  							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    						<span aria-hidden="true">&times;</span>
+  							</button>
+							</div>
+					
+					
+					<?php }
+				 } ?>
   <body>
       <div>
         <div class="col-xl" style="text-align: center;">
@@ -57,23 +80,23 @@
               <div class="col-4 md"> </div>
               <div class="col-4 lg">    
         <section class="form" >
-                         <form name="contactform">
+                         <form name="contactform" action = "contactus.php" method="POST">
                                     <br><br>
                                     <h2>CONTACT US</h2>
                                     <div class="form-group">
                                             <label for="email">Email:</label>
-                                            <input type="text" name="field" class="form-control" id="email" placeholder="Enter email" required>
+                                            <input type="text" name="email" class="form-control" id="email" placeholder="Enter email" required>
                                         </div>
                                         <div class="form-group">
-                                                <label for="firstname">First Name:</label>
-                                                <input type="text" name="field" class="form-control" id="firstname" placeholder="Enter firstname" required>
+                                                <label for="name">Name:</label>
+                                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required>
                                             </div>
                                             <div class="form-group">
                                                     <label for="message">Message:</label>
-                                                    <textarea type="text" name="field" class="form-control rounded-0" id="textarea" rows="10" required></textarea>
+                                                    <textarea type="text" name="message" class="form-control rounded-0" id="message" rows="10" required></textarea>
                                                 </div>
                                     
-                                        <input type="button" class="btn btn-info" value="Submit Button" onclick="sub_bt()">
+                                        <button type="submit" class="btn btn-info" value="Submit Button">Send</button>
                                 
                                         <input type="reset" class="btn btn-danger" value="Reset">
                                         <br><br>
