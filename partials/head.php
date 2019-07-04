@@ -229,6 +229,45 @@ b{
 .panel{
   padding : 15px;
 }
+.multiselect {
+  width: 220px;
+  
+}
 
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  color: #495057;
+  
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+  background-color: white;
+  
+  
+}
+
+#checkboxes label {
+  display: block;
+  color: #495057;
+  
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
 }
 </style>

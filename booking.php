@@ -10,8 +10,10 @@ session_start();
 <html lang="en">
 
 	<head>
+	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="jQuery/js/jquery.multiselect.js"></script>
+	
 	<link rel="stylesheet" href="css/main.css">	
 		<?php
 		 include_once './partials/head.php';
@@ -144,28 +146,38 @@ session_start();
 						</div>
 						
 
-						<div class="form-group">
-							
+						
+					<div class="row">
+							<div class="col-6  multiselect">
 								<span class="form-label">Additional Services:</span>
-							<select class="form-control 4colactive" name="service[]" multiple = multiple>
+									<div class="selectBox" onclick="showCheckboxes()">
+								
+								<select id = 'services'>
+									<option>Select service</option>
+								</select>
+								<div class="overSelect"></div>
+							        </div>
+							<div id="checkboxes">
+							<div class="form-group">
 								<?php				
 								while ($rows = mysqli_fetch_assoc($result)) 
 								{
 								?>
-								<option value=<?php echo $rows['service_id'] ?>><?php echo $rows['services']?></option>
-												
-											
-							<?php }?>		
-							
-							</select>
+								<label>
+									<input type="checkbox" id = 'services' value=<?php echo $rows['service_id'] ?>  name="service[]"/><?php echo $rows['services']?></label>
+									<?php }?>
 							</div>
-					
+							</div>
+						</div>
+							
 										
 									
 								
-							<div class="form-btn">
-								<button class="btn btn-primary" type = "submit" name = "book">Submit</button>
-							</div>
+								<div class="col-6 form-btn">
+									<button class="btn btn-primary" type = "submit" name = "book">Submit</button>
+								</div>
+					</div>
+							
 						</form>
 						<br>
 						 
@@ -183,14 +195,33 @@ session_start();
 
 	<script>
  
-	$('select[multiple]').multiselect({
+	// $('select[multiple]').multiselect({
  
-		columns: 4,
+	// 	columns: 4,
  
-		placeholder: 'Select options'
+	// 	placeholder: 'Select options'
  
-	});
- 
+	// });
+
+$(document).ready(function() {
+$('#services').multiselect({
+nonSelectedText: 'Select services'
+});
+});
+	
+	
+	var expanded = false;
+
+	function showCheckboxes() {
+	var checkboxes = document.getElementById("checkboxes");
+	if (!expanded) {
+		checkboxes.style.display = "block";
+		expanded = true;
+	} else {
+		checkboxes.style.display = "none";
+		expanded = false;
+	}
+	}
 	</script>
 </body>
 
