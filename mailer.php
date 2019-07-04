@@ -42,7 +42,7 @@ class Sendemail{
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Rural Retreat Booking Notification';
+        $mail->Subject = 'Rural Retreat Notification';
         $mail->Body    = $messagebody;
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 

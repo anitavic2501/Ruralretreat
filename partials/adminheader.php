@@ -80,7 +80,7 @@ div.content {
   <a href="add_services.php">Manage Services</a>
   <a href="manage_articles.php">Manage Articles</a>
   <a href="reports.php">Reports</a>
-  <a href="messages.php">Messages</a>
+  <a href="manage_contactus.php">Messages</a>
 
   <a href="logout.php">Logout</a>
 </div>

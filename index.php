@@ -80,7 +80,7 @@
               <div class="col-4 md"> </div>
               <div class="col-4 lg">    
         <section class="form" >
-                         <form name="contactform" action = "contactus.php" method="POST">
+                         <form  id="Contactus" name="contactform" action = "contactus.php" method="POST">
                                     <br><br>
                                     <h2>CONTACT US</h2>
                                     <div class="form-group">
@@ -98,7 +98,7 @@
                                     
                                         <button type="submit" class="btn btn-info" value="Submit Button">Send</button>
                                 
-                                        <input type="reset" class="btn btn-danger" value="Reset">
+                                        <input type="button" class="btn btn-danger" onclick="myFunction()" value="Reset">
                                         <br><br>
                                         
                                     </div>
@@ -116,6 +116,11 @@
        
       </div>
 </body>
+<script>
+function myFunction() {
+  document.getElementById("Contactus").reset();
+}
+</script>
   <footer>
 <?php
      include_once './partials/footer.php';
