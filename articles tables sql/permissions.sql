@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2019 at 05:46 AM
+-- Generation Time: Jul 04, 2019 at 04:06 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -25,43 +25,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post_topic`
+-- Table structure for table `permissions`
 --
 
-CREATE TABLE `post_topic` (
+CREATE TABLE `permissions` (
   `id` int(11) NOT NULL,
-  `post_id` int(11) DEFAULT NULL,
-  `topic_id` int(11) DEFAULT NULL
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `post_topic`
---
-
-INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`) VALUES
-(1, 44, 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `post_topic`
+-- Indexes for table `permissions`
 --
-ALTER TABLE `post_topic`
-  ADD KEY `post_id` (`post_id`),
-  ADD KEY `topic_id` (`topic_id`);
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `post_topic`
+-- AUTO_INCREMENT for table `permissions`
 --
-ALTER TABLE `post_topic`
-  ADD CONSTRAINT `post_topic_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
-  ADD CONSTRAINT `post_topic_ibfk_2` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`id`);
+ALTER TABLE `permissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

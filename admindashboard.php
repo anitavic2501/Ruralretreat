@@ -58,7 +58,7 @@ include_once './partials/head.php';
 <div class="row">
 
 <!--team-1-->
-<div class="col-lg-6">
+<div class="col-lg-4">
 <div class="our-team-main">
 
 <div class="team-front">
@@ -78,7 +78,7 @@ include_once './partials/head.php';
 <!--team-1-->
 
 <!--team-2-->
-<div class="col-lg-6">
+<div class="col-lg-4">
 <div class="our-team-main">
 
 <div class="team-front">
@@ -97,7 +97,7 @@ include_once './partials/head.php';
 <!--team-2-->
 
 <!--team-3-->
-<div class="col-lg-6">
+<div class="col-lg-4">
 <div class="our-team-main">
 
 <div class="team-front">
@@ -114,7 +114,7 @@ include_once './partials/head.php';
 </div>
 </div>
 
-<div class="col-lg-6">
+<div class="col-lg-4">
 <div class="our-team-main">
 
 <div class="team-front">
@@ -132,11 +132,11 @@ include_once './partials/head.php';
 <!--team-5-->
 
 
-<div class="col-lg-6">
+<div class="col-lg-4">
 <div class="our-team-main">
 
 <div class="team-front">
-<img src="images/dogs4.jpg" class="img-fluid" />
+<img src="images/reports.jpg" class="img-fluid" />
 <h3>Reports</h3>
 <p></p>
 </div>
@@ -150,13 +150,52 @@ include_once './partials/head.php';
 
 
 
-<div class="col-lg-6">
+<div class="col-lg-4">
 <div class="our-team-main">
 
 <div class="team-front">
     <br>
-<i class="fas fa-power-off fa-3x">LOGOUT</i> 
+<img src="images/dogs4.jpg" class="img-fluid" />
+<h3>Manage Articles</h3>
+<p></p>
+
+</div>
+
+<div class="team-back">
+<span> 
+<br><a href="manage_articles.php">Click here</a></span>
+</div>
+
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="our-team-main">
+
+<div class="team-front">
+    <br>
+    <i class="fas fa-envelope fa-3x"></i>
+    <br><br><h3>Messages</h3>
 <br>
+
+</div>
+
+<div class="team-back">
+<span> 
+<br><a href="messages.php">Click here</a></span>
+</div>
+
+</div>
+</div>
+
+
+<div class="col-lg-4">
+<div class="our-team-main">
+
+<div class="team-front">
+    <br>
+<i class="fas fa-power-off fa-3x"></i> 
+<br> <br> <h3>LOGOUT</h3>
 
 </div>
 
