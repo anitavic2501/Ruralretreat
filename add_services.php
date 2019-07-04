@@ -95,7 +95,7 @@ include 'includes/dbh.inc.php';
 <br>
 <br>
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Service Name</label>  
+  <label class="col-md-4 control-label" for="textinput">Service name</label>  
   <div class="col-md-5">
   <input id="service" name="service" type="text" placeholder="" class="form-control input-md" required="">
     
