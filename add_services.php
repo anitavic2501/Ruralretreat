@@ -105,8 +105,10 @@ include 'includes/dbh.inc.php';
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="description">Service description</label>  
-  <div class="col-md-5">
-  <input id="add_description" name="description" type="text" placeholder="" class="form-control input-md" required="" >
+
+  <div class="col-md-8">
+  <textarea id="textarea" name="description"  type="text" class="form-control rounded-0" rows="10" required=""></textarea>
+
     
   </div>
 </div>
@@ -220,8 +222,5 @@ include 'includes/dbh.inc.php';
 </body>
 
 
-<footer>
-
-      </footer>
 
 </html>
