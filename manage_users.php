@@ -72,9 +72,9 @@ require "includes/dbh.inc.php";
       <?php
 
     //    $userid=$_SESSION['id'];
-       $con = mysqli_connect("localhost","root","","ruralretreat");
+      //  $conn = mysqli_connect("localhost","root","","ruralretreat");
       $dogs = "SELECT users.user_id, users.userfname, users.userlname,users.email,users.contact_number, user_type.user_type_name FROM users JOIN user_type ON users.user_type_id=user_type.user_type_id";
-      $res = mysqli_query($con, $dogs);
+      $res = mysqli_query($conn, $dogs);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>
             <td><?php echo $r['user_id']; ?></th>
@@ -102,10 +102,10 @@ require "includes/dbh.inc.php";
                 </div>
                 <?php
 						
-						$con = mysqli_connect("localhost", "root", "","ruralretreat");
+						// $conn = mysqli_connect("localhost", "root", "","ruralretreat");
 						$sql = "SELECT * FROM user_type";
        
-						$result = mysqli_query($con, $sql);
+						$result = mysqli_query($conn, $sql);
 						?>
                 <!-- Modal body -->
                 <form class="modal-body" method="POST" action="edituser.php">

@@ -1,6 +1,6 @@
 <?php
 
-
+include "includes/dbh.inc.php";
 //Singelton is a class that can have only one instance
 
 class singelton {
@@ -11,12 +11,7 @@ class singelton {
 
     public static function getInstance() {
         //static $conn = null;
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $db = 'ruralretreat';
-        //if ($conn == null) {
-            $conn = new mysqli($servername, $username, $password, $db);
+      
         
         return $conn;
     }

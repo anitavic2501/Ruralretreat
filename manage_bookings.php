@@ -72,12 +72,12 @@ require "includes/dbh.inc.php";
   <tbody>
       <?php
 
-       $con = mysqli_connect("localhost","root","","ruralretreat");
+      // $conn = mysqli_connect("localhost","root","","ruralretreat");
 
       $dogs = "SELECT bookings.booking_id, bookings.user_id, bookings.startdate,bookings.enddate,services.services, dogs.label, bookings.status FROM bookings JOIN service_booking ON bookings.booking_id=service_booking.booking_id JOIN services ON services.service_id=service_booking.service_id  JOIN dogs ON bookings.dog_id=dogs.dog_id ";
 
 
-      $res = mysqli_query($con, $dogs);
+      $res = mysqli_query($conn, $dogs);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>
             <td><?php echo $r['booking_id']; ?></th>

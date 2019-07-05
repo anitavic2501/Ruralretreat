@@ -173,10 +173,10 @@ include 'includes/dbh.inc.php';
                 </div>
                 <?php
 						
-						$con = mysqli_connect("localhost", "root", "","ruralretreat");
+						// $conn = mysqli_connect("localhost", "root", "","ruralretreat");
 						$sql = "SELECT distinct(service_type) FROM services";
        
-						$result = mysqli_query($con, $sql);
+						$result = mysqli_query($conn, $sql);
 						?>
                 <!-- Modal body -->
                 <form class="modal-body" method="POST" action="editservice.php" enctype="multipart/form-data">

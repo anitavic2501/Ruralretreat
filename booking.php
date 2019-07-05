@@ -1,6 +1,7 @@
 <?php
 
 include_once 'database.php';
+include "includes/dbh.inc.php";
 
 session_start();
 
@@ -73,7 +74,7 @@ session_start();
 						<form action = "bookser.php" method = "POST">
 						<?php
 						
-						$con = mysqli_connect("localhost", "root", "","ruralretreat");
+						// $conn = mysqli_connect("localhost", "root", "","ruralretreat");
  
 						$userid ="";
 						if(isset($_SESSION['userinfo'])){
@@ -84,7 +85,7 @@ session_start();
 
 						$sql2 = "SELECT * FROM dogs WHERE user_id = $userid";
        
-						$result2 = mysqli_query($con, $sql2);
+						$result2 = mysqli_query($conn, $sql2);
 							?>
 							
 							<div class="form-group">
@@ -118,14 +119,14 @@ session_start();
 
 						<?php
 						
-						$con = mysqli_connect("localhost", "root", "","ruralretreat");
+						// $conn = mysqli_connect("localhost", "root", "","ruralretreat");
 						$sql = "SELECT * FROM services WHERE service_type ='addon'";
        
-						$result = mysqli_query($con, $sql);
+						$result = mysqli_query($conn, $sql);
 
 						$sqlMainServices = "SELECT * FROM services WHERE service_type ='main'";
        
-						$resultMain = mysqli_query($con, $sqlMainServices);
+						$resultMain = mysqli_query($conn, $sqlMainServices);
 						?>
 
 

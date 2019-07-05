@@ -71,7 +71,7 @@ require "includes/dbh.inc.php";
   <tbody>
       <?php
 
-       $con = mysqli_connect("localhost","root","","ruralretreat");
+      //  $conn = mysqli_connect("localhost","root","","ruralretreat");
       $doglist = "SELECT dogs.dog_id, 
       dogs.dogname, 
       dogs.user_id, 
@@ -81,7 +81,7 @@ require "includes/dbh.inc.php";
       dogs.label,
       users.username 
       FROM dogs JOIN users ON users.user_id = dogs.user_id";
-      $res = mysqli_query($con, $doglist);
+      $res = mysqli_query($conn, $doglist);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>
             <td><?php echo $r['username']; ?></th>

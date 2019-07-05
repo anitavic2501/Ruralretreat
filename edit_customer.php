@@ -52,9 +52,9 @@
               <?php
 
 $userid=$_SESSION['id'];
-$con = mysqli_connect("localhost","root","","ruralretreat");
+// $conn = mysqli_connect("localhost","root","","ruralretreat");
 $user= "SELECT * FROM users WHERE user_id = $userid";
-$res = mysqli_query($con, $user);
+$res = mysqli_query($conn, $user);
 while($r = mysqli_fetch_assoc($res)): ?>
 <ul class="list-group">
     <li class="list-group-item">First Name : <?php echo $r['userfname'];?></li>

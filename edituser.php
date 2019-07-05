@@ -2,10 +2,11 @@
 <?php
 session_start();
 include_once 'database.php';
-   $con = mysqli_connect("localhost","root","","ruralretreat");
+include "includes/dbh.inc.php";
+//    $conn = mysqli_connect("localhost","root","","ruralretreat");
    $dogs = "SELECT * FROM users ";
 
-   if (!$con) {
+   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -21,15 +22,15 @@ $user_type = $_POST['user_type'];
 
 $updatesql= "UPDATE users SET userfname = '$user_fname', userlname = '$user_lname', email = '$user_email',contact_number=$cnumber, user_type_id =$user_type WHERE user_id = $user_id";
 
-if (mysqli_query($con, $updatesql)) {
+if (mysqli_query($conn, $updatesql)) {
  header("Location: manage_users.php?status=success");
  
 } else {
-    var_dump($con);
+    var_dump($conn);
     
- // echo "Error: " . $sql . "<br>" . mysqli_error($con);
+ // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 // header("Location: doglist.php?status=error");
 }
-mysqli_close($con);
+mysqli_close($conn);
 
 ?>

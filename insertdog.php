@@ -3,10 +3,11 @@
 session_start();
 include 'dog.php';
 include_once 'database.php';
-   $con = mysqli_connect("localhost","root","","ruralretreat");
+include "includes/dbh.inc.php";
+//    $conn = mysqli_connect("localhost","root","","ruralretreat");
    $dogs = "SELECT dogname, breed, age, user_id FROM dogs ";
 
-   if (!$con) {
+   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 //    if( isset($_POST["insertdog"]))
@@ -15,7 +16,7 @@ include_once 'database.php';
 //        alert('Dog has been added');
 //        </script>";
 //    } else {
-//        echo mysqli_error($con);
+//        echo mysqli_error($conn);
 //    }
 //    }
    $dog_name = $_POST['dogname'];
@@ -33,16 +34,16 @@ include_once 'database.php';
 
 $sql= "INSERT INTO dogs (dogname, user_id, breed, gender, age) VALUES ('$dog_name','$user_id','$dog_breed', '$dog_gender','$dog_age')";
 
-if (mysqli_query($con, $sql)) {
+if (mysqli_query($conn, $sql)) {
     header("Location: doglist.php?status=success");
     
 } else {
-    // echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     header("Location: doglist.php?status=error");
 }
-mysqli_close($con);
+mysqli_close($conn);
 
-// return mysqli_affected_rows($con);
+// return mysqli_affected_rows($conn);
 //                 if($result === true){
 //                     echo "Records inserted successfully.";
 //                 } 

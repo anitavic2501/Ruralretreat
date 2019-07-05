@@ -28,10 +28,10 @@ session_start();
 <h1>Our Services</h1>
 <?php
 						
-						$con = mysqli_connect("localhost", "root", "","ruralretreat");
+						// $conn = mysqli_connect("localhost", "root", "","ruralretreat");
 						$sql = "SELECT * FROM services WHERE service_type = 'addon'";
        
-						$result = mysqli_query($con, $sql);
+						$result = mysqli_query($conn, $sql);
             ?>
             
 <h2>Overnight Stay</h2>
