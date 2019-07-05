@@ -1,7 +1,6 @@
 <?php 
 
 include 'mailer.php';
-include 'manage_contactus.php';
 include "includes/dbh.inc.php";
 // $conn = mysqli_connect("localhost","root","","ruralretreat");
 
@@ -29,13 +28,12 @@ $emailid = $_POST['email'];
 
 
 
-
     Sendemail::replytomail($username, $emailid , $messagebody);
 
   
 
 
-  header("Location:  manage_contactus.php" );
+  header("Location:     manage_contactus.php");
 
 
 
