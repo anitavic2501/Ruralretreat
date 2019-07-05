@@ -28,7 +28,7 @@ class Sendemail{
 
         //Recipients
         $mail->setFrom('ruralretreat123@gmail.com', 'Rural Retreat');
-        var_dump($_SESSION['email']);
+        // var_dump($_SESSION['email']);
 
         $mail->addAddress(''.$_SESSION['email'].'', $_SESSION['username']);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional

@@ -24,7 +24,7 @@ $username = $_POST['name'];
 $emailid = $_POST['email'];
 
 
-var_dump($emailid); 
+// var_dump($emailid); 
 
 
 
