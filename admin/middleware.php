@@ -2,11 +2,11 @@
 
   // if user is NOT logged in, redirect them to login page
   if (!isset($_SESSION['id'])) {
-    header("location: " . BASE_URL . "login.php");
+    header("location: login.php");
   }
   // if user is logged in and this user is NOT an admin user, redirect them to landing page
   if (isset($_SESSION['id']) && is_null($_SESSION['id']['role_id'])) {
-    header("location: " . BASE_URL);
+    header("location: index.php" );
   }
   // checks if logged in admin user can update post
   function canUpdatePost($post_id = null){
