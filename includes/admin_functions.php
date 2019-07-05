@@ -159,8 +159,8 @@ function updateTopic($request_values) {
 		mysqli_query($conn, $query);
 
 		$_SESSION['message'] = "Topic updated successfully";
-		header('location: topics.php');
-		exit(0);
+		//header('location: topics.php');
+		//exit(0);
 	}
 }
 // delete topic 

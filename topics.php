@@ -1,23 +1,46 @@
-<?php  include('../config.php'); ?>
-<?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
+<?php  include 'includes/dbh.inc.php'; ?>
+<?php
+// First we start a session which allow for us to store information as SESSION variables.
+session_start();
+if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
+
+    echo "You are not authorized to view this page.";
+      exit;
+} ?>
+<?php include_once './partials/head.php';?>
+<?php  include 'includes/admin_functions.php'; ?>
+<?php  include 'includes/post_functions.php'; ?>
+<?php include 'partials/adminheader.php'; 
+include 'includes/head_section.php'; 
+?>
+
+
 <!-- Get all topics from DB -->
 <?php $topics = getAllTopics();	?>
 	<title>Admin | Manage Topics</title>
 </head>
 <body>
-	<!-- admin navbar -->
-	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
 	<div class="container content">
-		<!-- Left side menu -->
-		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
+		
+		
+<table class="table table-hover">
+  <thead>
+    <tr>
+  <a href="manage_articles.php"> View Articles | </a>    
+  <a href="create_post.php">Create Posts | </a>
+  <a href="posts.php">Manage Articles | </a>
+  <a href="topics.php">Manage Topics | </a>
+    </tr>
+  </thead>
+</table>
+
 
 		<!-- Middle form - to create and edit -->
 		<div class="action">
 			<h1 class="page-title">Create/Edit Topics</h1>
-			<form method="post" action="<?php echo BASE_URL . '/admin/topics.php'; ?>" >
+			<form method="post" action="<?php echo 'topics.php'; ?>" >
 				<!-- validation errors for the form -->
-				<?php include(ROOT_PATH . '/includes/errors.php') ?>
+				<?php include 'includes/errors.php' ?>
 				<!-- if editing topic, the id is required to identify that topic -->
 				<?php if ($isEditingTopic === true): ?>
 					<input type="hidden" name="topic_id" value="<?php echo $topic_id; ?>">
@@ -36,7 +59,7 @@
 		<!-- Display records from DB-->
 		<div class="table-div">
 			<!-- Display notification message -->
-			<?php include(ROOT_PATH . '/includes/messages.php') ?>
+			<?php include 'includes/messages.php' ?>
 			<?php if (empty($topics)): ?>
 				<h1>No topics in the database.</h1>
 			<?php else: ?>

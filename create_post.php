@@ -34,7 +34,7 @@ include 'partials/adminheader.php'; ?>
 	<title>Admin | Create Post</title>
 </head>
 <body>
-<div class="content">
+
 		<!-- Middle form - to create and edit  -->
 		<div class="action create-post-div">
 			<h1 class="page-title">Create/Edit Post</h1>

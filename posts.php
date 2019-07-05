@@ -19,7 +19,7 @@ include 'includes/head_section.php';
 <html lang="en">
 
 <div class="content">
-  
+<title>Admin | Manage Posts</title>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -34,10 +34,9 @@ include 'includes/head_section.php';
 
 <!-- Get all admin posts from DB -->
 <?php $posts = getAllPosts(); ?>
-	<title>Admin | Manage Posts</title>
-</head>
-<body>
 	
+<body>
+	<h1>Manage Articles </h1>
 		<!-- Display records from DB-->
 		<div class="table-div"  style="width: 80%;">
 			<!-- Display notification message -->
@@ -69,7 +68,7 @@ include 'includes/head_section.php';
 							<td><?php echo $post['author']; ?></td>
 							<td>
 								<a 	target="_blank"
-								href="<?php echo 'single_post.php?post-slug=' . $post['slug'] ?>">
+								href="<?php echo 'includes/single_post.php?post-slug=' . $post['slug'] ?>">
 									<?php echo $post['title']; ?>	
 								</a>
 							</td>
