@@ -9,6 +9,20 @@ $body = "";
 $featured_image = "";
 $post_topic = "";
 
+
+
+
+if (isset($_GET['publish']) || isset($_GET['unpublish'])) {
+	$message = "";
+	if (isset($_GET['publish'])) {
+		$message = "Post published successfully";
+		$post_id = $_GET['publish'];
+	} else if (isset($_GET['unpublish'])) {
+		$message = "Post successfully unpublished";
+		$post_id = $_GET['unpublish'];
+	}
+	togglePublishPost($post_id, $message);
+}
 /* - - - - - - - - - - 
 -  Post functions
 - - - - - - - - - - -*/
@@ -89,7 +103,7 @@ function createPost($request_values)
 	  	$featured_image = $_FILES['featured_image']['name'];
 	  	if (empty($featured_image)) { array_push($errors, "Featured image is required"); }
 	  	// image file directory
-	  	$target = "../static/images/" . basename($featured_image);
+	  	$target = "static/images/" . basename($featured_image);
 	  	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
 	  		array_push($errors, "Failed to upload image. Please check file settings for your server");
 	  	}
@@ -192,27 +206,17 @@ function createPost($request_values)
 		}
     }
     // if user clicks the publish post button
-if (isset($_GET['publish']) || isset($_GET['unpublish'])) {
-	$message = "";
-	if (isset($_GET['publish'])) {
-		$message = "Post published successfully";
-		$post_id = $_GET['publish'];
-	} else if (isset($_GET['unpublish'])) {
-		$message = "Post successfully unpublished";
-		$post_id = $_GET['unpublish'];
-	}
-	togglePublishPost($post_id, $message);
-}
+
 // delete blog post
 function togglePublishPost($post_id, $message)
 {
 	global $conn;
-	$sql = "UPDATE posts SET published=!published WHERE id=$post_id";
+	$sql = "UPDATE posts SET published=not published WHERE id=$post_id";
 	
 	if (mysqli_query($conn, $sql)) {
 		$_SESSION['message'] = $message;
-		header("location: posts.php");
-		exit(0);
+		//header('Location: posts.php');
+		//exit(0);
 	}
 }
 ?>

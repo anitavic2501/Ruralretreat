@@ -62,7 +62,7 @@ if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
 				<?php echo $post['topic']['name'] ?>
 			</a>
 		<?php endif ?>
-		<a href="<?php echo '/includes/single_post.php?post-slug=' . $post['slug'] ?>">
+		<a href="<?php echo 'includes/single_post.php?post-slug=' . $post['slug'] ?>">
 			<div class="post_info">
 				<h3><?php echo $post['title'] ?></h3>
 				<div class="info">
