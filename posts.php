@@ -1,7 +1,7 @@
-<?php  include ('../includes/dbh.inc.php'); ?>
-<?php  include ('./includes/admin_functions.php'); ?>
-<?php  include ('./includes/post_functions.php'); ?>
-<?php include ('./includes/head_section.php'); 
+<?php  include 'includes/dbh.inc.php'; ?>
+<?php  include 'includes/admin_functions.php'; ?>
+<?php  include 'includes/post_functions.php'; ?>
+<?php include 'includes/head_section.php'; 
 session_start();?>
 
 <!-- Get all admin posts from DB -->
@@ -19,7 +19,7 @@ session_start();?>
 		<!-- Display records from DB-->
 		<div class="table-div"  style="width: 80%;">
 			<!-- Display notification message -->
-			<?php include('../includes/messages.php') ?>
+			<?php include('includes/messages.php') ?>
 
 			<?php if (empty($posts)): ?>
 				<h1 style="text-align: center; margin-top: 20px;">No posts in the database.</h1>

@@ -1,11 +1,11 @@
 <?php  
 session_start();
-    include_once './includes/dbh.inc.php'; ?>
-<?php  include './includes/admin_functions.php'; ?>
-<?php  include './includes/post_functions.php'; ?>
-<?php include './includes/head_section.php';
-include_once './partials/head.php';
-include './partials/adminheader.php'; ?>
+    include_once 'includes/dbh.inc.php'; ?>
+<?php  include 'includes/admin_functions.php'; ?>
+<?php  include 'includes/post_functions.php'; ?>
+<?php include 'includes/head_section.php';
+include_once 'partials/head.php';
+include 'partials/adminheader.php'; ?>
 <!-- Get all topics -->
 <?php $topics = getAllTopics();	?>
 
