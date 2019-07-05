@@ -1,4 +1,5 @@
 <?php  include 'includes/dbh.inc.php'; ?>
+
 <?php
 // First we start a session which allow for us to store information as SESSION variables.
 session_start();
@@ -30,6 +31,7 @@ include 'includes/head_section.php';
   </thead>
 </table>
 
+
 <!-- Get all admin posts from DB -->
 <?php $posts = getAllPosts(); ?>
 	
@@ -38,7 +40,10 @@ include 'includes/head_section.php';
 		<!-- Display records from DB-->
 		<div class="table-div"  style="width: 80%;">
 			<!-- Display notification message -->
+
+
 			<?php include 'includes/messages.php' ?>
+
 
 			<?php if (empty($posts)): ?>
 				<h1 style="text-align: center; margin-top: 20px;">No posts in the database.</h1>

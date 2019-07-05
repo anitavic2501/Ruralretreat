@@ -34,6 +34,30 @@ require "includes/dbh.inc.php";
 
 
 <body>
+<?php 
+						if (isset ($_GET['status'] )) {
+                             if($_GET['status'] == 'success'){
+						?>
+
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">	
+  							<strong>Success!</strong>
+  							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    						<span aria-hidden="true">&times;</span>
+  							</button>
+							</div>
+                          
+                         <?php 
+						}  else  { ?>
+						<div class="alert alert-warning2 alert-dismissible fade show" role="alert">	
+  							<strong>Error!</strong>
+  							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    						<span aria-hidden="true">&times;</span>
+  							</button>
+							</div>
+					
+					
+					<?php }
+				 } ?>
 <div class="content">
 <h1>Reply to users messages</h1>
     <table class="table table-hover">
@@ -48,9 +72,9 @@ require "includes/dbh.inc.php";
   </thead>	
 <tbody>
       <?php
-      //  $conn = mysqli_connect("localhost","root","","ruralretreat");
-      $contactus = "SELECT * FROM contactus";
-      $res = mysqli_query($conn, $contactus);
+      //  $connn = mysqli_connect("localhost","root","","ruralretreat");
+      $conntactus = "SELECT * FROM contactus";
+      $res = mysqli_query($conn, $conntactus);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>
             <td><?php echo $r['email']; ?></td>
@@ -82,13 +106,13 @@ require "includes/dbh.inc.php";
                 </div>
                 <?php
 						
-						$con = mysqli_connect("localhost", "root", "","ruralretreat");
+						// $conn = mysqli_connect("localhost", "root", "","ruralretreat");
 						$sql = "SELECT * FROM contactus";
        
-						$result = mysqli_query($con, $sql);
+						$result = mysqli_query($conn, $sql);
 						?>
                 <!-- Modal body -->
-                <form class="modal-body" method="POST" action="">
+                <form class="modal-body" method="POST" action="messagereply.php">
                 
                 <div class="replymessage" style="align: center;">
                     
@@ -109,7 +133,7 @@ require "includes/dbh.inc.php";
                 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                <button type="submit" class="btn btn-danger">Reply</button>
+                <button type="submit" class="btn btn-danger" >Reply</button>
                 </div> </form>
                 
               </div>

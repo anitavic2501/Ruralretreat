@@ -1,11 +1,13 @@
 <?php  
 session_start();
 
+
 if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
 
     echo "You are not authorized to view this page.";
       exit;
 }
+
     include_once 'includes/dbh.inc.php'; ?>
 <?php  include 'includes/admin_functions.php'; ?>
 <?php  include 'includes/post_functions.php'; ?>
