@@ -182,7 +182,7 @@ include_once './partials/head.php';
 
 <div class="team-back">
 <span> 
-<br><a href="messages.php">Click here</a></span>
+<br><a href="manage_contactus.php">Click here</a></span>
 </div>
 
 </div>

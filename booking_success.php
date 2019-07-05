@@ -35,7 +35,7 @@ Thank you for your booking enquiry.
 <h5 style = 'text-align: center'>Your total booking price will be  <?php echo "$ ". number_format ((float)  $_GET['totalPrice'],2,'.', '' ) ?> 
 <br>
 <br>
-You will recieve an email shortly. 
+You will receive an email shortly. 
 <br>
 <br>
 Please note this booking is not yet confirmed!</h5>
