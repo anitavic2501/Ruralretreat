@@ -8,6 +8,21 @@ include_once './partials/head.php';
 include './partials/adminheader.php'; ?>
 <!-- Get all topics -->
 <?php $topics = getAllTopics();	?>
+
+<div class="content">
+  
+    <table class="table table-hover">
+  <thead>
+    <tr>
+    
+  <a href="create_post.php">Create Posts | </a>
+  <a href="posts.php">Manage Articles | </a>
+  <a href="topics.php">Manage Topics | </a>
+    </tr>
+  </thead>
+</table>
+
+
 	<title>Admin | Create Post</title>
 </head>
 <body>
@@ -25,11 +40,11 @@ include './partials/adminheader.php'; ?>
 				<?php endif ?>
 
 				<input type="text" name="title" value="<?php echo $title; ?>" placeholder="Title"><br>
-				<label style="float: left; margin: 5px auto 5px;">Featured image</label>
+				<label style="float: left; margin: 5px auto 5px;">Featured image</label><br><br>
 				<input type="file" name="featured_image" >
 				<textarea name="body" id="body" cols="30" rows="10"><?php echo $body; ?></textarea>
 				<select name="topic_id">
-					<option value="" selected disabled>Choose topic</option>
+					<option value="" selected disabled>Choose topic</option><br>
 					<?php foreach ($topics as $topic): ?>
 						<option value="<?php echo $topic['id']; ?>">
 							<?php echo $topic['name']; ?>
@@ -45,7 +60,7 @@ include './partials/adminheader.php'; ?>
 							Publish
 							<input type="checkbox" value="1" name="publish" checked="checked">&nbsp;
 						</label>
-					<?php else: ?>
+					<?php else: ?><br>
 						<label for="publish">
 							Publish
 							<input type="checkbox" value="1" name="publish">&nbsp;
@@ -56,7 +71,7 @@ include './partials/adminheader.php'; ?>
 				<!-- if editing post, display the update button instead of create button -->
 				<?php if ($isEditingPost === true): ?> 
 					<button type="submit" class="btn" name="update_post">UPDATE</button>
-				<?php else: ?>
+				<?php else: ?><br>
 					<button type="submit" class="btn" name="create_post">Save Post</button>
 				<?php endif ?>
 
