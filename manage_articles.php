@@ -1,3 +1,12 @@
+<?php
+// First we start a session which allow for us to store information as SESSION variables.
+session_start();
+if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
+
+    echo "You are not authorized to view this page.";
+      exit;
+} ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +30,7 @@
     <table class="table table-hover">
   <thead>
     <tr>
-    
+  <a href="manage_articles.php"> View Articles | </a>    
   <a href="create_post.php">Create Posts | </a>
   <a href="posts.php">Manage Articles | </a>
   <a href="topics.php">Manage Topics | </a>
