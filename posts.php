@@ -1,7 +1,8 @@
-<?php  include ('../config.php'); ?>
-<?php  include ('includes/admin_functions.php'); ?>
-<?php  include ('includes/post_functions.php'); ?>
-<?php include ('includes/head_section.php'); ?>
+<?php  include ('../includes/dbh.inc.php'); ?>
+<?php  include ('./includes/admin_functions.php'); ?>
+<?php  include ('./includes/post_functions.php'); ?>
+<?php include ('./includes/head_section.php'); 
+session_start();?>
 
 <!-- Get all admin posts from DB -->
 <?php $posts = getAllPosts(); ?>
