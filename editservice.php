@@ -2,10 +2,11 @@
 <?php
 session_start();
 include_once 'database.php';
-   $con = mysqli_connect("localhost","root","","ruralretreat");
+include "includes/dbh.inc.php";
+//    $conn = mysqli_connect("localhost","root","","ruralretreat");
    $dogs = "SELECT * FROM services ";
 
-   if (!$con) {
+   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -25,7 +26,7 @@ fileUpload();
 $updatesql= "UPDATE services SET services = '$services', price = '$price', description = '$description',image = '$image', service_type = '$service_type' WHERE service_id = $service_id";
 
  
-if (mysqli_query($con, $updatesql)) {
+if (mysqli_query($conn, $updatesql)) {
 
 
   
@@ -33,12 +34,12 @@ if (mysqli_query($con, $updatesql)) {
  header("Location: add_services.php?status=success");
  
 } else {
-     var_dump($con);
+     var_dump($conn);
     
- // echo "Error: " . $sql . "<br>" . mysqli_error($con);
+ // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
  header("Location: add_services.php?status=error");
 }
-mysqli_close($con);
+mysqli_close($conn);
 
 
 

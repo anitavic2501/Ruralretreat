@@ -64,9 +64,9 @@
        } else {
        $userid=$_SESSION['id']; }
        
-       $con = mysqli_connect("localhost","root","","ruralretreat");
+      //  $conn = mysqli_connect("localhost","root","","ruralretreat");
       $dogs = "SELECT * FROM dogs WHERE user_id = $userid";
-      $res = mysqli_query($con, $dogs);
+      $res = mysqli_query($conn, $dogs);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>
             <td><?php echo $r['dogname']; ?></th>

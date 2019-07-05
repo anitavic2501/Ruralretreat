@@ -37,7 +37,7 @@
       <?php
 
         $user_id=$_SESSION['id'];
-       $con = mysqli_connect("localhost","root","","ruralretreat");
+      //  $conn = mysqli_connect("localhost","root","","ruralretreat");
       $users = "SELECT bookings.booking_id, 
       bookings.startdate, 
       bookings.enddate, 
@@ -49,7 +49,7 @@
         JOIN service_booking ON bookings.booking_id=service_booking.booking_id 
         JOIN services ON services.service_id=service_booking.service_id
       WHERE bookings.user_id=$user_id";
-      $res = mysqli_query($con, $users);
+      $res = mysqli_query($conn, $users);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>
             <td><?php echo $r['booking_id']; ?></th>

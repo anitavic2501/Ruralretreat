@@ -1,7 +1,7 @@
 <?php
-$dBServername = "localhost";
+$dBServername = "ruralretreat.cespegrr14df.ap-southeast-2.rds.amazonaws.com";
 $dBUsername = "root";
-$dBPassword = "";
+$dBPassword = "123anita";
 $dBName = "ruralretreat";
 
 // Create connection

@@ -2,10 +2,11 @@
 <?php
 session_start();
 include_once 'database.php';
-   $con = mysqli_connect("localhost","root","","ruralretreat");
+include "includes/dbh.inc.php";
+//    $conn = mysqli_connect("localhost","root","","ruralretreat");
    $users = "SELECT * FROM users ";
 
-   if (!$con) {
+   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -13,7 +14,7 @@ $user_id = $_GET['user_id'];
 
 $sql= "DELETE from users where user_id = $user_id";
 
-if (mysqli_query($con, $sql)) {
+if (mysqli_query($conn, $sql)) {
 
     
     if (isset($_SESSION['utd'])  && $_SESSION['utd']== 2) {
@@ -27,10 +28,10 @@ if (mysqli_query($con, $sql)) {
     header("Location: manage_users.php?status=success");
     
 }} else {
-    // echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     header("Location: manage_users.php?status=error");
 }
-mysqli_close($con);
+mysqli_close($conn);
 
 
 ?>

@@ -1,10 +1,10 @@
 <?php
 session_start();
-include_once 'database.php';
-   $con = mysqli_connect("localhost","root","","ruralretreat");
+include "includes/dbh.inc.php";
+//    $conn = mysqli_connect("localhost","root","","ruralretreat");
   
 
-   if (!$con) {
+   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -17,15 +17,15 @@ $message = $_POST['message'];
 
 $insertsql= "INSERT INTO contactus (name, email, message) VALUES ('$username', '$email', '$message')";
 
-if (mysqli_query($con, $insertsql)) {
+if (mysqli_query($conn, $insertsql)) {
   header("Location: index.php?status=success");
  
 } else {
    
     
-//  echo "Error: " . $sql . "<br>" . mysqli_error($con);
+//  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
  header("Location: index.php?status=error");
 }
-mysqli_close($con);
+mysqli_close($conn);
 
 ?>

@@ -67,19 +67,19 @@ include_once './partials/head.php';
  
 <?php
 if(isset($_POST['contact_number'])){
- $con = mysqli_connect("localhost","root","","ruralretreat");
+//  $conn = mysqli_connect("localhost","root","","ruralretreat");
  $user = "SELECT * FROM users ";
 
- if (!$con) {
+ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-$contact_number = $_POST['contact_number'];
+$conntact_number = $_POST['contact_number'];
 
 $userinfo_array = array();
 
-$sql = "SELECT user_id, userfname, userlname, username, email FROM users WHERE contact_number LIKE '%$contact_number%' ";
-$result = $con->query($sql);
+$sql = "SELECT user_id, userfname, userlname, username, email FROM users WHERE contact_number LIKE '%$conntact_number%' ";
+$result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -103,7 +103,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 		
-$conn->close(); }
+$connn->close(); }
 
 ?>
 

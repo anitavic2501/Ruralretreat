@@ -2,10 +2,11 @@
 <?php
 session_start();
 include_once 'database.php';
-   $con = mysqli_connect("localhost","root","","ruralretreat");
+include "includes/dbh.inc.php";
+//    $conn = mysqli_connect("localhost","root","","ruralretreat");
    $dogs = "SELECT * FROM dogs ";
 
-   if (!$con) {
+   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -23,7 +24,7 @@ $dog_gender = $_POST['gender'];
 if(isset($_SESSION['utd'])) {
     if (($_SESSION['utd']== 3 || $_SESSION['utd']== 2)) {
         $updatesql= "UPDATE dogs SET dogname = '$dog_name',breed = '$dog_breed',age=$dog_age, gender = '$dog_gender' WHERE dog_id = $dog_id";
-        if(mysqli_query($con,$updatesql)){
+        if(mysqli_query($conn,$updatesql)){
         header("Location: doglist.php?status=success");
         } else {
             header("Location: doglist.php?status=error");
@@ -31,7 +32,7 @@ if(isset($_SESSION['utd'])) {
     } else{
         $doglabel = $_POST['label'];
         $updatesql1= "UPDATE dogs SET dogname = '$dog_name',breed = '$dog_breed',age=$dog_age, gender = '$dog_gender', label = '$doglabel' WHERE dog_id = $dog_id";
-        if(mysqli_query($con,$updatesql1)){
+        if(mysqli_query($conn,$updatesql1)){
             header("Location: managedog.php?status=success");
         }
         else {
@@ -39,6 +40,6 @@ if(isset($_SESSION['utd'])) {
             header("Location: managedog.php?status=error");
             }
     } 
-    mysqli_close($con);
+    mysqli_close($conn);
 }
 ?>

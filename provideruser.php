@@ -77,10 +77,10 @@ include_once './partials/head.php';
       <?php
 
         $provider_id=$_SESSION['id'];
-       $con = mysqli_connect("localhost","root","","ruralretreat");
+      //  $conn = mysqli_connect("localhost","root","","ruralretreat");
       $users = "SELECT users.user_id, users.username, users.userfname, users.userlname,users.email,users.contact_number FROM users WHERE provider_id=$provider_id";
-      $res = mysqli_query($con, $users);
-      // var_dump($con);
+      $res = mysqli_query($conn, $users);
+      // var_dump($conn);
       while($r = mysqli_fetch_assoc($res)): ?>
 
             <tr>
