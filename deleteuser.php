@@ -29,8 +29,10 @@ if (mysqli_query($conn, $sql)) {
     
 }} else {
     // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    header("Location: manage_users.php?status=error");
+    // header("Location: manage_users.php?status=error");
+    var_dump($conn);
 }
+
 mysqli_close($conn);
 
 
