@@ -19,12 +19,8 @@ function getAllPosts()
 	
 	// Admin can view all posts
 	// User can only view their posts
-	if ($_SESSION['utd'] == "1" or "2" or "3") {
+	
 		$sql = "SELECT * FROM posts";
-	} elseif ($_SESSION['utd'] == "4") {
-		$user_id = $_SESSION['utd'];
-		$sql = "SELECT * FROM posts WHERE user_id= $user_id";
-	}
 	$result = mysqli_query($conn, $sql);
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

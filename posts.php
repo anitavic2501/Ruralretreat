@@ -1,25 +1,45 @@
-<?php  include ('../includes/dbh.inc.php'); ?>
-<?php  include ('./includes/admin_functions.php'); ?>
-<?php  include ('./includes/post_functions.php'); ?>
-<?php include ('./includes/head_section.php'); 
-session_start();?>
+<?php  include 'includes/dbh.inc.php'; ?>
+<?php
+// First we start a session which allow for us to store information as SESSION variables.
+session_start();
+if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
+
+    echo "You are not authorized to view this page.";
+      exit;
+} ?>
+<?php include_once './partials/head.php';?>
+<?php  include 'includes/admin_functions.php'; ?>
+<?php  include 'includes/post_functions.php'; ?>
+<?php include 'partials/adminheader.php'; 
+include 'includes/head_section.php'; 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="content">
+  
+    <table class="table table-hover">
+  <thead>
+    <tr>
+  <a href="manage_articles.php"> View Articles | </a>    
+  <a href="create_post.php">Create Posts | </a>
+  <a href="posts.php">Manage Articles | </a>
+  <a href="topics.php">Manage Topics | </a>
+    </tr>
+  </thead>
+</table>
 
 <!-- Get all admin posts from DB -->
 <?php $posts = getAllPosts(); ?>
 	<title>Admin | Manage Posts</title>
 </head>
 <body>
-	<!-- admin navbar -->
-	<?php include ('includes/navbar.php') ?>
-
-	<div class="container content">
-		<!-- Left side menu -->
-		<?php include('includes/menu.php') ?>
-
+	
 		<!-- Display records from DB-->
 		<div class="table-div"  style="width: 80%;">
 			<!-- Display notification message -->
-			<?php include('../includes/messages.php') ?>
+			<?php include 'includes/messages.php' ?>
 
 			<?php if (empty($posts)): ?>
 				<h1 style="text-align: center; margin-top: 20px;">No posts in the database.</h1>
@@ -80,7 +100,7 @@ session_start();?>
 					</tbody>
 				</table>
 			<?php endif ?>
-		</div>
+		</div> </div>
 		<!-- // Display records from DB -->
 	</div>
 </body>

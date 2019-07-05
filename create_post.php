@@ -1,11 +1,17 @@
 <?php  
 session_start();
-    include_once './includes/dbh.inc.php'; ?>
-<?php  include './includes/admin_functions.php'; ?>
-<?php  include './includes/post_functions.php'; ?>
-<?php include './includes/head_section.php';
-include_once './partials/head.php';
-include './partials/adminheader.php'; ?>
+
+if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
+
+    echo "You are not authorized to view this page.";
+      exit;
+}
+    include_once 'includes/dbh.inc.php'; ?>
+<?php  include 'includes/admin_functions.php'; ?>
+<?php  include 'includes/post_functions.php'; ?>
+<?php include 'includes/head_section.php';
+include_once 'partials/head.php';
+include 'partials/adminheader.php'; ?>
 <!-- Get all topics -->
 <?php $topics = getAllTopics();	?>
 
@@ -14,10 +20,10 @@ include './partials/adminheader.php'; ?>
     <table class="table table-hover">
   <thead>
     <tr>
-    
-  <a href="create_post.php">Create Posts | </a>
-  <a href="posts.php">Manage Articles | </a>
-  <a href="topics.php">Manage Topics | </a>
+  <a href="manage_articles.php"> View Articles | </a>  
+  <a href="create_post.php"> Create Posts | </a>
+  <a href="posts.php"> Manage Articles | </a>
+  <a href="topics.php"> Manage Topics | </a>
     </tr>
   </thead>
 </table>
