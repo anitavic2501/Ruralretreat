@@ -27,7 +27,7 @@ include 'includes/dbh.inc.php';
 
 <body>
 <div class="content">
-<h1>Manage Services</h1>
+<h2>Manage Services</h2>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -71,7 +71,7 @@ include 'includes/dbh.inc.php';
 
 </td>
             <td>
-            <a type ="button" href = "deleteservice.php?service_id=<?php echo $r['service_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete Service" class="btn btn-danger" id="delete">Delete Service
+            <a class="btn btn-danger" href = "deleteservice.php?service_id=<?php echo $r['service_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete Service" class="btn btn-danger" id="delete">Delete Service
             </a>
             
         
@@ -86,7 +86,7 @@ include 'includes/dbh.inc.php';
 	
 
 	
-<h1 style="color: black;">Add Services</h1>	
+<h2>Add Services</h2>	
 		
 <!-- Form Name -->
 <form method ="POST" action="includes/add_services.inc.php">

@@ -27,10 +27,19 @@ if (mysqli_query($conn, $sql)) {
 
     header("Location: manage_users.php?status=success");
     
-}} else {
-    // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }   else{
+
     header("Location: manage_users.php?status=error");
-}
+    }
+
+} else {
+
+    if (isset($_SESSION['utd'])  && $_SESSION['utd']== 2) {
+        header("Location: provideruser.php?status=error");
+    }
+    else{
+    header("Location: manage_users.php?status=error");
+}}
 mysqli_close($conn);
 
 

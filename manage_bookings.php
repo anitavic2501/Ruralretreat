@@ -29,7 +29,7 @@ require "includes/dbh.inc.php";
     ?>
     </header>
     <div class="content">
-    <h1> Manage Bookings </h1>
+    <h2> Manage Bookings </h2>
     <div class="container">
     <?php 
 						if (isset ($_GET['status'] )) {
@@ -89,7 +89,7 @@ require "includes/dbh.inc.php";
             
             <td><div class="container">
         <?php   if($r['status'] == 'pending') { ?>
-        <a type="button" href = "change_booking_status.php?status=approve&id=<?php echo $r['booking_id'] ?> "  class="btn btn-primary" style ="background-color: green;"  >
+        <a class="btn btn-danger" href = "change_booking_status.php?status=approve&id=<?php echo $r['booking_id'] ?> "  class="btn btn-primary" style ="background-color: green;"  >
             Approve
         </a>
                 <?php   }?>
@@ -103,7 +103,7 @@ require "includes/dbh.inc.php";
 </td>
             <td>
             <?php   if($r['status'] == 'pending' ) { ?>
-            <a type="button" href = "change_booking_status.php?status=reject&id=<?php echo $r['booking_id'] ?>"class="btn btn-primary" style ="background-color: red;">
+            <a class="btn btn-danger" href = "change_booking_status.php?status=reject&id=<?php echo $r['booking_id'] ?>"class="btn btn-primary" style ="background-color: red;">
             Reject
         </a>
         <?php   }?>

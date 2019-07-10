@@ -56,7 +56,7 @@ require "includes/dbh.inc.php";
         </div> </div>
         <div class="content">
 
-        <h1> Manage Dogs </h1>
+        <h2> Manage Dogs </h2>
     <table class="table table-hover">
   <thead>
     <tr>

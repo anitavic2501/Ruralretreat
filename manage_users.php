@@ -54,7 +54,7 @@ require "includes/dbh.inc.php";
         </div> <  
 
         <div class="content">
-        <h1> Manage Users </h1>
+        <h2> Manage Users </h2>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -148,7 +148,7 @@ require "includes/dbh.inc.php";
 
             </td>
             <td>
-             <a type ="button" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
+             <a class="btn btn-danger" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
               </a>
             
             </td>

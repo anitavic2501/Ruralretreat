@@ -141,15 +141,6 @@
             
           }
 
-        //   if($user->loggedin() &&  ($user_type_id == 1 || $user_type_id == 2)){
-        //     echo '<li class="nav-item"><a class="nav-link" href="staff_reports.php">Reports</a></li>';
-        //     echo '<li class="nav-item"><a class="nav-link" href="manage_reservations.php">Manage reservations</a></li>';
-        //   }
-        //  if ($user->loggedin() && $user_type_id == 1){
-        //   echo '<li class="nav-item"><a class="nav-link" href="signup.php">Add new user</a></li>';
-        //  }
-        //  if (!$user->loggedin())
-        
          
         if (!isset($_SESSION['id'])) {
           echo ' <li class="nav-item dropdown">
@@ -177,7 +168,7 @@
             </div>
         </form>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="signup.php">New around here? Sign up</a>
+        <a class="dropdown-item" href="signup.php" style="color: orange;"><strong>New around here? Sign up<strong></a>
       </div>
       </li>
    ';

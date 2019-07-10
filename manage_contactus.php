@@ -59,7 +59,7 @@ require "includes/dbh.inc.php";
 					<?php }
 				 } ?>
 <div class="content">
-<h1>Reply to users messages</h1>
+<h2>Reply to users messages</h2>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -117,11 +117,11 @@ require "includes/dbh.inc.php";
                 <div class="replymessage" style="align: center;">
                     
                     <input id="message_id" type="hidden" name="message_id"  value="<?php echo $r['message_id']; ?>"/>    
-                    <input id="email" type="text" name="email" class="text_field form-control" value=""  required>
-                    <input id="name" type="text" name="name" class="text_field form-control" value=""  required>
-                    <textarea id="message" type="text" rows = "5" name="message" class="text_field form-control" value="" placeholder="" required>
+                    Email : <br> <input id="email" type="text" name="email" class="text_field form-control" value=""  required>
+                    Name: <br><input id="name" type="text" name="name" class="text_field form-control" value=""  required>
+                    Message: <br> <textarea id="message" type="text" rows = "5" name="message" class="text_field form-control" value="" placeholder="" required>
                     </textarea>
-                    <textarea id="reply" type="text" rows = "5" name="reply" class="text_field form-control" value="" placeholder="" required>
+                    Reply: <br> <textarea id="reply" type="text" rows = "5" name="reply" class="text_field form-control" value="" placeholder="" required>
                     </textarea>
                    
                     
@@ -146,7 +146,7 @@ require "includes/dbh.inc.php";
 
 </td>
 <td>
-             <a type ="button" href = "deletemessage.php?message_id=<?php echo $r['message_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete Message" class="btn btn-danger" id="delete">Delete Message
+             <a class="btn btn-danger" href = "deletemessage.php?message_id=<?php echo $r['message_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete Message" class="btn btn-danger" id="delete">Delete Message
               </a>
             
             </td>
