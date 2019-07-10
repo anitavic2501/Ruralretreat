@@ -115,7 +115,7 @@
           <a class="nav-link" href="index.php#section3">
           <i class="paw fas fa-paw fa-lg"></i> Contact Us</a>  </li>
         <li class="nav-item">
-        <a class="nav-link" href="article2.php">
+        <a class="nav-link" href="index2.php">
         <i class="paw fas fa-paw fa-lg"></i> Articles</a></li>
          <?php
         
