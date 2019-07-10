@@ -118,7 +118,9 @@ require "includes/dbh.inc.php";
                     <input id="email" type="text"  name="email" class="text_field form-control" value="" placeholder="" required>
                     <input id="contact_number" type="text"  name="contact_number" class="text_field form-control" value="" placeholder="" required>
                     <select class="form-control" name="user_type">
-								<?php				
+                  
+                <?php	
+                			
 								while ($rows = mysqli_fetch_assoc($result)) 
 								{
 								?>
