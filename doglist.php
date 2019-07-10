@@ -52,7 +52,7 @@
       <th scope="col">Breed</th>
       <th scope="col">Age</th>
       <th scope="col">Gender</th>
-      <th scope="col">Vaccination</th>
+      <!-- <th scope="col">Vaccination</th> -->
     </tr>
   </thead>
   <tbody>
@@ -73,7 +73,7 @@
             <td><?php echo $r['breed']; ?></td>
             <td><?php echo $r['age']; ?></td>
             <td><?php echo $r['gender']; ?></td>
-            <td><?php echo $r['vaccination']; ?></td>
+            
             
             <td><div class="container">
         <!-- Button to Open the Modal -->

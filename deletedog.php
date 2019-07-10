@@ -36,8 +36,7 @@ if (mysqli_query($conn, $sql)) {
         } else{
             header("Location: managedog.php?status=error");
         }
-}
 
+}mysqli_close($conn);
 
-mysqli_close($conn);
 ?>

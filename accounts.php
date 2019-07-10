@@ -21,7 +21,7 @@ if (!empty($LN)){
 			header ("location:dashboard.php");
 		}
 else {
-			echo "<h1 style='color:red'> Before continue,you need to complete your details!</h1>";
+			echo "<h1 style='color:blue'> Before continue,you need to complete your details!</h1>";
 }
   }
   ?>
@@ -44,7 +44,15 @@ else {
 <legend>Account Information</legend>
 
 <!-- Text input-->
+    <!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="FN">First Name</label>  
+  <div class="col-md-4">
+  <input id="FN" name="FN" type="text" placeholder=<?php echo $FN; ?>; class="form-control input-md" required="">
     
+  </div>
+</div>
+
   </div>
 <div class="form-group">
   <label class="col-md-4 control-label" for="LN">Last Name</label>  
@@ -54,14 +62,7 @@ else {
   </div>
 </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="FN">First Name</label>  
-  <div class="col-md-4">
-  <input id="FN" name="FN" type="text" placeholder=<?php echo $FN; ?>; class="form-control input-md" required="">
-    
-  </div>
-</div>
+
 
 <!-- Text input -->
 <div class="form-group">

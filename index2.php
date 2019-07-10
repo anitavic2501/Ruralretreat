@@ -53,7 +53,7 @@
 				<?php echo $post['topic']['name'] ?>
 			</a>
 		<?php endif ?>
-		<a href="<?php echo BASE_URL . '/includes/single_post.php?post-slug=' . $post['slug'] ?>">
+		<a href="<?php echo BASE_URL . '/comments/post_details.php?post-slug=' . $post['slug'].'&post_id='. $post['id'] ?>">
 			<div class="post_info">
 				<h3><?php echo $post['title'] ?></h3>
 				<div class="info">
