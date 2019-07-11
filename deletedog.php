@@ -9,7 +9,7 @@ include "includes/dbh.inc.php";
    if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
+  
 $dog_id = $_POST['dog_id'];
 
 $sql= "DELETE from dogs where dog_id = $dog_id";
@@ -36,5 +36,7 @@ if (mysqli_query($conn, $sql)) {
         } else{
             header("Location: managedog.php?status=error");
         }
+
 }mysqli_close($conn);
+
 ?>
