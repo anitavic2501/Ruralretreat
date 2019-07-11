@@ -30,7 +30,7 @@ include "includes/dbh.inc.php";
 echo "<h2> RURAL RETREAT ARTICLES </h2>";
 //search functions
 
-$sql = "SELECT id, post_title, post_content, date FROM post";
+$sql = "SELECT id, title, body, created_at FROM posts";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

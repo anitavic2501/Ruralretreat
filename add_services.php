@@ -71,7 +71,10 @@ include 'includes/dbh.inc.php';
       //  $conn = mysqli_connect("localhost","root","","ruralretreat");
       $services = "SELECT * FROM services";
       $res = mysqli_query($conn, $services);
-      while($r = mysqli_fetch_assoc($res)): ?>
+      while($r = mysqli_fetch_assoc($res)):
+      
+        $message_modified = trim(preg_replace('/\s+/', '', $r['description']));
+      ?>
             <tr>
             <td><?php echo $r['service_id']; ?></td>
             <td><?php echo $r['services']; ?></td>
@@ -84,7 +87,7 @@ include 'includes/dbh.inc.php';
             
             <div class="container">
         <!-- Button to Open the Modal -->
-        <button style = "background-color:green;"type="button" onclick="initModal(<?php echo $r['service_id'].','.'\''.$r['services'].'\','.'\''.$r['price'].'\','.'\''.$r['description'].'\','.'\''.$r['image'].'\','.'\''.$r['service_type'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <button style = "background-color:green;"type="button" onclick="initModal(<?php echo $r['service_id'].','.'\''.$r['services'].'\','.'\''.$r['price'].'\','.'\''.$message_modified.'\','.'\''.$r['image'].'\','.'\''.$r['service_type'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Edit
         </button>
 
@@ -168,7 +171,7 @@ include 'includes/dbh.inc.php';
         var services_text =  document.getElementById('services');
         var price_text =  document.getElementById('price');
         var description_text =  document.getElementById('description');
-        var image_text =  document.getElementById('image');
+      
         var service_type_text =  document.getElementById('service_type');
         
 
@@ -176,7 +179,7 @@ include 'includes/dbh.inc.php';
         services_text.value = services;
         price_text.value = price;
         description_text.value = description;
-        image_text.value = image;
+     
         service_type_text.value = type;
         
 

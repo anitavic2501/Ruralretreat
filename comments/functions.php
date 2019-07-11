@@ -11,7 +11,7 @@ if (isset($_GET['post-slug'])) {
 	$user_id = $_SESSION['id'];
 
 	// connect to database
-	$db = mysqli_connect("localhost", "root", "", "combi");
+	$db = mysqli_connect("localhost", "root", "", "ruralretreat");
 	// get post with id = post_id from database
 	$post_query_result = mysqli_query($db, "SELECT * FROM posts WHERE id = ". $postid );
 	$post = mysqli_fetch_assoc($post_query_result);
