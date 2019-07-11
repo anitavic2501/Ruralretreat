@@ -57,8 +57,7 @@ $user= "SELECT * FROM users WHERE user_id = $userid";
 $res = mysqli_query($conn, $user);
 while($r = mysqli_fetch_assoc($res)): ?>
 <ul class="list-group">
-    <li class="list-group-item">First Name : <?php echo $r['userfname'];?></li>
-    <br>
+    <li class="list-group-item">First Name : <?php echo $r['userfname'];?></li> <br>
     <li class="list-group-item">Last Name : <?php echo $r['userlname'];?></li> <br>
     <li class="list-group-item">Username : <?php echo $r['username'];?></li><br>
     <li class="list-group-item">Email :<?php echo $r['email'];?></li><br>
