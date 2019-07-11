@@ -146,6 +146,8 @@ class Booking {
               $sqlmappingrecord = "INSERT INTO service_booking (service_id, booking_id) VALUES ($service_id, $generated_booking_id)";
               $this->executeSQL( $sqlmappingrecord );
                 }
+
+                $this-> updatebookingprice($generated_booking_id);
               
             }
             else {
@@ -194,6 +196,8 @@ class Booking {
                   $sqlmappingrecord = "INSERT INTO service_booking (service_id, booking_id) VALUES ($service_id, $generated_booking_id)";
                   $this->executeSQL( $sqlmappingrecord );
                     }
+
+                    $this-> updatebookingprice($generated_booking_id);
                
             }
         }
@@ -210,6 +214,7 @@ class Booking {
      function executeSQL($sql){
     
         if (!mysqli_query($this->connection, $sql)) {
+         
           header("Location: booking.php?status=error&message=".ErrorMessages::$BOOKING_ERROR);
           exit;
         }
@@ -307,7 +312,7 @@ class Booking {
       where service_booking.booking_id = $booking_id;";
       
   
-      $result  =  mysqli_query($this -> connection, $sql);
+      $result  =  mysqli_query($this ->connection, $sql);
   
       $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
   
@@ -315,6 +320,19 @@ class Booking {
   
       return $totalPrice;
 
+
+    }
+
+
+
+
+    function updatebookingprice($booking_id){
+
+     $totalprice = $this->gettotalsum($booking_id);
+
+     $sql = "UPDATE bookings SET price = $totalprice  WHERE booking_id = $booking_id";
+
+     $this -> executeSQL($sql);
 
     }
 
