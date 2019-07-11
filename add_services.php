@@ -73,7 +73,7 @@ include 'includes/dbh.inc.php';
       $res = mysqli_query($conn, $services);
       while($r = mysqli_fetch_assoc($res)):
       
-        $message_modified = trim(preg_replace('/\s+/', '', $r['description']));
+        $message_modified = trim(preg_replace('/\s+/', ' ', $r['description']));
       ?>
             <tr>
             <td><?php echo $r['service_id']; ?></td>

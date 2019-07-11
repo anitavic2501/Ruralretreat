@@ -8,7 +8,13 @@ if (isset($_GET['post-slug'])) {
 	// Set logged in user id: This is just a simulation of user login. We haven't implemented user log in
 	// But we will assume that when a user logs in, 
 	// they are assigned an id in the session variable to identify them across pages
-	$user_id = $_SESSION['id'];
+	$user_id ="";
+
+	if (isset($_SESSION['id'])){
+
+		$user_id = $_SESSION['id'];
+
+	}
 
 	// connect to database
 	$db = mysqli_connect("localhost", "root", "", "ruralretreat");
