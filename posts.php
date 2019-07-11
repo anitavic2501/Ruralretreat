@@ -23,6 +23,7 @@ include 'includes/head_section.php';
     <table class="table table-hover">
   <thead>
     <tr>
+	<br>
   <a href="manage_articles.php"> View Articles | </a>    
   <a href="create_post.php">Create Posts | </a>
   <a href="posts.php">Manage Articles | </a>
@@ -36,7 +37,7 @@ include 'includes/head_section.php';
 <?php $posts = getAllPosts(); ?>
 	
 <body>
-	<h1>Manage Articles </h1>
+	<h2 class="content-title">Manage Articles </h2>
 		<!-- Display records from DB-->
 		<div class="table-div"  style="width: 80%;">
 			<!-- Display notification message -->

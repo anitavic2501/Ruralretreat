@@ -22,6 +22,7 @@ include 'partials/adminheader.php'; ?>
     <table class="table table-hover">
   <thead>
     <tr>
+	<br>
   <a href="manage_articles.php"> View Articles | </a>  
   <a href="create_post.php"> Create Posts | </a>
   <a href="posts.php"> Manage Articles | </a>
@@ -37,7 +38,7 @@ include 'partials/adminheader.php'; ?>
 
 		<!-- Middle form - to create and edit  -->
 		<div class="action create-post-div">
-			<h1 class="page-title">Create/Edit Post</h1>
+			<h2 class="page-title">Create/Edit Post</h2>
 			<form method="post" enctype="multipart/form-data" action="<?php echo 'create_post.php'; ?>" >
 				<!-- validation errors for the form -->
 				<?php include ('./includes/errors.php') ?>
@@ -80,7 +81,7 @@ include 'partials/adminheader.php'; ?>
 				<?php if ($isEditingPost === true): ?> 
 					<button type="submit" class="btn" name="update_post">UPDATE</button>
 				<?php else: ?><br>
-					<button type="submit" class="btn" name="create_post">Save Post</button>
+					<button type="submit" class="btn btn-primary" name="create_post">Save Post</button>
 				<?php endif ?>
 
 			</form>

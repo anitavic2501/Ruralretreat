@@ -30,6 +30,7 @@ if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
     <table class="table table-hover">
   <thead>
     <tr>
+    <br>
   <a href="manage_articles.php"> View Articles | </a>    
   <a href="create_post.php">Create Posts | </a>
   <a href="posts.php">Manage Articles | </a>

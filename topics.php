@@ -25,7 +25,7 @@ include 'includes/head_section.php';
 		
 <table class="table table-hover">
   <thead>
-    <tr>
+    <tr><br>
   <a href="manage_articles.php"> View Articles | </a>    
   <a href="create_post.php">Create Posts | </a>
   <a href="posts.php">Manage Articles | </a>
@@ -37,7 +37,7 @@ include 'includes/head_section.php';
 
 		<!-- Middle form - to create and edit -->
 		<div class="action">
-			<h1 class="page-title">Create/Edit Topics</h1>
+			<h2 class="page-title">Create/Edit Topics</h2>
 			<form method="post" action="<?php echo 'topics.php'; ?>" >
 				<!-- validation errors for the form -->
 				<?php include 'includes/errors.php' ?>
