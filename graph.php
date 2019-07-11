@@ -2,14 +2,14 @@
 include 'includes/dbh.inc.php';
     $dataPoints = array();
 
-    $result = mysqli_query($conn, "SELECT b.*, s.services
+    $result = mysqli_query($conn, "SELECT count(s.service_id) as frequency, s.services
     FROM service_booking AS b
     JOIN services AS s ON s.service_id = b.service_id
-    group by service_id");
+    group by s.services");
 
     while($row = mysqli_fetch_array($result))
     {        
-        $point = array("label" => $row['services'] , "y" => $row['booking_id']);
+        $point = array("label" => $row['services'] , "y" => $row['frequency']);
 
         array_push($dataPoints, $point);        
     }
@@ -22,7 +22,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	exportEnabled: true,
 	title:{
-		text: "Percentages of sales from services"
+		text: "Total count of services "
 	},
 	subtitles: [{
 		text: "Symbol Used: Percentage (%)"
@@ -33,7 +33,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		legendText: "{label}",
 		indexLabelFontSize: 16,
 		indexLabel: "{label} - #percent%",
-		yValueFormatString: "฿#,##0",
+		//yValueFormatString: "฿#,##0",
 		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
 	}]
 });

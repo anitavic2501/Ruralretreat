@@ -38,7 +38,7 @@ session_start();
 	<div id="booking">
 	
 <h1 style="color: black;">Book Now</h1>	
-	<div class="bookingpage">
+	<div class="bookingpage"style="width:100%" >
 	<br><br><br><br><br><br><br><br><br><br><br><br>
 			<div class="container col-4" >
 					<div class="booking-form">

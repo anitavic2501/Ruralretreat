@@ -36,9 +36,9 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-		  echo	'<button class="accordion"><h3>'. $row["post_title"].'</button>';
+		  echo	'<button class="accordion"><h3>'. $row["title"].'</button>';
       echo'<div class="panel">';
-       echo "<h2>Article: " . $row["id"]. "<h2>" . $row["post_title"]. " <br> <h4> Published date: " . $row["date"]. "<br><br> <h3>Read: " . $row["post_content"]. 
+       echo "<h2>Article: " . $row["id"]. "<h2>" . $row["title"]. " <br> <h4> Published date: " . $row["created_at"]. "<br><br> <h3>Read: " . $row["body"]. 
 			"<br><br>";
 		echo "</div>";
 	}
