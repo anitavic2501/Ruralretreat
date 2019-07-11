@@ -3,7 +3,9 @@
 * * * * * * * * * */
 * { margin: 0px; padding: 0px; }
 a { text-decoration: none; }
-h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif', serif; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif', serif;}
+h2.page-title{
+text-align: center; }
 /* forms */
 form { width: 60%; margin: 5px auto; padding-bottom: 50px; }
 form input[type=file], input[type=email], input[type=password], input[type=text], 
