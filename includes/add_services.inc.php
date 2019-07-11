@@ -10,7 +10,8 @@ $price = $_POST['add_price'];
 
 // $sql= "INSERT INTO services (service, description, price, agencyname) VALUES ('$service','$description','$price','$agency_name')";
 $sql= "INSERT INTO services (services, description, price) VALUES ('$service','$description','$price')";$result = $conn->query($sql) or die(mysqli_error($sql));
-header("Location: ../add_services.php?addservices=success");
+header("Location: ../add_services.php?status=success");
+
 $conn->close();
 }
 

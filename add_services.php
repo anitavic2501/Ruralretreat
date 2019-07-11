@@ -21,7 +21,32 @@ include 'includes/dbh.inc.php';
 		 
 	   </nav>
 
-          
+     <div class="container">
+    <?php 
+						if (isset ($_GET['status'] )) {
+                             if($_GET['status'] == 'success'){
+						?>
+
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">	
+  							<strong>Success!</strong>
+  							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    						<span aria-hidden="true">&times;</span>
+  							</button>
+							</div>
+                          
+                         <?php 
+						}  else  { ?>
+						<div class="alert alert-warning2 alert-dismissible fade show" role="alert">	
+  							<strong>Error!</strong>
+  							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    						<span aria-hidden="true">&times;</span>
+  							</button>
+							</div>
+					
+					
+					<?php }
+				 } ?>
+        </div> 
 
 
 
@@ -184,10 +209,10 @@ include 'includes/dbh.inc.php';
                 <div class="editdog" style="align: center;">
                     
                     <input id="service_id" type="hidden" name="service_id"  value="<?php echo $r['service_id']; ?>"/>
-                    <input id="services" type="text" name="services" class="text_field form-control" value=""  required>
-                    <input id="price" type="text" name="price" class="text_field form-control" value=""  required>
-                    <input id="description" type="text"  name="description" class="text_field form-control" value="" placeholder="" required>
-                    <select class="form-control" id="service_type" name="service_type">
+                    Service Name:<br><input id="services" type="text" name="services" class="text_field form-control" value=""  required>
+                    Price: <br><input id="price" type="text" name="price" class="text_field form-control" value=""  required>
+                    Description:<br><input id="description" type="text"  name="description" class="text_field form-control" value="" placeholder="" required>
+                    Service type:<br><select class="form-control" id="service_type" name="service_type">
                     
                     
 								<?php				
