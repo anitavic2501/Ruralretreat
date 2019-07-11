@@ -54,7 +54,7 @@ require "includes/dbh.inc.php";
         </div> <  
 
         <div class="content">
-        <h2> Manage Users </h2>
+        <h1> Manage Users </h1>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -73,7 +73,7 @@ require "includes/dbh.inc.php";
 
     //    $userid=$_SESSION['id'];
       //  $conn = mysqli_connect("localhost","root","","ruralretreat");
-      $dogs = "SELECT users.user_id, users.userfname, users.userlname,users.email,users.contact_number, user_type.user_type_name FROM users JOIN user_type ON users.user_type_id=user_type.user_type_id";
+      $dogs = "SELECT users.user_id, users.userfname, users.userlname,users.email,users.contact_number, user_type.user_type_name, user_type.user_type_id FROM users JOIN user_type ON users.user_type_id=user_type.user_type_id";
       $res = mysqli_query($conn, $dogs);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>
@@ -86,7 +86,7 @@ require "includes/dbh.inc.php";
             
             <td><div class="container">
         <!-- Button to Open the Modal -->
-        <button style = "background-color:green;"type="button" onclick="initModal(<?php echo $r['user_id'].','.'\''.$r['userfname'].'\','.'\''.$r['userlname'].'\','.'\''.$r['email'].'\','.'\''.$r['contact_number'].'\','.'\''.$r['user_type_name'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <button style = "background-color:green;"type="button" onclick="initModal(<?php echo $r['user_id'].','.'\''.$r['userfname'].'\','.'\''.$r['userlname'].'\','.'\''.$r['email'].'\','.'\''.$r['contact_number'].'\','.$r['user_type_id']?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Edit
         </button>
 
@@ -117,7 +117,7 @@ require "includes/dbh.inc.php";
                     <input id="userlname" type="text" name="userlname" class="text_field form-control" value=""  required>
                     <input id="email" type="text"  name="email" class="text_field form-control" value="" placeholder="" required>
                     <input id="contact_number" type="text"  name="contact_number" class="text_field form-control" value="" placeholder="" required>
-                    <select class="form-control" name="user_type">
+                    <select class="form-control" name="user_type" id ="user_type">
                   
                 <?php	
                 			
@@ -150,7 +150,7 @@ require "includes/dbh.inc.php";
 
             </td>
             <td>
-             <a class="btn btn-danger" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
+             <a type ="button" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
               </a>
             
             </td>
@@ -173,7 +173,7 @@ require "includes/dbh.inc.php";
         var userlname_text =  document.getElementById('userlname');
         var email_text =  document.getElementById('email');
         var contact_number_text =  document.getElementById('contact_number');
-        var user_type_name_text =  document.getElementById('user_type_name');
+        var user_type_name_text =  document.getElementById('user_type');
         
 
         user_id_text.value = id;

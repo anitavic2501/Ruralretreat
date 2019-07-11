@@ -1,7 +1,7 @@
 <?php
 	session_start(); // start session
 	// connect to database
-	$conn = new mysqli("localhost", "root", "", "combi");
+	$conn = new mysqli("localhost", "root", "", "ruralretreat");
 	// Check connection
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
@@ -9,7 +9,7 @@
   // define global constants
 	define ('ROOT_PATH', realpath(dirname(__FILE__))); // path to the root folder
 	define ('INCLUDE_PATH', realpath(dirname(__FILE__) . '/includes' )); // Path to includes folder
-      define ('BASE_URL', '/ruralretreat-master'); // the home url of the website
+      define ('BASE_URL', '/RRV2/Ruralretreat'); // the home url of the website
       
     // ...More code here ...
 
