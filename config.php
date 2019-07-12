@@ -10,7 +10,7 @@ include 'includes/dbh.inc.php';
   // define global constants
 	define ('ROOT_PATH', realpath(dirname(__FILE__))); // path to the root folder
 	define ('INCLUDE_PATH', realpath(dirname(__FILE__) . '/includes' )); // Path to includes folder
-    define ('BASE_URL', '/RRV2/Ruralretreat'); // the home url of the website
+    define ('BASE_URL', '.'); // the home url of the website
     
     // ...More code here ...
 

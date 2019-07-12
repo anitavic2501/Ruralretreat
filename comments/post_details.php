@@ -15,7 +15,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 post">
-		<img src="<?php echo  BASE_URL . ('/static/images/') . $post['image']; ?>" width=550 height=400 class="post_image" alt="">
+		<img src="<?php echo '../static/images/' . $post['image']; ?>" width=550 height=400 class="post_image" alt="">
 			<h2><?php echo $post['title'] ?></h2>
 			<p><?php echo html_entity_decode($post['body']); ?></p>
 		</div>
