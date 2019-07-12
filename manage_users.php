@@ -113,11 +113,11 @@ require "includes/dbh.inc.php";
                 <div class="editdog" style="align: center;">
                     
                     <input id="user_id" type="hidden" name="user_id"  value="<?php echo $r['user_id']; ?>"/>
-                    <input id="userfname" type="text" name="userfname" class="text_field form-control" value=""  required>
-                    <input id="userlname" type="text" name="userlname" class="text_field form-control" value=""  required>
-                    <input id="email" type="text"  name="email" class="text_field form-control" value="" placeholder="" required>
-                    <input id="contact_number" type="text"  name="contact_number" class="text_field form-control" value="" placeholder="" required>
-                    <select class="form-control" name="user_type" id ="user_type">
+                    First Name: <br><input id="userfname" type="text" name="userfname" class="text_field form-control" value=""  required>
+                    Last Name: <br><input id="userlname" type="text" name="userlname" class="text_field form-control" value=""  required>
+                    Email: <br><input id="email" type="text"  name="email" class="text_field form-control" value="" placeholder="" required>
+                    Contact Number: <br><input id="contact_number" type="text"  name="contact_number" class="text_field form-control" value="" placeholder="" required>
+                    User Type:<br><select class="form-control" name="user_type" id ="user_type">
                   
                 <?php	
                 			
