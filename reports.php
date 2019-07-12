@@ -33,7 +33,7 @@ require "includes/dbh.inc.php";
         </div>
     <hr>
     <br>
-<a href="reports2.php"> Approved Sales > </a>
+<a href="reports2.php"> Approved and Pending Sales > </a>
         </div>
   
     </body>
