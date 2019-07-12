@@ -54,7 +54,7 @@ require "includes/dbh.inc.php";
         </div> 
 
         <div class="content">
-        <h1> Manage Users </h1>
+        <h2> Manage Users </h2>
     <table class="table table-hover">
   <thead>
     <tr>
@@ -73,8 +73,8 @@ require "includes/dbh.inc.php";
 
     //    $userid=$_SESSION['id'];
       //  $conn = mysqli_connect("localhost","root","","ruralretreat");
-      $dogs = "SELECT users.user_id, users.userfname, users.userlname,users.email,users.contact_number, user_type.user_type_name, user_type.user_type_id FROM users JOIN user_type ON users.user_type_id=user_type.user_type_id";
-      $res = mysqli_query($conn, $dogs);
+      $users = "SELECT users.user_id, users.userfname, users.userlname,users.email,users.contact_number, user_type.user_type_name, user_type.user_type_id FROM users JOIN user_type ON users.user_type_id=user_type.user_type_id";
+      $res = mysqli_query($conn, $users);
       while($r = mysqli_fetch_assoc($res)): ?>
             <tr>
             <td><?php echo $r['user_id']; ?></th>
