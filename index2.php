@@ -11,8 +11,7 @@
 
 <head>
  <?php
-  include_once './partials/head.php';
-  require_once(ROOT_PATH .'/includes/head_section.php')?>
+  include_once './partials/head.php';?>
 
   <title>Rural Retreat | Home </title>
   </head> 
@@ -65,7 +64,7 @@
 	</div>
 <?php endforeach ?>
 
-		</div>
+		</div></div>
 		<!-- // Page content -->
 		<footer>
 <?php
