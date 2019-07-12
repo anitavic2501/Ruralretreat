@@ -105,12 +105,7 @@
                         </form>
                     </section>     </div></div> </div></div>
                     
-    <!-- <div class="jumbotron" style="text-align: center;">
-            <div class="col-12" id="section1">
-        <i class="fas fa-map-marker-alt fa-2x"></i> <h2>Our location</h2>
-        <p style="font-size:10;"> Silverdale, Hibiscus Coast, Auckland, New Zealand</p>
-        <i class="fas fa-phone fa-1x"></i> 022-345-7890
-        </div></div> -->
+  
           
         </div>
        

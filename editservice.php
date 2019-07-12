@@ -20,10 +20,22 @@ $service_type = $_POST['service_type'];
 //    $vaccination = $_POST['vaccination'];
 //    $datereceived= $_POST['datereceived'];
 
-$image = $_FILES["image"]["name"];
-fileUpload();
 
-$updatesql= "UPDATE services SET services = '$services', price = '$price', description = '$description',image = '$image', service_type = '$service_type' WHERE service_id = $service_id";
+if(isset ($_FILES["image"]["name"])) {
+    $image = $_FILES["image"]["name"];
+    fileUpload();
+    $updatesql= "UPDATE services SET services = '$services', price = '$price', description = '$description',image = '$image', service_type = '$service_type' WHERE service_id = $service_id";
+
+
+} 
+else{
+
+ $updatesql= "UPDATE services SET services = '$services', price = '$price', description = '$description', service_type = '$service_type' WHERE service_id = $service_id";
+ 
+}
+
+
+
 
  
 if (mysqli_query($conn, $updatesql)) {
@@ -34,7 +46,7 @@ if (mysqli_query($conn, $updatesql)) {
  header("Location: add_services.php?status=success");
  
 } else {
-     var_dump($conn);
+     
     
  // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
  header("Location: add_services.php?status=error");

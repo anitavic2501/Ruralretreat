@@ -1,5 +1,6 @@
 <?php 
 include '../config.php';
+// include '../includes/dbh.inc.php';
 
 if (isset($_GET['post-slug'])) {
 	$slug = $_GET['post-slug'];
@@ -17,7 +18,7 @@ if (isset($_GET['post-slug'])) {
 	}
 
 	// connect to database
-	$db = mysqli_connect("localhost", "root", "", "ruralretreat");
+	$db = $conn;
 	// get post with id = post_id from database
 	$post_query_result = mysqli_query($db, "SELECT * FROM posts WHERE id = ". $postid );
 	$post = mysqli_fetch_assoc($post_query_result);
