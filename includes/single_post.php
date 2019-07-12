@@ -1,5 +1,6 @@
 <?php  include_once 'dbh.inc.php';?>
-<?php  require_once 'public_functions.php'; ?>
+<?php  require_once 'public_functions.php'; 
+include '../config.php'?>
 
 
 <?php 
@@ -174,7 +175,7 @@
 			<?php if ($post['published'] == false): ?>
 				<h2 class="post-title">Sorry... This post has not been published</h2>
 			<?php else: ?>
-			<img src="<?php echo '../static/images/' . $post['image']; ?>" width=400 height=400 class="post_image" alt="">
+			<img src="<?php echo BASE_URL . ('/static/images/') . $post['image']; ?>" width=400 height=400 class="post_image" alt="">
 				<h2 class="post-title"><?php echo $post['title']; ?></h2>
 				<div class="post-body-div">
 					<?php echo html_entity_decode($post['body']); ?>
