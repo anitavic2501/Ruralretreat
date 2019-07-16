@@ -33,7 +33,7 @@ if (mysqli_query($conn, $sql)) {
     header("Location: manage_users.php?status=error");
     }
 
-} else {
+    } else {
 
 
     if (isset($_SESSION['utd'])  && $_SESSION['utd']== 2) {
