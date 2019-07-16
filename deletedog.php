@@ -26,17 +26,19 @@ if (mysqli_query($conn, $sql)) {
     } if (isset($_SESSION['utd']) && $_SESSION['utd']==1) {
     header("Location: managedog.php?status=success");
  } else{
-
-    header("Location: managedog.php?status=error");
+    
+    // header("Location: managedog.php?status=error");
     }
 } else{
     if (isset($_SESSION['utd'])  && ($_SESSION['utd']==3)||($_SESSION['utd']==2)) {
         header("Location: doglist.php?status=error"); 
         
         } else{
+           
             header("Location: managedog.php?status=error");
         }
 
-}mysqli_close($conn);
+}
+mysqli_close($conn);
 
 ?>
