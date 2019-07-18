@@ -14,12 +14,13 @@
     ?>
 </head>
 
-<body style="margin-bottom: 10px">
     <header>
         <?php
         include_once './partials/header.php';
     ?>
     </header>
+
+  <body>
     <?php 
 						if (isset ($_GET['status'] )) {
                              if($_GET['status'] == 'success'){
@@ -46,6 +47,7 @@
 				 } ?>
 
     <table class="table table-hover">
+    <h1 style="text-align:center;">List of your dog</h1>
   <thead>
     <tr>
       <th scope="col">Dog Name</th>
@@ -161,6 +163,7 @@
 <div class="dogregister" id="insertdog">
 <div class="row">
             <div class="col-12" style="text-align: center">
+            <h2>Add a dog</h2> <br>
 <form name="add_dog" method="POST" action="insertdog.php" >
 
 <div class="control-group">

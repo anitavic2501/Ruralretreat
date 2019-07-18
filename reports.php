@@ -28,7 +28,7 @@ require "includes/dbh.inc.php";
     ?>
     </header>
     <div class="container">
-        <div class="piereport">
+        <div class="piereport"><br><br><br>
         <?php include "graph.php" ?>
         </div>
     <hr>

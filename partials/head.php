@@ -49,13 +49,20 @@
     font-size: 18px;
     padding-bottom: 20px;
   }
+
+  .table{
+    margin: 50px;
+  }
+  .dogregister{
+    background-color: lightyellow;
+  }
   .services{
     text-align: center;
     background-color: white;
   }
 
   h1 {font-family: 'Rochester', cursive;
-    font-size: 90px;
+    font-size: 75px;
   }
   
   #booking{

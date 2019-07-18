@@ -30,6 +30,7 @@ require "includes/dbh.inc.php";
     <div class="container">
         
         <div class="graphicreports">
+        <br><br><br>
         <?php include "graph2.php" ?>
         </div>
 

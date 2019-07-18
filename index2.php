@@ -131,7 +131,7 @@
 		
 
 		<!-- Page content -->
-		<div class="content">
+		<div class="content" style="text-align: center; align: center; ">
 			<h2 class="content-title">Recent Articles</h2>
             <hr>
 
@@ -151,7 +151,7 @@
 				<h3><?php echo $post['title'] ?></h3>
 				<div class="info">
 					<span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
-					<span class="read_more">Read more...</span>
+					<span class="read_more">Read more...</span> 
 				</div>
 			</div>
 		</a>

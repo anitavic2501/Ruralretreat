@@ -38,7 +38,7 @@
 	
 	<div class="team-front">
 	<img src="images/owner.jpg" class="img-fluid" />
-	<h3>Account Settings</h3>
+	<h3>Edit My Profile</h3>
 	<p>Change Account Profile</p>
 	</div>
 	
@@ -80,7 +80,7 @@
 	
 	<div class="team-front">
 	<img src="images/dogs2.jpg" class="img-fluid" />
-	<h3>Manage Bookings</h3>
+	<h3>Make A Bookings</h3>
 	<p>Create/Delete Bookings</p>
 	</div>
 	

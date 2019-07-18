@@ -21,7 +21,7 @@
     ?>
     </header>
 
-    <h1> List of Bookings </h1>
+    <h1 style="text-align:center;">  List of Bookings </h1>
     <table class="table table-hover">
   <thead>
     <tr>
