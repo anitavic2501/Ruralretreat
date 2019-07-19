@@ -62,8 +62,8 @@ include 'includes/dbh.inc.php';
       <th scope="col">Description</th>
       <th scope="col">Image</th>
       <th scope="col">Type</th>
-      <th scope="col">Edit Service</th>
-      <th scope="col">Delete Service</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>	
 <tbody>
@@ -87,9 +87,9 @@ include 'includes/dbh.inc.php';
             
             <div class="container">
         <!-- Button to Open the Modal -->
-        <button style = "background-color:green;"type="button" onclick="initModal(<?php echo $r['service_id'].','.'\''.$r['services'].'\','.'\''.$r['price'].'\','.'\''.$message_modified.'\','.'\''.$r['image'].'\','.'\''.$r['service_type'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Edit
-        </button>
+        <a onclick="initModal(<?php echo $r['service_id'].','.'\''.$r['services'].'\','.'\''.$r['price'].'\','.'\''.$message_modified.'\','.'\''.$r['image'].'\','.'\''.$r['service_type'].'\''?>)" data-toggle="modal" data-target="#myModal">
+        <i class="fas fa-edit"></i>
+        </a>
 
         <!-- The Modal -->
        
@@ -99,7 +99,7 @@ include 'includes/dbh.inc.php';
 
 </td>
             <td>
-            <a class="btn btn-danger" href = "deleteservice.php?service_id=<?php echo $r['service_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete Service" class="btn btn-danger" id="delete">Delete Service
+             <a  class="fa fa-trash btn delete"  href = "deleteservice.php?service_id=<?php echo $r['service_id'] ?>"  onclick="return confirm('Are you sure?')" name="delete" value="Delete Service" id="delete">
             </a>
             
         
@@ -113,7 +113,12 @@ include 'includes/dbh.inc.php';
 </table>
 	
 
-	
+<div class="addservices" style="background-color: lightyellow";>	
+
+<div class="row">
+<div class="col-2"></div>
+            <div class="col-8" style="text-align: center">
+            <br>
 <h2>Add Services</h2>	
 		
 <!-- Form Name -->
@@ -122,43 +127,26 @@ include 'includes/dbh.inc.php';
 <!-- Text input-->
 <br>
 <br>
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Service name</label>  
-  <div class="col-md-5">
+<div class="control-group">
+  <label class="control-label" for="textinput">Service name</label>  
+  <div class="controls">
   <input id="service" name="service" type="text" placeholder="" class="form-control input-md" required="">
     
-  </div>
 
+  <label for="description">Service description</label>  
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="description">Service description</label>  
-
-  <div class="col-md-8">
   <textarea id="textarea" name="description"  type="text" class="form-control rounded-0" rows="10" required=""></textarea>
 
-    
-  </div>
-</div>
 
-<!-- Button Drop Down -->
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="price">Price</label>  
-  <div class="col-md-3">
+  <label for="price">Price</label>  
   <input id="add_price" name="add_price" type="text" placeholder="" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton">Add Service</label>
-  <div class="col-md-4">
+    <br>
     <button id="singlebutton" name="singlebutton" class="btn btn-primary">Save</button>
+    </div>
+    <div class="col-2"></div>
   </div>
 </div>
-
+</div>
 
 
 </fieldset>

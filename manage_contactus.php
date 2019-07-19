@@ -145,8 +145,8 @@ require "includes/dbh.inc.php";
         
 
 </td>
-<td>
-             <a class="btn btn-danger" href = "deletemessage.php?message_id=<?php echo $r['message_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete Message" class="btn btn-danger" id="delete">Delete Message
+<td style="text-align:center;">
+             <a class="fa fa-trash btn delete" href = "deletemessage.php?message_id=<?php echo $r['message_id'] ?>"  onclick="return confirm('Are you sure?')" name="delete" value="Delete Message" class="btn btn-danger" id="delete">
               </a>
             
             </td>

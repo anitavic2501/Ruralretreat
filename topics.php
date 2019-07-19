@@ -55,7 +55,7 @@ include 'includes/head_section.php';
 			<?php else: ?>
 				<table class="table">
 					<thead>
-						<th>N</th>
+						<th>No.</th>
 						<th>Topic Name</th>
 						<th colspan="2">Action</th>
 					</thead>

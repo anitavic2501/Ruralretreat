@@ -21,7 +21,7 @@ body {
 .sidebar {
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 210px;
   background-color: black;
   position: fixed;
   height: 100%;
@@ -46,8 +46,8 @@ body {
 }
 
 div.content {
-  margin-left: 200px;
-  padding: 40px;
+  margin-left: 210px;
+  padding: 30px;
   height: 1000px;
 }
 

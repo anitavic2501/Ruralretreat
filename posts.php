@@ -41,8 +41,7 @@ include 'includes/head_section.php';
 			<?php else: ?>
 				<table class="table">
 						<thead>
-						<th>N</th>
-						<th>Author</th>
+						<th>No</th>
 						<th>Title</th>
 						<th>Views</th>
 						<!-- Only Admin can publish/unpublish post -->
@@ -56,7 +55,6 @@ include 'includes/head_section.php';
 					<?php foreach ($posts as $key => $post): ?>
 						<tr>
 							<td><?php echo $key + 1; ?></td>
-							<td><?php echo $post['author']; ?></td>
 							<td>
 								<a 	target="_blank"
 								href="<?php echo 'includes/single_post.php?post-slug=' . $post['slug'] ?>">

@@ -92,9 +92,9 @@ require "includes/dbh.inc.php";
             <td><?php echo $r['label']; ?></td>
             <td><div class="container">
         <!-- Button to Open the Modal -->
-        <button type="button" onclick="initModal(<?php echo $r['dog_id'].','.$r['age'].','.'\''.$r['dogname'].'\','.'\''.$r['gender'].'\','.'\''.$r['breed'].'\','.'\''.$r['label'].'\''?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Edit
-        </button>
+        <a onclick="initModal(<?php echo $r['dog_id'].','.$r['age'].','.'\''.$r['dogname'].'\','.'\''.$r['gender'].'\','.'\''.$r['breed'].'\','.'\''.$r['label'].'\''?>)"data-toggle="modal" data-target="#myModal">
+        <i class="fas fa-edit"></i>
+        </a>
 
         <!-- The Modal -->
         <div class="modal" id="myModal">
@@ -146,12 +146,13 @@ require "includes/dbh.inc.php";
 
 </td>
             <td>
-    <form id="delete" method="POST" action="deletedog.php">
-        <input type="hidden" name="dog_id"  value="<?php echo $r['dog_id']; ?>"/>
+    <!-- <form id="delete" method="POST" action="deletedog.php">
+       
         <input type="submit" onclick="return confirm('Are you sure?')" name="delete" value="Delete" class="btn btn-danger" id="delete">
+        
 
-</form>
-
+</form> -->
+<a class="fa fa-trash btn delete" href = "deletedog.php?dog_id=<?php echo $r['dog_id'] ?>" onclick="return confirm('Are you sure?')" name="delete" value="Delete dog" id="delete">
 </td>
                       
             </tr>

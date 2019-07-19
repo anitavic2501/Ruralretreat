@@ -64,8 +64,6 @@ require "includes/dbh.inc.php";
       <th scope="col">Email</th>
       <th scope="col">Contact Number</th>
       <th scope="col">User Type</th>
-      <th scope="col">Edit User</th>
-      <th scope="col">Delete User</th>
     </tr>
   </thead>
   <tbody>
@@ -86,9 +84,9 @@ require "includes/dbh.inc.php";
             
             <td><div class="container">
         <!-- Button to Open the Modal -->
-        <button style = "background-color:green;"type="button" onclick="initModal(<?php echo $r['user_id'].','.'\''.$r['userfname'].'\','.'\''.$r['userlname'].'\','.'\''.$r['email'].'\','.'\''.$r['contact_number'].'\','.$r['user_type_id']?>)"class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Edit
-        </button>
+        <a onclick="initModal(<?php echo $r['user_id'].','.'\''.$r['userfname'].'\','.'\''.$r['userlname'].'\','.'\''.$r['email'].'\','.'\''.$r['contact_number'].'\','.$r['user_type_id']?>)" data-toggle="modal" data-target="#myModal">
+        <i class="fas fa-edit"></i>
+        </a>
 
         <!-- The Modal -->
         <div class="modal" id="myModal">
@@ -150,7 +148,7 @@ require "includes/dbh.inc.php";
 
             </td>
             <td>
-             <a type ="button" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" style= "background-color: orange;"  onclick="return confirm('Are you sure?')" name="delete" value="Delete User" class="btn btn-danger" id="delete">Delete User
+             <a class="fa fa-trash btn delete" href = "deleteuser.php?user_id=<?php echo $r['user_id'] ?>" onclick="return confirm('Are you sure?')" name="delete" value="Delete User" id="delete">
               </a>
             
             </td>
