@@ -19,17 +19,7 @@ include 'partials/adminheader.php'; ?>
 
 <div class="content">
   
-    <table class="table table-hover">
-  <thead>
-    <tr>
-	<br><br>
-  <a href="manage_articles.php"> View Articles | </a>  
-  <a href="create_post.php"> Create Posts | </a>
-  <a href="posts.php"> Manage Articles | </a>
-  <a href="topics.php"> Manage Topics | </a>
-    </tr>
-  </thead>
-</table>
+   
 
 
 	<title>Admin | Create Post</title>

@@ -51,7 +51,7 @@
   }
 
   .table{
-    margin: 50px;
+    margin: 40px;
   }
   .dogregister{
     background-color: lightyellow;

@@ -20,24 +20,14 @@ include 'includes/head_section.php';
 
 <div class="content">
 <title>Admin | Manage Posts</title>
-    <table class="table table-hover">
-  <thead>
-    <tr>
-	<br>
-  <a href="manage_articles.php"> View Articles | </a>    
-  <a href="create_post.php">Create Posts | </a>
-  <a href="posts.php">Manage Articles | </a>
-  <a href="topics.php">Manage Topics | </a>
-    </tr>
-  </thead>
-</table>
+    
 
 
 <!-- Get all admin posts from DB -->
 <?php $posts = getAllPosts(); ?>
 	
 <body>
-	<h2 class="content-title">Manage Articles </h2>
+	<h2 class="page-title">Manage Articles </h2>
 		<!-- Display records from DB-->
 		<div class="table-div"  style="width: 80%;">
 			<!-- Display notification message -->
