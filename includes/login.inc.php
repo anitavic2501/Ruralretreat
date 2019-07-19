@@ -70,7 +70,10 @@ if (isset($_POST['login-submit'])) {
       echo "<script>;window.location='./accounts_type.inc.php'</script>";
          exit();
         }
-      }     
+      }    
+       else { echo "<script> alert('Wrong Username or Email!!');window.location='..//index.php'</script>";
+       exit();
+  }
     }
   }
   // Then we close the prepared statement and the database connection!
