@@ -51,7 +51,10 @@
   }
 
   .table{
-    margin: 50px;
+    margin: 30px;
+  }
+  .table th{
+    text-align: center;
   }
   .dogregister{
     background-color: lightyellow;
@@ -60,7 +63,10 @@
     text-align: center;
     background-color: white;
   }
-
+  .addservices{
+    text-align: center;
+    align: center;
+  }
   h1 {font-family: 'Rochester', cursive;
     font-size: 75px;
   }

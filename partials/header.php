@@ -131,7 +131,6 @@
           }
           //When the user is ADMIN, show some options
           else if (isset($_SESSION['id']) && $_SESSION['utd']== 1){
-            echo ' <li class="nav-item"><a class="nav-link" href="list_of_users.php">List of users</a></li>';
             echo '<li class="nav-item"><a class="nav-link" href="admindashboard.php"><i class="paw fas fa-paw fa-lg"></i>My Dashboard</a></li>';  
           }
           else if(isset($_SESSION['id']) && $_SESSION['utd']== 2){

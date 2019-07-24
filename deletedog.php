@@ -10,7 +10,7 @@ include "includes/dbh.inc.php";
     die("Connection failed: " . mysqli_connect_error());
 }
   
-$dog_id = $_POST['dog_id'];
+$dog_id = $_GET['dog_id'];
 
 $sql= "DELETE from dogs where dog_id = $dog_id";
 

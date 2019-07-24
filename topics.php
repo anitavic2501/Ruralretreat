@@ -23,16 +23,6 @@ include 'includes/head_section.php';
 	<div class="container content">
 		
 		
-<table class="table table-hover">
-  <thead>
-    <tr><br>
-  <a href="manage_articles.php"> View Articles | </a>    
-  <a href="create_post.php">Create Posts | </a>
-  <a href="posts.php">Manage Articles | </a>
-  <a href="topics.php">Manage Topics | </a>
-    </tr>
-  </thead>
-</table>
 
 
 		<!-- Middle form - to create and edit -->
@@ -65,7 +55,7 @@ include 'includes/head_section.php';
 			<?php else: ?>
 				<table class="table">
 					<thead>
-						<th>N</th>
+						<th>No.</th>
 						<th>Topic Name</th>
 						<th colspan="2">Action</th>
 					</thead>

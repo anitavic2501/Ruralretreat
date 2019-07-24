@@ -27,18 +27,7 @@ if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
     </header>
     <div class="content">
   
-    <table class="table table-hover">
-  <thead>
-    <tr>
-    <br>
-  <a href="manage_articles.php"> View Articles | </a>    
-  <a href="create_post.php">Create Posts | </a>
-  <a href="posts.php">Manage Articles | </a>
-  <a href="topics.php">Manage Topics | </a>
-    </tr>
-  </thead>
-</table>
-
+    
 <!-- Retrieve all posts from database  -->
 <?php $posts = getPublishedPosts(); ?>
 
@@ -49,7 +38,7 @@ if(!(isset($_SESSION['utd']) && $_SESSION['utd']==1)){
 
 		<!-- Page content -->
 		<div class="content">
-			<h2 class="content-title">Recent Articles</h2>
+			<h2 class="page-title">Recent Articles</h2>
             <hr>
 
             <?php foreach ($posts as $post): ?>

@@ -163,7 +163,7 @@ include_once './partials/head.php';
 
 <div class="team-back">
 <span> 
-<br><a href="manage_articles.php">Click here</a></span>
+<br><a href="posts.php">Click here</a></span>
 </div>
 
 </div>
