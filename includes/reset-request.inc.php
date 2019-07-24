@@ -1,5 +1,12 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../phpmailer/Exception.php';
+require '../phpmailer/PHPMailer.php';
+require '../phpmailer/SMTP.php';
+
 // First we check if the form was submitted.
 if (isset($_POST['reset-request-submit'])) {
 
@@ -18,7 +25,7 @@ if (isset($_POST['reset-request-submit'])) {
 
   // Then we create the URL link which we will send the user by mail so they can reset their password.
   // Notice that we convert the "token" to hexadecimals here as well, to make the URL usable.
-  $url = "http://localhost/RR/ruralretreat/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token) ;
+  $url = "http://localhost/RRV2/ruralretreat/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token) ;
 
   // Then we need to define when the tokens should expire. We do this for security reasons to make sure the same token can't be used for more than an hour.
 
@@ -81,16 +88,77 @@ echo '<br>';
   $headers = "From: Rural Retreat <ruralretreat123@gmail.com>\r\n";
 
   // Send e-mail
- if (mail($to, $subject, $message, $headers)){ 
+//  if (mail($to, $subject, $message, $headers)){ 
 
- echo "succesfully sent";
+//  echo "succesfully sent";
 
-  // Finally we send them back to a page telling them to check their e-mail.
-  header("Location: ../reset-password.php?reset=success");
-} else {
-  echo 'error!';
+//   // Finally we send them back to a page telling them to check their e-mail.
+//   header("Location: ../reset-password.php?reset=success");
+// } else {
+//   echo 'error!';
 
-  exit();
-}
+//   exit();
+// }
+
+
+
+
+$mail = new PHPMailer(true);
+
+
+try {
+//Server settings
+    $mail->SMTPDebug = 0;                                       // Enable verbose debug output
+    $mail->isSMTP();                                            // Set mailer to use SMTP
+    $mail->Host       = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail->Username   = 'ruralretreat123@gmail.com';                     // SMTP username
+    $mail->Password   = '123rural';                               // SMTP password
+    $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+    $mail->Port       = 587;                                    // TCP port to connect to
+
+    //Recipients
+    $mail->setFrom('ruralretreat123@gmail.com', 'Rural Retreat');
+    // var_dump($_SESSION['email']);
+
+    $mail->addAddress(''.$userEmail.'', 'test');     // Add a recipient
+    // $mail->addAddress('ellen@example.com');               // Name is optional
+    // $mail->addReplyTo('info@example.com', 'Information');
+    // $mail->addCC('cc@example.com');
+    // $mail->addBCC('bcc@example.com');
+
+    // Attachments
+    // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+    // Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = $subject;
+    $mail->Body    = $message;
+    // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    $mail->send();
+    
+    echo '
+    <script>
+      alert("Message has been sent");
+      window.location = "../index.php";
+    </script>;
+   ';
+
+
+    }   catch (Exception $e) {
+    echo "<script>console.log('mail not sent')</script>";
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo '
+    <script>
+      alert("Message could not be sent. Mailer Error: {'.$mail->ErrorInfo.'}");
+      window.location = "../index.php";
+    </script>
+  ';
+    }
+
+
+
 }
 ?>
