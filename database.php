@@ -83,7 +83,7 @@ class database {
         return $data;
     }
 
-    public function update_car($table, $array, $dog_id) {
+    public function update_dog($table, $array, $dog_id) {
          $sql = "Update $table set ";
         foreach ($array as $key => $value) {
              $sql .= "$key = '$value' ,";
